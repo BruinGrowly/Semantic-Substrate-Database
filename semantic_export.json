@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "exported_at": "2025-10-10T21:46:47.309305",
+    "engine_version": "2.2 - Ultimate with Sacred Components",
+    "statistics": {
+      "total_concepts": 8,
+      "unique_contexts": 1,
+      "total_semantic_units": 8,
+      "sacred_numbers_count": 6,
+      "total_relationships": 0,
+      "avg_divine_resonance": 0.02702751649518076,
+      "avg_distance_from_jehovah": 1.9459449670096385,
+      "avg_biblical_balance": 0,
+      "context_distribution": {
+        "biblical": 8
+      }
+    }
+  },
+  "concepts": [
+    {
+      "id": 1,
+      "concept_text": "love",
+      "context": "biblical",
+      "love": 0.17351598173515984,
+      "power": 0.0,
+      "wisdom": 0.0,
+      "justice": 0.0,
+      "divine_resonance": 0.04043293193659514,
+      "distance_from_jehovah": 1.9191341361268097,
+      "biblical_balance": 0.0,
+      "created_at": "2025-10-10 11:30:04",
+      "updated_at": "2025-10-10 11:46:47"
+    },
+    {
+      "id": 2,
+      "concept_text": "wisdom",
+      "context": "biblical",
+      "love": 0.0,
+      "power": 0.0,
+      "wisdom": 0.09523809523809523,
+      "justice": 0.0,
+      "divine_resonance": 0.022938831967467044,
+      "distance_from_jehovah": 1.954122336065066,
+      "biblical_balance": 0.0,
+      "created_at": "2025-10-10 11:30:04",
+      "updated_at": "2025-10-10 11:46:47"
+    },
+    {
+      "id": 3,
+      "concept_text": "justice",
+      "context": "biblical",
+      "love": 0.0,
+      "power": 0.0,
+      "wisdom": 0.0,
+      "justice": 0.09523809523809523,
+      "divine_resonance": 0.022938831967467044,
+      "distance_from_jehovah": 1.954122336065066,
+      "biblical_balance": 0.0,
+      "created_at": "2025-10-10 11:30:04",
+      "updated_at": "2025-10-10 11:46:47"
+    },
+    {
+      "id": 4,
+      "concept_text": "mercy",
+      "context": "biblical",
+      "love": 0.09523809523809523,
+      "power": 0.0,
+      "wisdom": 0.0,
+      "justice": 0.0,
+      "divine_resonance": 0.022938831967467044,
+      "distance_from_jehovah": 1.954122336065066,
+      "biblical_balance": 0.0,
+      "created_at": "2025-10-10 11:30:04",
+      "updated_at": "2025-10-10 11:46:47"
+    },
+    {
+      "id": 5,
+      "concept_text": "faith",
+      "context": "biblical",
+      "love": 0.0861244019138756,
+      "power": 0.0,
+      "wisdom": 0.0,
+      "justice": 0.0,
+      "divine_resonance": 0.020820674138634643,
+      "distance_from_jehovah": 1.9583586517227307,
+      "biblical_balance": 0.0,
+      "created_at": "2025-10-10 11:30:04",
+      "updated_at": "2025-10-10 11:46:47"
+    },
+    {
+      "id": 6,
+      "concept_text": "hope",
+      "context": "biblical",
+      "love": 0.0861244019138756,
+      "power": 0.0,
+      "wisdom": 0.0,
+      "justice": 0.0,
+      "divine_resonance": 0.020820674138634643,
+      "distance_from_jehovah": 1.9583586517227307,
+      "biblical_balance": 0.0,
+      "created_at": "2025-10-10 11:30:04",
+      "updated_at": "2025-10-10 11:46:47"
+    },
+    {
+      "id": 7,
+      "concept_text": "grace",
+      "context": "biblical",
+      "love": 0.09523809523809523,
+      "power": 0.0,
+      "wisdom": 0.0,
+      "justice": 0.0,
+      "divine_resonance": 0.022938831967467044,
+      "distance_from_jehovah": 1.954122336065066,
+      "biblical_balance": 0.0,
+      "created_at": "2025-10-10 11:30:04",
+      "updated_at": "2025-10-10 11:46:47"
+    },
+    {
+      "id": 8,
+      "concept_text": "truth",
+      "context": "biblical",
+      "love": 0.0,
+      "power": 0.0,
+      "wisdom": 0.08219178082191782,
+      "justice": 0.09132420091324202,
+      "divine_resonance": 0.04239052387771347,
+      "distance_from_jehovah": 1.915218952244573,
+      "biblical_balance": 0.0,
+      "created_at": "2025-10-10 11:30:04",
+      "updated_at": "2025-10-10 11:46:47"
+    }
+  ],
+  "sacred_numbers": [
+    {
+      "id": 1,
+      "value": 7.0,
+      "is_sacred": 1,
+      "sacred_resonance": 0.072,
+      "biblical_significance": 0.9,
+      "divine_attributes_json": "{\"love\": 0.8, \"power\": 0.7, \"wisdom\": 0.9, \"justice\": 0.8}",
+      "mystical_properties_json": "{\"biblical_references\": [\"Genesis 2:2\", \"Revelation 1:4\", \"Hebrews 4:4\"], \"spiritual_meaning\": \"Divine perfection, spiritual completion\", \"divine_patterns\": [\"Divine perfection\"], \"prophetic_significance\": \"No known prophetic significance\"}",
+      "created_at": "2025-10-10 11:30:04"
+    },
+    {
+      "id": 2,
+      "value": 12.0,
+      "is_sacred": 1,
+      "sacred_resonance": 0.08000000000000002,
+      "biblical_significance": 1.0,
+      "divine_attributes_json": "{\"love\": 0.7, \"power\": 0.8, \"wisdom\": 0.9, \"justice\": 0.8}",
+      "mystical_properties_json": "{\"biblical_references\": [\"Revelation 7:4\", \"Matthew 10:1\", \"James 1:1\"], \"spiritual_meaning\": \"God's people, divine government\", \"divine_patterns\": [\"Divine completeness\"], \"prophetic_significance\": \"No known prophetic significance\"}",
+      "created_at": "2025-10-10 11:30:04"
+    },
+    {
+      "id": 3,
+      "value": 40.0,
+      "is_sacred": 1,
+      "sacred_resonance": 0.06749999999999999,
+      "biblical_significance": 0.9,
+      "divine_attributes_json": "{\"love\": 0.6, \"power\": 0.7, \"wisdom\": 0.8, \"justice\": 0.9}",
+      "mystical_properties_json": "{\"biblical_references\": [\"Exodus 16:35\", \"Numbers 14:33\", \"Deuteronomy 8:2\"], \"spiritual_meaning\": \"Testing, trials, preparation\", \"divine_patterns\": [\"Divine testing\"], \"prophetic_significance\": \"No known prophetic significance\"}",
+      "created_at": "2025-10-10 11:30:04"
+    },
+    {
+      "id": 4,
+      "value": 613.0,
+      "is_sacred": 1,
+      "sacred_resonance": 0.09000000000000001,
+      "biblical_significance": 1.0,
+      "divine_attributes_json": "{\"love\": 0.9, \"power\": 0.8, \"wisdom\": 0.9, \"justice\": 1.0}",
+      "mystical_properties_json": "{\"biblical_references\": [\"Exodus 20:2-17\", \"Deuteronomy 5:6-21\", \"Matthew 22:37-40\"], \"spiritual_meaning\": \"Divine law, commandments\", \"divine_patterns\": [], \"prophetic_significance\": \"No known prophetic significance\"}",
+      "created_at": "2025-10-10 11:30:04"
+    },
+    {
+      "id": 5,
+      "value": 3.0,
+      "is_sacred": 1,
+      "sacred_resonance": 0.08500000000000002,
+      "biblical_significance": 1.0,
+      "divine_attributes_json": "{\"love\": 0.9, \"power\": 0.8, \"wisdom\": 0.9, \"justice\": 0.8}",
+      "mystical_properties_json": "{\"biblical_references\": [\"Matthew 28:19\", \"2 Corinthians 13:14\", \"1 John 5:7\"], \"spiritual_meaning\": \"Divine perfection, Trinity\", \"divine_patterns\": [\"Trinity\"], \"prophetic_significance\": \"No known prophetic significance\"}",
+      "created_at": "2025-10-10 11:30:04"
+    },
+    {
+      "id": 6,
+      "value": 10.0,
+      "is_sacred": 1,
+      "sacred_resonance": 0.072,
+      "biblical_significance": 0.9,
+      "divine_attributes_json": "{\"love\": 0.8, \"power\": 0.7, \"wisdom\": 0.8, \"justice\": 0.9}",
+      "mystical_properties_json": "{\"biblical_references\": [], \"spiritual_meaning\": \"Divine order, completeness\", \"divine_patterns\": [\"Divine order\"], \"prophetic_significance\": \"No known prophetic significance\"}",
+      "created_at": "2025-10-10 11:30:04"
+    }
+  ],
+  "anchors": [
+    {
+      "id": 7,
+      "name": "Divine Perfection",
+      "significance": "Seven Days of Creation - Complete Perfection",
+      "love": 0.98,
+      "power": 0.95,
+      "wisdom": 1.0,
+      "justice": 0.98,
+      "stability": 0.98,
+      "scripture": "Genesis 2:2 - Seventh Day",
+      "eternal_constancy": 0.98
+    },
+    {
+      "id": 12,
+      "name": "God's People",
+      "significance": "The 12 Tribes of Israel - Divine Government",
+      "love": 0.9,
+      "power": 0.95,
+      "wisdom": 0.9,
+      "justice": 0.95,
+      "stability": 0.95,
+      "scripture": "Genesis 49 - The 12 Tribes",
+      "eternal_constancy": 0.95
+    },
+    {
+      "id": 40,
+      "name": "Divine Testing",
+      "significance": "40 Days/Years of Testing and Preparation",
+      "love": 0.85,
+      "power": 0.9,
+      "wisdom": 0.88,
+      "justice": 0.92,
+      "stability": 0.9,
+      "scripture": "Various - 40 Day/Year Periods",
+      "eternal_constancy": 0.9
+    },
+    {
+      "id": 613,
+      "name": "Divine Law",
+      "significance": "The 613 Commandments - Perfect Divine Order",
+      "love": 1.0,
+      "power": 1.0,
+      "wisdom": 1.0,
+      "justice": 1.0,
+      "stability": 1.0,
+      "scripture": "Torah - 613 Mitzvot",
+      "eternal_constancy": 1.0
+    }
+  ]
+}

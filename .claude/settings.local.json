@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python test:*)",
+      "Bash(python:*)",
+      "Bash(cat:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(git clone:*)",
+      "Bash(timeout 180 python ultimate_demonstration.py)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

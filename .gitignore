@@ -16,6 +16,7 @@ parts/
 sdist/
 var/
 wheels/
+<<<<<<< HEAD
 pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
@@ -119,11 +120,24 @@ dmypy.json
 .pyre/
 
 # IDE
+=======
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDEs
+>>>>>>> f851e79d020bb0b19376df2b2a4be6480728a7de
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+<<<<<<< HEAD
 
 # OS
 .DS_Store
@@ -139,3 +153,34 @@ detailed_test_results.txt
 *.log
 temp/
 tmp/
+=======
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Database files
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+!test_semantic.db
+!enhanced_demo.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.backup*
+demo_output.txt
+demo_complete_output.txt
+
+# OS
+Thumbs.db
+.DS_Store
+>>>>>>> f851e79d020bb0b19376df2b2a4be6480728a7de

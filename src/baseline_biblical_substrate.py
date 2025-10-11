@@ -1,4 +1,5 @@
 """
+<<<<<<< HEAD
 SEMANTIC SUBSTRATE ENGINE V3 - ICE-INTEGRATED BIBLICAL IMPLEMENTATION
 
 Bible-based 4D coordinate system with Love, Power, Wisdom, Justice axes.
@@ -9,6 +10,12 @@ VERSION 3.0 - ICE-Centric Integration:
 - Provides backward-compatible analyze_concept() method
 - Adds optional ICE-Centric analyze_concept_ice() method
 - Includes adapter functions for coordinate system conversion
+=======
+SEMANTIC SUBSTRATE ENGINE V2 - MAIN BIBLICAL IMPLEMENTATION
+
+Bible-based 4D coordinate system with Love, Power, Wisdom, Justice axes.
+Maintains biblical standards while operating flexibly in secular environments.
+>>>>>>> f851e79d020bb0b19376df2b2a4be6480728a7de
 """
 
 import math
@@ -17,6 +24,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 import re
 
+<<<<<<< HEAD
 # ICE-Centric engine import (optional - graceful degradation if not available)
 try:
     from ice_semantic_substrate_engine import (
@@ -31,6 +39,8 @@ except ImportError:
     ICE_AVAILABLE = False
     print("[WARNING] ICE-Centric engine not available. Using standard biblical substrate only.")
 
+=======
+>>>>>>> f851e79d020bb0b19376df2b2a4be6480728a7de
 class BiblicalPrinciple(Enum):
     """Core biblical principles for semantic analysis"""
     FEAR_OF_JEHOVAH = "fear_of_jehovah"
@@ -176,11 +186,16 @@ class BiblicalCoordinates:
     def __str__(self) -> str:
         """String representation of coordinates"""
         return f"({self.love:.3f}, {self.power:.3f}, {self.wisdom:.3f}, {self.justice:.3f})"
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> f851e79d020bb0b19376df2b2a4be6480728a7de
     def __repr__(self) -> str:
         """Official representation of coordinates"""
         return f"BiblicalCoordinates{self.__str__()}"
 
+<<<<<<< HEAD
 
 # ============================================================================
 # ICE-CENTRIC INTEGRATION - ADAPTER FUNCTIONS
@@ -333,6 +348,8 @@ def infer_thought_type(text: str) -> 'ThoughtType':
 # END ICE-CENTRIC INTEGRATION ADAPTERS
 # ============================================================================
 
+=======
+>>>>>>> f851e79d020bb0b19376df2b2a4be6480728a7de
 class BiblicalText:
     """
     Represents biblical text with rich metadata for semantic analysis
@@ -625,9 +642,12 @@ class BiblicalSemanticSubstrate:
         # System state
         self.analysis_count = 0
         self.last_analysis_time = 0
+<<<<<<< HEAD
 
         # ICE-Centric engine (lazy initialization)
         self._ice_engine = None
+=======
+>>>>>>> f851e79d020bb0b19376df2b2a4be6480728a7de
     
     def _initialize_biblical_keywords(self) -> Dict[str, List[str]]:
         """Initialize comprehensive biblical keyword mappings"""
@@ -894,6 +914,7 @@ class BiblicalSemanticSubstrate:
         self.coordinate_cache[cache_key] = coordinates
         
         return coordinates
+<<<<<<< HEAD
 
     # ============================================================================
     # ICE-CENTRIC INTEGRATION METHODS
@@ -1027,6 +1048,9 @@ class BiblicalSemanticSubstrate:
     # END ICE-CENTRIC INTEGRATION METHODS
     # ============================================================================
 
+=======
+    
+>>>>>>> f851e79d020bb0b19376df2b2a4be6480728a7de
     def analyze_biblical_text(self, biblical_text: str, context: str = "biblical") -> Dict[str, Any]:
         """
         Analyze biblical text with comprehensive semantic analysis

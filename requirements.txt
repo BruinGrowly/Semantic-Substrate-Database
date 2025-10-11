@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Semantic Substrate Engine - Core Dependencies
 
 # Scientific Computing
@@ -23,3 +24,23 @@ black>=22.0.0
 
 # Type Checking
 mypy>=0.950
+=======
+# Semantic Substrate Database Requirements
+# Python 3.8+
+
+# Core dependencies
+# Note: sqlite3 is included with Python standard library
+numpy>=1.21.0
+scipy>=1.7.0
+
+# Development and Testing
+pytest>=7.0.0
+pytest-cov>=3.0.0
+
+# Optional: Enhanced mathematics (if available)
+# sympy>=1.11.0
+
+# Note: Semantic Substrate Engine components are currently included
+# locally in this repository. In future versions, SSE may be installed via:
+# git+https://github.com/BruinGrowly/Semantic-Substrate-Engine.git
+>>>>>>> f851e79d020bb0b19376df2b2a4be6480728a7de

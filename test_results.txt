@@ -1,0 +1,1813 @@
+test_average_meaning_alignment_calculation (__main__.TestMeaningBasedDatabase.test_average_meaning_alignment_calculation)
+Test calculation of average meaning alignment ... ok
+test_backward_compatibility_with_original_methods (__main__.TestMeaningBasedDatabase.test_backward_compatibility_with_original_methods)
+Test backward compatibility with original SSDB methods ... Warning: Advanced mathematics not available
+================================================================================
+MEANING-BASED DATABASE - TEST SUITE
+================================================================================
+
+Testing revolutionary capability:
+  Programming a database with MEANING instead of code
+
+Test Categories:
+  1. Natural Language Queries
+  2. Meaning-Based Execution
+  3. Intent Classification
+  4. Semantic Search
+  5. Meaning Workflows
+  6. Operation Generation
+  7. Integration Tests
+  8. Statistics and Reporting
+================================================================================
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_EXECUTION] Intent: 'Find concept 0'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'Find concept 0'
+============================================================
+[ICE_EXECUTION] Executing: Find concept 0
+[DOMAIN] biblical - spiritual_guidance
+[EXECUTION_COMPLETE] Operation: query, Results: 3 items
+
+[MEANING_EXECUTION] Intent: 'Find concept 1'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'Find concept 1'
+============================================================
+[ICE_EXECUTION] Executing: Find concept 1
+[DOMAIN] biblical - spiritual_guidance
+[EXECUTION_COMPLETE] Operation: query, Results: 3 items
+
+[MEANING_EXECUTION] Intent: 'Find concept 2'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'Find concept 2'
+============================================================
+[ICE_EXECUTION] Executing: Find concept 2
+[DOMAIN] biblical - spiritual_guidance
+[EXECUTION_COMPLETE] Operation: query, Results: 3 items
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationshipsok
+test_classify_analyze_intent (__main__.TestMeaningBasedDatabase.test_classify_analyze_intent)
+Test classification of analysis intents ... ok
+test_classify_query_intent (__main__.TestMeaningBasedDatabase.test_classify_query_intent)
+Test classification of query intents ... ok
+test_classify_relationship_intent (__main__.TestMeaningBasedDatabase.test_classify_relationship_intent)
+Test classification of relationship intents ... 
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not availableFAIL
+test_classify_store_intent (__main__.TestMeaningBasedDatabase.test_classify_store_intent)
+Test classification of store intents ... ok
+test_create_meaning_specification (__main__.TestMeaningBasedDatabase.test_create_meaning_specification)
+Test creating meaning specification ... 
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31ok
+test_enhanced_features_still_available (__main__.TestMeaningBasedDatabase.test_enhanced_features_still_available)
+Test that enhanced database features still work ... ok
+test_execute_generated_operation (__main__.TestMeaningBasedDatabase.test_execute_generated_operation)
+Test executing a generated operation ... 
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'test concept' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'test concept' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.390
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[ICE_PROCESSING] Processing thought through ICE framework...
+[THOUGHT] 'test thought'
+
+============================================================
+ICE PROCESSING: 'test thought'
+============================================================
+[ICE_EXECUTION] Executing: test thought
+[DOMAIN] personal - practical_wisdom
+[ICE_STORED] Concept ID: 5
+[ALIGNMENT] Divine Alignment: 0.101
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31ok
+test_execute_meaning_analyze (__main__.TestMeaningBasedDatabase.test_execute_meaning_analyze)
+Test executing meaning-based analysis ... ok
+test_execute_meaning_query (__main__.TestMeaningBasedDatabase.test_execute_meaning_query)
+Test executing meaning-based query ... 
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_EXECUTION] Intent: 'Analyze the database statistics'
+[DOMAIN] biblical
+[OPERATION_TYPE] analyze
+
+============================================================
+ICE PROCESSING: 'Analyze the database statistics'
+============================================================
+[ICE_EXECUTION] Executing: Analyze the database statistics
+[DOMAIN] biblical - spiritual_guidance
+[EXECUTION_COMPLETE] Operation: analyze, Results: 0 items
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...ok
+test_execute_meaning_relationship (__main__.TestMeaningBasedDatabase.test_execute_meaning_relationship)
+Test executing meaning-based relationship discovery ... FAIL
+test_execute_meaning_store (__main__.TestMeaningBasedDatabase.test_execute_meaning_store)
+Test executing meaning-based store ... 
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_EXECUTION] Intent: 'Find concepts about wisdom'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'Find concepts about wisdom'
+============================================================
+[ICE_EXECUTION] Executing: Find concepts about wisdom
+[DOMAIN] biblical - practical_wisdom
+[EXECUTION_COMPLETE] Operation: query, Results: 3 items
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_EXECUTION] Intent: 'Show relationships between concepts'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'Show relationships between concepts'
+============================================================
+[ICE_EXECUTION] Executing: Show relationships between concepts
+[DOMAIN] biblical - spiritual_guidance
+[EXECUTION_COMPLETE] Operation: query, Results: 3 items
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programmingok
+test_execute_meaning_workflow (__main__.TestMeaningBasedDatabase.test_execute_meaning_workflow)
+Test executing complete meaning workflow ... ok
+test_full_meaning_based_workflow (__main__.TestMeaningBasedDatabase.test_full_meaning_based_workflow)
+Test complete meaning-based database workflow ... 
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_EXECUTION] Intent: 'Store this thought about divine mercy'
+[DOMAIN] biblical
+[OPERATION_TYPE] store
+
+============================================================
+ICE PROCESSING: 'Store this thought about divine mercy'
+============================================================
+[ICE_EXECUTION] Executing: Store this thought about divine mercy
+[DOMAIN] biblical - divine_inspiration
+
+[ICE_PROCESSING] Processing thought through ICE framework...
+[THOUGHT] 'Store this thought about divine mercy'
+
+============================================================
+ICE PROCESSING: 'Store this thought about divine mercy'
+============================================================
+[ICE_EXECUTION] Executing: Store this thought about divine mercy
+[DOMAIN] biblical - divine_inspiration
+[ICE_STORED] Concept ID: 4
+[ALIGNMENT] Divine Alignment: 0.224
+[EXECUTION_COMPLETE] Operation: store, Results: 0 items
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_WORKFLOW] Executing: find_biblical_love_concepts
+[MEANING_EXECUTION] Executing: find_biblical_love_concepts
+[BIBLICAL_PRINCIPLE] Applied: love
+[EXECUTION_COMPLETE] Biblical alignment: 0.651
+[WORKFLOW_COMPLETE] Generated 1 operations
+[ALIGNMENT] Biblical alignment: 0.651
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!ok
+test_generate_operations_from_behavior (__main__.TestMeaningBasedDatabase.test_generate_operations_from_behavior)
+Test generating database operations from behavior ... ok
+test_generated_operation_tracking (__main__.TestMeaningBasedDatabase.test_generated_operation_tracking)
+Test that generated operations are tracked ... 
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[NATURAL_STORE] 'God's amazing grace and mercy'
+
+[ICE_PROCESSING] Processing thought through ICE framework...
+[THOUGHT] 'God's amazing grace and mercy'
+
+============================================================
+ICE PROCESSING: 'God's amazing grace and mercy'
+============================================================
+[ICE_EXECUTION] Executing: God's amazing grace and mercy
+[DOMAIN] biblical - divine_inspiration
+[ICE_STORED] Concept ID: 4
+[ALIGNMENT] Divine Alignment: 0.224
+
+[MEANING_EXECUTION] Intent: 'Find concepts about divine grace'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'Find concepts about divine grace'
+============================================================
+[ICE_EXECUTION] Executing: Find concepts about divine grace
+[DOMAIN] biblical - divine_inspiration
+[EXECUTION_COMPLETE] Operation: query, Results: 4 items
+
+[MEANING_SEARCH] Searching for: 'concepts expressing God's love'
+[THRESHOLD] Similarity: 0.7
+
+============================================================
+ICE PROCESSING: 'concepts expressing God's love'
+============================================================
+[ICE_EXECUTION] Executing: concepts expressing God's love
+[DOMAIN] biblical - divine_inspiration
+[SEARCH_COMPLETE] Found 4 semantically similar concepts
+
+[MEANING_WORKFLOW] Executing: discover_grace_patterns
+[MEANING_EXECUTION] Executing: discover_grace_patterns
+[BIBLICAL_PRINCIPLE] Applied: grace
+[EXECUTION_COMPLETE] Biblical alignment: 0.527
+[WORKFLOW_COMPLETE] Generated 1 operations
+[ALIGNMENT] Biblical alignment: 0.527
+
+[INTEGRATION_SUCCESS] Full meaning-based workflow completed!
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000ok
+test_get_meaning_statistics (__main__.TestMeaningBasedDatabase.test_get_meaning_statistics)
+Test getting meaning-based statistics ... ok
+test_meaning_database_extends_enhanced_database (__main__.TestMeaningBasedDatabase.test_meaning_database_extends_enhanced_database)
+Test that meaning database maintains all enhanced features ... 
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_WORKFLOW] Executing: test_tracking
+[MEANING_EXECUTION] Executing: test_tracking
+[BIBLICAL_PRINCIPLE] Applied: wisdom
+[EXECUTION_COMPLETE] Biblical alignment: 0.648
+[WORKFLOW_COMPLETE] Generated 1 operations
+[ALIGNMENT] Biblical alignment: 0.648
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_EXECUTION] Intent: 'Find concepts about love'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'Find concepts about love'
+============================================================
+[ICE_EXECUTION] Executing: Find concepts about love
+[DOMAIN] biblical - spiritual_guidance
+[EXECUTION_COMPLETE] Operation: query, Results: 3 items
+
+[MEANING_EXECUTION] Intent: 'Store this thought'
+[DOMAIN] biblical
+[OPERATION_TYPE] store
+
+============================================================
+ICE PROCESSING: 'Store this thought'
+============================================================
+[ICE_EXECUTION] Executing: Store this thought
+[DOMAIN] biblical - spiritual_guidance
+
+[ICE_PROCESSING] Processing thought through ICE framework...
+[THOUGHT] 'Store this thought'
+
+============================================================
+ICE PROCESSING: 'Store this thought'
+============================================================
+[ICE_EXECUTION] Executing: Store this thought
+[DOMAIN] biblical - spiritual_guidance
+[ICE_STORED] Concept ID: 4
+[ALIGNMENT] Divine Alignment: 0.176
+[EXECUTION_COMPLETE] Operation: store, Results: 0 items
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initializedok
+test_meaning_execution_tracking (__main__.TestMeaningBasedDatabase.test_meaning_execution_tracking)
+Test that meaning executions are tracked ... ok
+test_meaning_search (__main__.TestMeaningBasedDatabase.test_meaning_search)
+Test semantic search by meaning ... 
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_EXECUTION] Intent: 'Test intent'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'Test intent'
+============================================================
+[ICE_EXECUTION] Executing: Test intent
+[DOMAIN] biblical - spiritual_guidance
+[EXECUTION_COMPLETE] Operation: query, Results: 3 items
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationshipsok
+test_natural_query (__main__.TestMeaningBasedDatabase.test_natural_query)
+Test querying database with natural language ... ok
+test_natural_store (__main__.TestMeaningBasedDatabase.test_natural_store)
+Test storing concepts with natural language ... 
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_SEARCH] Searching for: 'concepts that express divine compassion'
+[THRESHOLD] Similarity: 0.5
+
+============================================================
+ICE PROCESSING: 'concepts that express divine compassion'
+============================================================
+[ICE_EXECUTION] Executing: concepts that express divine compassion
+[DOMAIN] biblical - divine_inspiration
+[SEARCH_COMPLETE] Found 3 semantically similar concepts
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[NATURAL_QUERY] 'What concepts are about love?'
+
+[MEANING_EXECUTION] Intent: 'What concepts are about love?'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'What concepts are about love?'
+============================================================
+[ICE_EXECUTION] Executing: What concepts are about love?
+[DOMAIN] biblical - theological_question
+[EXECUTION_COMPLETE] Operation: query, Results: 3 items
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationshipsok
+test_operation_type_counting (__main__.TestMeaningBasedDatabase.test_operation_type_counting)
+Test counting different operation types ... 
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[NATURAL_STORE] 'I learned about God's grace today'
+
+[ICE_PROCESSING] Processing thought through ICE framework...
+[THOUGHT] 'I learned about God's grace today'
+
+============================================================
+ICE PROCESSING: 'I learned about God's grace today'
+============================================================
+[ICE_EXECUTION] Executing: I learned about God's grace today
+[DOMAIN] biblical - divine_inspiration
+[ICE_STORED] Concept ID: 4
+[ALIGNMENT] Divine Alignment: 0.244
+[SEMANTIC DB] Connection closed
+[INITIALIZED] 2.2 - Ultimate with Sacred Components
+[INFO] Mathematics engine not available
+[COMPLETE] Ultimate Core Engine Fully Initialized
+[SEMANTIC DB] Universal anchors initialized
+[SEMANTIC DB] Database schema initialized
+[SEMANTIC DB] Indexes created for optimal performance
+[SEMANTIC DB] Initialized at C:\Users\Well\AppData\Local\Temp\tmpy52qjhsl.db
+[SEMANTIC DB] Connected to SSE v2.2 - Ultimate with Sacred Components
+[ENHANCED_SSDB] Initializing Self-Aware Semantic Engine...
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 1.000
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[ENGINE_AWARENESS] Bootstrapping Semantic Substrate Engine self-awareness
+[STRUCTURE_ANALYSIS] Engine has 16 methods with complexity 31
+[PURPOSE_DETECTION] Engine purposes: ['self_improvement', 'semantic_understanding', 'self_understanding', 'divine_alignment', 'mathematical_analysis']
+[ENHANCEMENT_DISCOVERY] Found 2 enhancement opportunities
+[ENGINE_AWARENESS] Engine self-awareness bootstrap complete
+[ENHANCED_SSDB] Initializing ICE Framework...
+[ENHANCED_SSDB] Enhanced Semantic Substrate Database initialized!
+[CAPABILITIES] Self-Awareness + ICE Framework + Revolutionary DB
+[MEANING_DB] Initializing Meaning-Based Programming Layer...
+[MEANING_DB] Meaning-Based Database Initialized!
+[CAPABILITIES] Storage + Self-Awareness + ICE + Meaning Programming
+[REVOLUTIONARY] First database programmable by MEANING
+[AWARE_STORE] Analyzing: 'divine love' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'divine love' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'holy wisdom' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'holy wisdom' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+[AWARE_STORE] Analyzing: 'righteous justice' with self-aware engine...
+[AWARE_ANALYSIS] Analyzing: 'righteous justice' with biblical context
+[COORDINATE_AWARENESS] Bootstrapping self-awareness for coordinates
+[STRUCTURE_ANALYSIS] I contain 4 divine attributes: ['love', 'power', 'wisdom', 'justice']
+[CURRENT_STATE] My current alignment: 0.455
+[RELATIONSHIP_DISCOVERY] Found 5 biblical relationships
+[MATHEMATICAL_ENHANCEMENT] Discovered 3 enhanced formulas
+[AWARENESS_CALCULATION] Structure: 0.300, Relationships: 0.400, Formulas: 0.180
+[TOTAL_AWARENESS] 0.880
+[AWARE_STORE] Stored with awareness level: 0.880
+
+[MEANING_EXECUTION] Intent: 'Find concepts'
+[DOMAIN] biblical
+[OPERATION_TYPE] query
+
+============================================================
+ICE PROCESSING: 'Find concepts'
+============================================================
+[ICE_EXECUTION] Executing: Find concepts
+[DOMAIN] biblical - spiritual_guidance
+[EXECUTION_COMPLETE] Operation: query, Results: 3 items
+
+[MEANING_EXECUTION] Intent: 'Store this'
+[DOMAIN] biblical
+[OPERATION_TYPE] store
+
+============================================================
+ICE PROCESSING: 'Store this'
+============================================================
+[ICE_EXECUTION] Executing: Store this
+[DOMAIN] biblical - spiritual_guidance
+
+[ICE_PROCESSING] Processing thought through ICE framework...
+[THOUGHT] 'Store this'
+
+============================================================
+ICE PROCESSING: 'Store this'
+============================================================
+[ICE_EXECUTION] Executing: Store this
+[DOMAIN] biblical - spiritual_guidance
+[ICE_STORED] Concept ID: 4
+[ALIGNMENT] Divine Alignment: 0.176
+[EXECUTION_COMPLETE] Operation: store, Results: 0 items
+
+[MEANING_EXECUTION] Intent: 'Analyze database'
+[DOMAIN] biblical
+ok
+
+======================================================================
+FAIL: test_classify_relationship_intent (__main__.TestMeaningBasedDatabase.test_classify_relationship_intent)
+Test classification of relationship intents
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Well\Claude Code\Projects\SSE_Database\test_meaning_based_database.py", line 200, in test_classify_relationship_intent
+    self.assertEqual(op_type, "relationship")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'query' != 'relationship'
+- query
++ relationship
+
+
+======================================================================
+FAIL: test_execute_meaning_relationship (__main__.TestMeaningBasedDatabase.test_execute_meaning_relationship)
+Test executing meaning-based relationship discovery
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Well\Claude Code\Projects\SSE_Database\test_meaning_based_database.py", line 145, in test_execute_meaning_relationship
+    self.assertEqual(result['operation'], 'relationship')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'query' != 'relationship'
+- query
++ relationship
+
+
+----------------------------------------------------------------------
+Ran 24 tests in 2.071s
+
+FAILED (failures=2)
+[OPERATION_TYPE] analyze
+
+============================================================
+ICE PROCESSING: 'Analyze database'
+============================================================
+[ICE_EXECUTION] Executing: Analyze database
+[DOMAIN] biblical - spiritual_guidance
+[EXECUTION_COMPLETE] Operation: analyze, Results: 0 items
+[SEMANTIC DB] Connection closed
+
+================================================================================
+TEST SUMMARY
+================================================================================
+Tests run: 24
+Successes: 22
+Failures: 2
+Errors: 0
+
+[FAILED] Some tests failed - review output above

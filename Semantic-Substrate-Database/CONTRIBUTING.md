@@ -1,344 +1,191 @@
 # Contributing to Semantic Substrate Database
 
-Thank you for your interest in contributing to the Semantic Substrate Database! This revolutionary project welcomes contributions from developers, researchers, and database enthusiasts.
-
-## 🌟 Ways to Contribute
-
-- 🐛 **Report Bugs** - Help us identify and fix issues
-- ✨ **Suggest Features** - Propose new capabilities or enhancements
-- 📝 **Improve Documentation** - Clarify existing docs or add examples
-- 🧪 **Add Tests** - Increase test coverage and robustness
-- 💻 **Submit Code** - Fix bugs or implement new features
-- 📊 **Share Use Cases** - Tell us how you're using SSDB
+We welcome contributions! This document provides guidelines for contributing to the Semantic Substrate Database project.
 
 ## 🚀 Getting Started
 
-### 1. Fork the Repository
+### Prerequisites
+- Python 3.8+
+- Git
+- Basic understanding of semantic concepts and database systems
 
-Click the "Fork" button on the GitHub repository page.
-
-### 2. Clone Your Fork
-
+### Setup Development Environment
 ```bash
-git clone https://github.com/YOUR_USERNAME/Semantic-Substrate-Database.git
+# Clone the repository
+git clone https://github.com/BruinGrowly/Semantic-Substrate-Database.git
 cd Semantic-Substrate-Database
+
+# Install in development mode
+pip install -e .
+pip install -e ".[dev]"  # Install development dependencies
 ```
 
-### 3. Set Up Development Environment
+## 📋 How to Contribute
 
-```bash
-# Create virtual environment
-python -m venv venv
+### Reporting Issues
+1. Check existing issues first
+2. Use clear, descriptive titles
+3. Provide detailed reproduction steps
+4. Include environment details (Python version, OS, etc.)
 
-# Activate virtual environment
-# On Windows:
-venv\Scripts\activate
-# On Unix/macOS:
-source venv/bin/activate
+### Submitting Pull Requests
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes with tests
+4. Ensure all tests pass: `python -m pytest`
+5. Submit a pull request with clear description
 
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### 4. Create a Branch
-
-```bash
-git checkout -b feature/your-feature-name
-# or
-git checkout -b fix/your-bug-fix
-```
-
-## 💻 Development Guidelines
-
-### Code Standards
-
-- **Python Version**: 3.8+
-- **Style Guide**: Follow PEP 8
-- **Type Hints**: Use type hints where appropriate
-- **Docstrings**: Document all public functions and classes
-- **Comments**: Explain complex logic
-
-### Example Code Style
-
-```python
-def store_with_deep_dive(
-    self,
-    text: str,
-    context: str,
-    **scaffold_params
-) -> Dict[str, Any]:
-    """
-    Store concept with full 5-layer scaffold processing.
-
-    Args:
-        text: The concept text to store
-        context: The context (e.g., "biblical", "educational")
-        **scaffold_params: Optional scaffold parameters
-
-    Returns:
-        Dict containing concept_id, meaning_unit_id, and scaffold_layers
-
-    Example:
-        >>> result = db.store_with_deep_dive("Divine love", "biblical")
-        >>> print(result['concept_id'])
-        1
-    """
-    # Implementation...
-```
-
-## 🧪 Testing Requirements
+## 🧪 Testing
 
 ### Running Tests
-
-All existing tests MUST continue to pass:
-
 ```bash
-# Layer 1 tests (30 tests)
-python test_semantic_database.py
+# Run all tests
+python tests/run_all_tests.py
 
-# Layer 2 tests (21 tests)
-python test_enhanced_database.py
+# Run specific test categories
+python tests/test_semantic_database.py
+python tests/test_integration.py
+python tests/test_enhanced_database.py
 
-# Layer 3 tests (24 tests)
-python test_meaning_based_database.py
-
-# Layer 4 tests (26 tests)
-python test_deep_dive_database.py
-
-# All tests must show: X/X PASSING (100%)
-```
-
-### Adding New Tests
-
-When adding new features, include tests:
-
-```python
-import unittest
-from deep_dive_database import DeepDiveDatabase
-
-class TestNewFeature(unittest.TestCase):
-    def setUp(self):
-        """Set up test database"""
-        self.db = DeepDiveDatabase(":memory:")
-
-    def test_new_feature(self):
-        """Test description"""
-        result = self.db.new_feature("test input")
-        self.assertIsNotNone(result)
-        self.assertIn('expected_key', result)
-
-    def tearDown(self):
-        """Clean up"""
-        self.db.close()
+# Run with coverage
+python -m pytest --cov=src tests/
 ```
 
 ### Test Coverage
+- Aim for >90% code coverage
+- Include tests for new features
+- Ensure existing tests still pass
 
-- Maintain current coverage level (~91%)
-- Add tests for new features
-- Include edge cases and error conditions
-- Test backward compatibility
+## 🏗️ Development Areas
 
-## 📝 Documentation
+We welcome contributions in these areas:
 
-### Update Documentation When:
+### Core Database Features
+- Performance optimization
+- New semantic query types
+- Enhanced indexing strategies
+- Distributed database support
 
-- Adding new features
-- Changing existing behavior
-- Fixing bugs that affect usage
-- Adding new dependencies
+### ICE Framework Integration
+- Enhanced intent classification
+- Additional context domains
+- New execution strategies
+- Improved semantic integrity validation
 
-### Documentation Files to Update:
+### API and Integration
+- REST API enhancements
+- Additional language bindings
+- Cloud deployment tools
+- Monitoring and analytics
 
-- **README.md** - For user-facing changes
-- **TECHNICAL_WHITEPAPER.md** - For architectural changes
-- **API docs** - For new methods or parameters
-- **CHANGELOG.md** - For all changes (if we add this file)
+### Documentation
+- Tutorial improvements
+- API documentation
+- Performance benchmarks
+- Use case examples
 
-## 🔄 Pull Request Process
+## 📝 Code Style
 
-### 1. Make Your Changes
+### Python Style
+- Follow PEP 8
+- Use Black for formatting: `black src/ tests/`
+- Use type hints where appropriate
+- Maximum line length: 88 characters
 
-- Write clear, concise code
-- Follow existing patterns and conventions
-- Add tests for new features
-- Update documentation
+### Documentation
+- Add docstrings to all public functions
+- Use clear, descriptive variable names
+- Include examples in documentation
+- Update README for significant changes
 
-### 2. Test Thoroughly
+## 🔧 Development Workflow
 
-```bash
-# Run all tests
-python test_semantic_database.py
-python test_enhanced_database.py
-python test_meaning_based_database.py
-python test_deep_dive_database.py
+### Before Making Changes
+1. Read existing code and tests
+2. Understand the semantic coordinate system
+3. Plan your approach
+4. Create an issue if major change
 
-# Verify all pass
-# Expected: 101/101 PASSING (100%)
-```
+### During Development
+1. Write tests first (TDD approach)
+2. Make small, incremental changes
+3. Test frequently
+4. Update documentation
 
-### 3. Commit Your Changes
+### Before Submitting
+1. Ensure all tests pass
+2. Run code quality checks: `pylint src/`
+3. Update documentation
+4. Clean up any temporary files
 
-```bash
-# Stage changes
-git add .
+## 🌟 Contribution Types
 
-# Commit with clear message
-git commit -m "Add feature: Natural language query caching
+### 🐛 Bug Fixes
+- Clear description of the bug
+- Steps to reproduce
+- Test case that validates the fix
 
-- Implement LRU cache for natural language queries
-- Add cache hit/miss statistics
-- Include tests for cache behavior
-- Update documentation with cache configuration"
-```
+### ✨ New Features
+- Problem statement
+- Proposed solution
+- Implementation details
+- Test coverage
 
-### 4. Push to Your Fork
+### 📚 Documentation
+- Improved explanations
+- New tutorials
+- Better examples
+- API documentation
 
-```bash
-git push origin feature/your-feature-name
-```
+### 🧹 Refactoring
+- Code simplification
+- Performance improvements
+- Better organization
+- Enhanced readability
 
-### 5. Create Pull Request
+## 🤝 Community Guidelines
 
-1. Go to the original repository on GitHub
-2. Click "New Pull Request"
-3. Select your fork and branch
-4. Fill out the PR template:
-   - Clear title
-   - Description of changes
-   - Related issues (if any)
-   - Test results
-   - Breaking changes (if any)
+### Code of Conduct
+- Be respectful and inclusive
+- Provide constructive feedback
+- Help others learn
+- Focus on what is best for the community
 
-### 6. Code Review
+### Communication
+- Use clear, professional language
+- Ask questions when unsure
+- Share knowledge freely
+- Recognize contributions
 
-- Respond to feedback promptly
-- Make requested changes
-- Push updates to your branch
-- PR will auto-update
+## 📧 Getting Help
 
-## 🎯 Contribution Areas
+### Resources
+- [Issues](https://github.com/BruinGrowly/Semantic-Substrate-Database/issues) - Report bugs or request features
+- [Discussions](https://github.com/BruinGrowly/Semantic-Substrate-Database/discussions) - Ask questions and share ideas
+- [Engine Documentation](https://github.com/BruinGrowly/Semantic-Substrate-Engine) - Understand the semantic foundation
 
-### High Priority
-
-- **Performance optimization** - Speed up deep dive processing
-- **Additional test coverage** - Edge cases and error conditions
-- **Documentation improvements** - More examples and tutorials
-- **Use case examples** - Real-world applications
-
-### Medium Priority
-
-- **Additional layer operations** - New semantic operations
-- **Query optimization** - Faster semantic searches
-- **Export/import formats** - JSON, CSV, etc.
-- **Integration examples** - With popular frameworks
-
-### Future Enhancements
-
-- **Distributed architecture** - Multi-node deployment
-- **GraphQL API** - Modern API layer
-- **Real-time streaming** - Process semantic streams
-- **Advanced mathematics** - Better integration with SSE
-
-## 🐛 Reporting Bugs
-
-### Before Reporting
-
-1. Check existing issues
-2. Verify it's reproducible
-3. Test with latest version
-4. Gather system information
-
-### Bug Report Template
-
-```markdown
-**Description**
-Clear description of the bug
-
-**To Reproduce**
-Steps to reproduce:
-1. Initialize database...
-2. Call method...
-3. See error...
-
-**Expected Behavior**
-What you expected to happen
-
-**Actual Behavior**
-What actually happened
-
-**Environment**
-- OS: [e.g., Windows 10, Ubuntu 20.04]
-- Python version: [e.g., 3.9.5]
-- SSDB version: [e.g., 1.0.0]
-
-**Code Sample**
+### Quick Help
 ```python
-from deep_dive_database import DeepDiveDatabase
-db = DeepDiveDatabase("test.db")
-# ... minimal reproducible example
+# Basic help with database
+from src import SemanticSubstrateDatabase
+help(SemanticSubstrateDatabase)
+
+# Help with coordinates
+from src.baseline_biblical_substrate import BiblicalCoordinates
+help(BiblicalCoordinates)
 ```
-
-**Error Message**
-```
-Full error traceback
-```
-```
-
-## ✨ Feature Requests
-
-### Feature Request Template
-
-```markdown
-**Feature Description**
-Clear description of the proposed feature
-
-**Use Case**
-Why is this feature needed? What problem does it solve?
-
-**Proposed Implementation**
-If you have ideas on how to implement it
-
-**Alternatives Considered**
-Other approaches you've thought about
-
-**Additional Context**
-Any other relevant information
-```
-
-## 📊 Code Review Criteria
-
-Pull requests are reviewed based on:
-
-- ✅ **Functionality** - Does it work as intended?
-- ✅ **Tests** - Are there adequate tests?
-- ✅ **Documentation** - Is it well-documented?
-- ✅ **Code Quality** - Is it clean and maintainable?
-- ✅ **Performance** - Does it impact performance?
-- ✅ **Compatibility** - Backward compatible?
-- ✅ **Security** - Any security implications?
 
 ## 🏆 Recognition
 
-Contributors will be:
-
-- Listed in CONTRIBUTORS.md
-- Mentioned in release notes
-- Acknowledged in documentation
-- Part of the SSDB community!
-
-## 📞 Questions?
-
-- **GitHub Issues** - For bugs and features
-- **GitHub Discussions** - For questions and ideas
-- **Email** - For private inquiries
+Contributors are recognized in:
+- README.md contributors section
+- Release notes for significant contributions
+- Special thanks in documentation
 
 ## 📄 License
 
-By contributing, you agree that your contributions will be licensed under the same license as the project (MIT License).
+By contributing, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-**Thank you for contributing to the Semantic Substrate Database!**
-
-*Together, we're building the future of semantic, self-aware, and meaning-driven databases.*
+Thank you for contributing to the Semantic Substrate Database! Your contributions help make semantic meaning processing accessible to everyone.

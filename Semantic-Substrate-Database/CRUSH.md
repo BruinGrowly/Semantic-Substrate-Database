@@ -1,169 +1,197 @@
-# Semantic Substrate Engine v2 - Core Engine
+# Semantic Substrate Database - Development Commands
 
-## 🌍 CORE ENGINE - The Universal Kernel
-
-This is the **vanilla core** from which all Semantic Substrate applications fork.
-
-## 🚀 Essential Commands
-
-### Quick Test - Verify Core Engine
+## 🧪 Testing Commands
 ```bash
-python quick_test.py
+# Quick test
+python tests/quick_test.py
+
+# Integration tests
+python tests/test_integration.py
+
+# All tests
+python tests/run_all_tests.py
+
+# Semantic database tests
+python tests/test_semantic_database.py
+
+# Enhanced database tests
+python tests/test_enhanced_database.py
+
+# API tests
+python api/test_api.py
 ```
 
-### Full Test Suite - Comprehensive Validation
+## 🏗️ Development Commands
 ```bash
-python tests/test_all.py
+# Install in development mode
+pip install -e .
+
+# Install with dev dependencies
+pip install -e ".[dev]"
+
+# Code formatting
+black src/ tests/ examples/
+
+# Linting
+pylint src/
+
+# Type checking
+mypy src/
+
+# Test coverage
+python -m pytest --cov=src tests/
 ```
 
-### Run Examples - See Core in Action
+## 🐳 Docker Commands
 ```bash
+# Build image
+docker build -t semantic-substrate-db .
+
+# Run container
+docker run -it semantic-substrate-db
+
+# Run with volume
+docker run -v $(pwd):/app semantic-substrate-db
+
+# Using docker-compose
+docker-compose up
+
+# Production deployment
+docker-compose -f docker-compose.yml up -d
+```
+
+## 📦 Package Commands
+```bash
+# Build package
+python setup.py sdist bdist_wheel
+
+# Install from local
+pip install dist/semantic_substrate_database-*.whl
+
+# Upload to PyPI (requires credentials)
+twine upload dist/*
+```
+
+## 🔧 Database Commands
+```bash
+# Initialize database
+python -c "from src import SemanticSubstrateDatabase; db = SemanticSubstrateDatabase('test.db')"
+
+# Run examples
+python examples/basic_example.py
 python examples/basic_usage.py
+python examples/visualization_example.py
+
+# Database operations
+python -c "
+from src import SemanticSubstrateDatabase
+db = SemanticSubstrateDatabase('demo.db')
+db.store_concept('Show compassion', 'spiritual')
+results = db.search_semantic('help others')
+print(f'Found {len(results)} results')
+"
 ```
 
-### Initialize and Test Core Engine
+## 🚀 API Commands
 ```bash
-python __init__.py
+# Start API server
+python api/semantic_api.py
+
+# Test API
+curl -X GET http://localhost:5000/api/health
+curl -X POST http://localhost:5000/api/store -H "Content-Type: application/json" -d '{"text": "Act with compassion", "context": "ethical"}'
 ```
 
-### Import Core Engine in Python
-```python
-from baseline_biblical_substrate import BiblicalSemanticSubstrate
-
-# Initialize core engine
-engine = BiblicalSemanticSubstrate()
-
-# Basic analysis
-coords = engine.analyze_concept("wisdom", "biblical")
-print(f"Divine Resonance: {coords.divine_resonance():.3f}")
-```
-
-## 🏗️ Fork Development Pattern
-
-### 1. Fork This Core Repository
+## 📊 Performance Testing
 ```bash
-git clone https://github.com/your-username/semantic_substrate_engine_v2.git
-cd semantic_substrate_engine_v2
+# Benchmark database operations
+python -c "
+import time
+from src import SemanticSubstrateDatabase
+db = SemanticSubstrateDatabase('perf.db')
+start = time.time()
+for i in range(100):
+    db.store_concept(f'Concept {i}', 'test')
+print(f'Stored 100 concepts in {time.time()-start:.3f}s')
+"
 ```
 
-### 2. Create Your Domain Extension
-```python
-# your_domain_engine.py
-from baseline_biblical_substrate import BiblicalSemanticSubstrate
-
-class YourDomainEngine(BiblicalSemanticSubstrate):
-    def __init__(self):
-        super().__init__()
-        # Add your domain-specific extensions
+## 🔍 Debugging Commands
+```bash
+# Enable debug logging
+python -c "
+import logging
+logging.basicConfig(level=logging.DEBUG)
+from src import SemanticSubstrateDatabase
+db = SemanticSubstrateDatabase('debug.db')
+# ... operations will show debug output
+"
 ```
 
-### 3. Define Domain Coordinates
-```python
-# your_domain_database.py
-from baseline_biblical_substrate import BiblicalWisdomDatabase, BiblicalCoordinates
+## 📝 Documentation Commands
+```bash
+# Generate documentation
+python -c "
+from src import SemanticSubstrateDatabase
+help(SemanticSubstrateDatabase)
+"
 
-class YourDomainDatabase(BiblicalWisdomDatabase):
-    def __init__(self):
-        super().__init__()
-        self.domain_coordinates = {
-            'your_concept': BiblicalCoordinates(0.8, 0.7, 0.9, 0.8),
-            # Add your domain-specific mappings
-        }
+# Check version
+python -c "from src import __version__; print(__version__)"
 ```
 
-## 📊 Core Engine Specifications
+## 🧹 Cleanup Commands
+```bash
+# Clean test databases
+rm -f *.db test_*.db
 
-### 4D Divine Coordinate System
-- **X-Axis**: LOVE (Agape) - Divine love, compassion, mercy
-- **Y-Axis**: POWER (Dynamis) - Divine power, sovereignty, authority  
-- **Z-Axis**: WISDOM (Sophia) - Divine wisdom, understanding, knowledge
-- **W-Axis**: JUSTICE (Dikaios) - Divine justice, righteousness, holiness
+# Clean Python cache
+find . -type d -name "__pycache__" -exec rm -rf {} +
+find . -name "*.pyc" -delete
 
-### Perfect Divine Reference
-**JEHOVAH = (1.0, 1.0, 1.0, 1.0)**
-
-### Core Mathematical Operations
-```python
-# Divine Resonance - Alignment with divine truth
-divine_resonance = sqrt(love² + power² + wisdom² + justice²) / 2.0
-
-# Biblical Balance - Harmony across attributes
-biblical_balance = 1.0 - (variance / max_variance)
-
-# Distance from JEHOVAH - Mathematical quantification of evil
-distance_from_jehovah = sqrt((1-love)² + (1-power)² + (1-wisdom)² + (1-justice)²)
+# Clean build artifacts
+rm -rf build/ dist/ *.egg-info/
 ```
 
-## 🌟 Fork Examples
+## 🔄 Git Commands
+```bash
+# Check status
+git status
 
-### Cybersecurity Fork
-- Threat detection with biblical wisdom
-- Ransomware detection using sacred mathematics
-- Security policy biblical compliance
+# Add all changes
+git add .
 
-### Education Fork
-- Learning analytics with divine principles
-- Character development tracking
-- Curriculum biblical alignment
+# Commit with message
+git commit -m "Your descriptive commit message"
 
-### Healthcare Fork
-- Medical ethics with biblical guidance
-- Treatment biblical compatibility
-- Healthcare biblical wisdom
+# Push to remote
+git push origin main
 
-### Business Fork
-- Corporate ethical analysis
-- Leadership biblical assessment
-- Business wisdom principles
+# Pull latest changes
+git pull origin main
+```
 
-## 🔧 Development Guidelines
+## 📈 Monitoring Commands
+```bash
+# Database statistics
+python -c "
+from src import SemanticSubstrateDatabase
+db = SemanticSubstrateDatabase('stats.db')
+stats = db.get_statistics()
+print('Database Statistics:')
+for key, value in stats.items():
+    print(f'  {key}: {value}')
+"
+```
 
-### Core Engine Rules
-1. **Biblical Accuracy**: Maintain biblical integrity
-2. **Mathematical Precision**: Ensure accurate calculations
-3. **Clean Architecture**: Follow design patterns
-4. **Comprehensive Testing**: Test all functionality
-5. **Performance**: Optimize for real-time use
+## 🔐 Security Commands
+```bash
+# Check dependencies for vulnerabilities
+pip list --outdated
 
-### Fork Development
-1. **Preserve Core**: Don't modify core engine files
-2. **Extend, Don't Replace**: Add domain-specific extensions
-3. **Maintain API**: Keep core interface consistent
-4. **Document**: Explain domain-specific mappings
-5. **Test**: Test domain functionality thoroughly
+# Update dependencies
+pip install --upgrade -r requirements.txt
 
-## 🎯 Success Criteria
-
-### Core Engine Health
-- ✅ All tests pass
-- ✅ Performance under 100ms per analysis
-- ✅ Memory usage under 50MB
-- ✅ Mathematical precision maintained
-- ✅ Biblical accuracy preserved
-
-### Fork Quality
-- ✅ Domain-specific functionality works
-- ✅ Core engine API preserved
-- ✅ Biblical alignment maintained
-- ✅ Performance acceptable
-- ✅ Documentation complete
-
-## 📞 Getting Help
-
-### Core Engine Issues
-- Check this CRUSH.md for common commands
-- Run tests to verify functionality
-- Review README.md for detailed documentation
-- Examine examples for implementation patterns
-
-### Fork Development
-- Follow the fork development pattern
-- Preserve core engine guarantees
-- Test domain-specific functionality
-- Document domain mappings and logic
-
----
-
-**Remember: This is the CORE ENGINE - the universal kernel for semantic reality understanding. Build your applications on this divine foundation!**
-
-*"For the LORD gives wisdom; from his mouth come knowledge and understanding."* - Proverbs 2:6
+# Security audit
+python -m bandit -r src/
+```

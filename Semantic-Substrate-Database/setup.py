@@ -38,7 +38,7 @@ setup(
         "Source Code": "https://github.com/BruinGrowly/Semantic-Substrate-Database",
         "Engine": "https://github.com/BruinGrowly/Semantic-Substrate-Engine",
     },
-    packages=find_packages(exclude=["tests", "tests.*", "examples", "examples.*", "archive", "archive.*", "data", "data.*"]),
+    packages=find_packages(exclude=["tests", "tests.*", "examples", "examples.*"]),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",

@@ -15,8 +15,6 @@ This represents a once-in-a-decade innovation comparable to:
 - PageRank Algorithm (Google, 1998)
 - Transformer Architecture (Google, 2017)
 
-**Market Potential**: $380B+ Total Addressable Market
-
 ---
 
 ## Core Architecture

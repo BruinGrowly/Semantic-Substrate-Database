@@ -323,16 +323,17 @@ We request that users:
 **MIT License**: Maximum freedom with attribution
 
 You are free to:
-- ✅ Use commercially
+- ✅ Use for any purpose (personal, academic, research, humanitarian)
 - ✅ Modify the code
 - ✅ Distribute copies
-- ✅ Use privately
 - ✅ Change the value anchor
 - ✅ Create derivative works
 
 Requirements:
 - ⚠️ Include original license
 - ⚠️ Include copyright notice
+
+**Note**: While MIT license permits commercial use, this project is developed and maintained as a **freely available gift to humanity**. We believe that technology anchored to Jehovah's perfect attributes should be freely accessible to all.
 
 ---
 

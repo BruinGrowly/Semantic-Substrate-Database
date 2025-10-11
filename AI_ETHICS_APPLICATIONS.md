@@ -242,7 +242,7 @@ print(f"Ethical concerns identified: {len(concerns)}")
 # Collect stakeholder perspectives
 stakeholders = {
     "public": "AI should protect privacy and civil liberties",
-    "business": "AI should enable innovation and efficiency",
+    "organizations": "AI should enable innovation and serve the common good",
     "government": "AI should enhance security and public safety",
     "researchers": "AI should advance knowledge and understanding"
 }
@@ -271,7 +271,7 @@ consensus = find_value_common_ground(value_map)
 scenarios = [
     "AI that maximizes user engagement at any cost",
     "AI that balances engagement with well-being",
-    "AI that prioritizes user well-being over profit"
+    "AI that prioritizes user well-being above all else"
 ]
 
 print("Analyze these AI design philosophies:")
@@ -433,17 +433,17 @@ print(f"Concerns: {recommendation['concerns']}")
 print(f"Required improvements: {recommendation['requirements']}")
 ```
 
-### 2. AI Procurement Evaluation
+### 2. AI System Evaluation
 
-**Use Case**: Help organizations evaluate AI vendors ethically
+**Use Case**: Help organizations evaluate AI systems ethically
 
 ```python
-# Compare AI vendors on ethical dimensions
-vendors = ["VendorA", "VendorB", "VendorC"]
-vendor_ethics = {}
+# Compare AI systems on ethical dimensions
+systems = ["SystemA", "SystemB", "SystemC"]
+system_ethics = {}
 
-for vendor in vendors:
-    practices = load_vendor_practices(vendor)
+for system in systems:
+    practices = load_system_practices(system)
 
     # Evaluate across value dimensions
     evaluation = {
@@ -453,10 +453,10 @@ for vendor in vendors:
         "fairness": db.analyze_bias_mitigation(practices)
     }
 
-    vendor_ethics[vendor] = evaluation
+    system_ethics[system] = evaluation
 
-# Rank vendors by ethical alignment
-ranked_vendors = rank_by_ethics(vendor_ethics)
+# Rank systems by ethical alignment
+ranked_systems = rank_by_ethics(system_ethics)
 ```
 
 ### 3. AI Impact Assessment

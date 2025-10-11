@@ -29,11 +29,22 @@ from pathlib import Path
 import sys
 import os
 
-# Import updated Engine components
-from baseline_biblical_substrate import BiblicalCoordinates, BiblicalSemanticSubstrate
-from ice_semantic_substrate_engine import ICESemanticSubstrateEngine, ThoughtType, ContextDomain
-from unified_ice_framework import UnifiedICEFramework
-from ultimate_core_engine import UltimateCoreEngine
+# Import from Semantic Substrate Engine package
+try:
+    from semantic_substrate_engine import (
+        BiblicalCoordinates, 
+        BiblicalSemanticSubstrate,
+        ICESemanticSubstrateEngine,
+        ThoughtType,
+        ContextDomain,
+        UnifiedICEFramework,
+        UltimateCoreEngine
+    )
+except ImportError:
+    # Fallback for development without installed package
+    from baseline_biblical_substrate import BiblicalCoordinates, BiblicalSemanticSubstrate
+    print("Warning: Semantic Substrate Engine not installed. Install with: pip install semantic-substrate-engine")
+    print("Attempting to use local fallback components...")
 
 
 class SemanticSubstrateDatabase:
@@ -48,16 +59,25 @@ class SemanticSubstrateDatabase:
         """Initialize the semantic database"""
         self.db_path = db_path
         self.conn = None
-        self.engine = UltimateCoreEngine()
         self.cache = {}  # In-memory cache for hot data
         self._transaction_active = False  # Track transaction state
         self._savepoints = []  # Stack of savepoints for nested transactions
+        
+        # Initialize engine with fallback
+        try:
+            self.engine = UltimateCoreEngine()
+            self.engine_available = True
+        except (NameError, ImportError):
+            print("Warning: UltimateCoreEngine not available, using BiblicalSemanticSubstrate fallback")
+            self.engine = BiblicalSemanticSubstrate()
+            self.engine_available = False
 
         # Initialize database
         self._initialize_database()
 
+        engine_version = "v3.0 ICE-Centric" if self.engine_available else "v2.2 Legacy"
         print(f"[SEMANTIC DB] Initialized at {db_path}")
-        print(f"[SEMANTIC DB] Connected to SSE v{self.engine.engine_version}")
+        print(f"[SEMANTIC DB] Connected to SSE {engine_version}")
 
     def _initialize_database(self):
         """Create database schema with all required tables"""
@@ -238,9 +258,14 @@ class SemanticSubstrateDatabase:
         cursor = self.conn.cursor()
 
         if auto_analyze:
-            # Analyze using SSE engine
-            result = self.engine.core_engine.analyze_concept(text, context)
-            coords = result
+            # Analyze using SSE engine with fallback compatibility
+            if self.engine_available and hasattr(self.engine, 'core_engine'):
+                # UltimateCoreEngine path
+                result = self.engine.core_engine.analyze_concept(text, context)
+                coords = result
+            else:
+                # BiblicalSemanticSubstrate fallback
+                coords = self.engine.analyze_concept(text, context)
         else:
             # Must provide coordinates manually
             raise ValueError("Manual coordinate specification not yet implemented")
@@ -345,20 +370,37 @@ class SemanticSubstrateDatabase:
         """Store semantic unit with eternal signature"""
         cursor = self.conn.cursor()
 
-        # Create semantic unit using SSE engine
-        unit = self.engine.create_semantic_unit(text, context)
-
-        # Serialize essence and meaning vector
-        essence_json = json.dumps(unit.essence)
-        meaning_vector_blob = pickle.dumps(unit.meaning_vector)
-
-        cursor.execute("""
-            INSERT OR IGNORE INTO semantic_units
-            (semantic_signature, text, context, eternal_signature,
-             meaning_preservation_factor, essence_json, meaning_vector_blob, coordinate_id)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (unit.semantic_signature, text, context, unit.eternal_signature,
-              unit.meaning_preservation_factor, essence_json, meaning_vector_blob, coordinate_id))
+        # Create semantic unit using SSE engine with fallback
+        try:
+            if self.engine_available and hasattr(self.engine, 'create_semantic_unit'):
+                unit = self.engine.create_semantic_unit(text, context)
+                
+                # Serialize essence and meaning vector
+                essence_json = json.dumps(unit.essence)
+                meaning_vector_blob = pickle.dumps(unit.meaning_vector)
+                
+                cursor.execute("""
+                    INSERT OR IGNORE INTO semantic_units
+                    (semantic_signature, text, context, eternal_signature,
+                     meaning_preservation_factor, essence_json, meaning_vector_blob, coordinate_id)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """, (unit.semantic_signature, text, context, unit.eternal_signature,
+                      unit.meaning_preservation_factor, essence_json, meaning_vector_blob, coordinate_id))
+            else:
+                # Fallback: create minimal semantic unit
+                semantic_signature = hashlib.md5(f"{text}:{context}".encode()).hexdigest()
+                essence_json = json.dumps({"text": text, "context": context})
+                meaning_vector_blob = pickle.dumps([text, context])
+                
+                cursor.execute("""
+                    INSERT OR IGNORE INTO semantic_units
+                    (semantic_signature, text, context, eternal_signature,
+                     meaning_preservation_factor, essence_json, meaning_vector_blob, coordinate_id)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """, (semantic_signature, text, context, 1.0, 0.95, essence_json, meaning_vector_blob, coordinate_id))
+        except Exception as e:
+            print(f"Warning: Could not create semantic unit: {e}")
+            # Continue without semantic unit
 
         # Only auto-commit if not in an explicit transaction
         if not self._transaction_active:
@@ -961,8 +1003,11 @@ class SemanticSubstrateDatabase:
 
         This is the revolutionary feature - true semantic search!
         """
-        # Analyze query using SSE engine
-        query_coords = self.engine.core_engine.analyze_concept(query_text, context)
+        # Analyze query using SSE engine with fallback compatibility
+        if self.engine_available and hasattr(self.engine, 'core_engine'):
+            query_coords = self.engine.core_engine.analyze_concept(query_text, context)
+        else:
+            query_coords = self.engine.analyze_concept(query_text, context)
 
         # Find nearby concepts in semantic space
         results = self.query_by_proximity(query_coords, max_distance=0.8,

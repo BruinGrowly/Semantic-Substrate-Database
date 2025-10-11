@@ -2,42 +2,45 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![ICE Framework](https://img.shields.io/badge/Architecture-ICE--Centric-red.svg)](https://github.com/BruinGrowly/Semantic-Substrate-Engine)
 [![Database](https://img.shields.io/badge/Database-Semantic-brightgreen.svg)](https://github.com/BruinGrowly/Semantic-Substrate-Database)
 [![Open Source](https://img.shields.io/badge/Open%20Source-100%25-brightgreen.svg)](https://github.com/BruinGrowly/Semantic-Substrate-Database)
+[![ICE Engine](https://img.shields.io/badge/Engine-ICE--Centric-red.svg)](https://github.com/BruinGrowly/Semantic-Substrate-Engine)
 
 **The World's First ICE-Centric Semantic Database**
 
-A revolutionary database system that stores and queries semantic meaning using the **ICE (Intent-Context-Execution)** framework with 4D divine coordinate system. Built on Semantic Substrate Engine v3.0.
+A revolutionary database system that stores and queries semantic meaning using the **ICE (Intent-Context-Execution)** framework with 4D divine coordinate system. Built on [Semantic Substrate Engine v3.0](https://github.com/BruinGrowly/Semantic-Substrate-Engine).
 
 ## 🚀 Key Features
 
-### ICE-Centric Database Engine
-- **Intent-Aware Storage**: Understands the WHY of data storage
-- **Context-Rich Queries**: Processes the WHERE of data retrieval  
+### Database-Centric Architecture
+- **Semantic Storage**: Store meaning as 4D coordinates (LOVE, POWER, WISDOM, JUSTICE)
+- **Intent-Aware Queries**: Find concepts by their intent and meaning, not keywords
+- **Context-Rich Retrieval**: Context-aware semantic search across 8 domains
+- **Universal Anchor Navigation**: Navigate toward perfect ethical alignment
+- **Self-Aware Capabilities**: Database understands its own semantic relationships
+
+### ICE Framework Integration
+- **Intent Understanding**: Analyzes the WHY behind every stored concept
+- **Context Processing**: Processes the WHERE of every query operation
 - **Execution Validation**: Ensures behavioral alignment of responses
-- **7-Stage Processing Pipeline**: Full ICE semantic analysis
+- **7-Stage Pipeline**: Full ICE semantic analysis for all operations
 - **99.83% Semantic Integrity**: Meaning preservation guaranteed
-- **5 Execution Strategies**: Compassionate, Authoritative, Instructive, Corrective, Balanced
 
-### Advanced Semantic Database Features
-- **4D Coordinate Storage**: LOVE, POWER, WISDOM, JUSTICE axes
-- **Universal Anchor Point**: Jehovah at (1.0, 1.0, 1.0, 1.0)
-- **Multi-dimensional Proximity Queries**: Find meaning by semantic distance
-- **Context-Aware Semantic Search**: Search by meaning, not keywords
-- **Natural Language Operations**: No SQL required
-- **Self-Aware Capabilities**: Database understands its own structure
-
-### Ethical Transparency & Value Alignment
-- **Transparent Ethical Foundation**: Full disclosure of value anchors
-- **Value-Aligned Information System**: Every concept measured for alignment
-- **Universal Anchor Navigation**: Navigate toward perfect ethical balance
-- **Context Domain Processing**: 8 domains from Spiritual to Business
+### Advanced Database Features
+- **Natural Language Operations**: No SQL required for semantic queries
+- **Multi-dimensional Indexing**: Fast proximity-based semantic search
+- **Relationship Discovery**: Auto-discovers semantic relationships
+- **Semantic Clustering**: Groups related concepts automatically
+- **Performance Optimized**: Efficient semantic operations
 
 ## ⚡ Quick Start
 
 ### Installation
 ```bash
+# Install the Database (includes Engine dependency)
+pip install semantic-substrate-database
+
+# Or clone from source
 git clone https://github.com/BruinGrowly/Semantic-Substrate-Database.git
 cd Semantic-Substrate-Database
 pip install -r requirements.txt
@@ -47,58 +50,72 @@ pip install -r requirements.txt
 ```python
 from src import SemanticSubstrateDatabase
 
-# Initialize ICE-Centric database
+# Initialize the semantic database
 db = SemanticSubstrateDatabase("meaning.db")
 
 # Store semantic meaning
-db.store_meaning(
+concept_id = db.store_concept(
     "Show compassion to those who suffer",
-    coordinates=(0.9, 0.6, 0.8, 0.8),
-    intent="emotional_expression",
     context="spiritual"
 )
 
 # Query by meaning, not keywords
-results = db.semantic_search(
+results = db.search_semantic(
     "Help those in need",
-    thought_type="compassionate_action",
-    context_domain="ethical"
+    context="spiritual"
 )
 
 print(f"Found {len(results)} semantically related concepts")
 for result in results:
-    print(f"Meaning: {result['text']}")
-    print(f"Alignment: {result['divine_alignment']:.2%}")
-    print(f"Strategy: {result['execution_strategy']}")
+    print(f"Concept: {result['concept_text']}")
+    print(f"Semantic Similarity: {result['semantic_similarity']:.2%}")
+    print(f"Divine Alignment: {result['divine_resonance']:.2%}")
 ```
 
-### Advanced ICE Integration
+### Advanced Semantic Operations
 ```python
-from src import ICESemanticSubstrateEngine, UnifiedICEFramework
-
-# Use the full ICE-Centric engine
-engine = ICESemanticSubstrateEngine()
-result = engine.transform(
-    "Act with justice and compassion",
-    ThoughtType.ETHICAL_JUDGMENT,
-    ContextDomain.SPIRITUAL
+# Find concepts near universal anchor
+sacred_concepts = db.query_nearest_to_anchor(
+    anchor_id=1,  # Jehovah anchor
+    max_distance=0.5
 )
 
-# Store with complete ICE analysis
-db.store_ice_analysis(result)
+# Discover semantic relationships
+relationships = db.get_concept_relationships(concept_id)
 
-# Query with intent understanding
-responses = db.intent_based_query(
-    "How should I respond to suffering?",
-    expected_intent="compassionate_action"
+# Find semantic clusters
+clusters = db.find_semantic_clusters(
+    context="ethical",
+    max_distance=0.3
 )
+
+# Get database statistics
+stats = db.get_statistics()
+print(f"Total concepts: {stats['total_concepts']}")
+print(f"Total relationships: {stats['total_relationships']}")
 ```
 
 ## 📊 Database Architecture
 
-### ICE-Integrated Storage
+### Semantic Storage Schema
+```sql
+CREATE TABLE semantic_coordinates (
+    id INTEGER PRIMARY KEY,
+    concept_text TEXT NOT NULL,
+    context TEXT NOT NULL,
+    love REAL NOT NULL,      -- X-axis: Compassion, mercy
+    power REAL NOT NULL,     -- Y-axis: Strength, authority  
+    wisdom REAL NOT NULL,    -- Z-axis: Understanding, insight
+    justice REAL NOT NULL,   -- W-axis: Righteousness, fairness
+    divine_resonance REAL,
+    distance_from_jehovah REAL,
+    biblical_balance REAL
+);
 ```
-Input Text
+
+### ICE-Enhanced Processing
+```
+Input Query
     ↓
 ═══ INTENT PHASE ═══
 Extract semantic intent → Map to 4D coordinates
@@ -107,27 +124,9 @@ Extract semantic intent → Map to 4D coordinates
 Analyze domain → Align with universal anchor
     ↓
 ═══ EXECUTION PHASE ═══
-Determine strategy → Store with full metadata
+Query semantic space → Validate results
     ↓
-Database Entry (with ICE analysis)
-```
-
-### Semantic Schema
-```sql
-CREATE TABLE semantic_meanings (
-    id INTEGER PRIMARY KEY,
-    text TEXT NOT NULL,
-    love_coord REAL,
-    power_coord REAL, 
-    wisdom_coord REAL,
-    justice_coord REAL,
-    intent_type TEXT,
-    context_domain TEXT,
-    execution_strategy TEXT,
-    divine_alignment REAL,
-    semantic_integrity REAL,
-    created_at TIMESTAMP
-);
+Meaningful Results (with alignment metrics)
 ```
 
 ## 🔧 Components
@@ -137,12 +136,12 @@ CREATE TABLE semantic_meanings (
 - **`enhanced_semantic_database.py`**: Extended features and capabilities
 - **`meaning_based_database.py`**: Natural language operations
 
-### ICE Integration
-- **`ice_semantic_substrate_engine.py`**: Full ICE processing pipeline
-- **`unified_ice_framework.py`**: Biblical extensions and context processing
-- **`ultimate_core_engine.py`**: Comprehensive analysis capabilities
+### Specialized Modules
+- **`self_aware_semantic_engine.py`**: Self-awareness capabilities
+- **`deep_dive_database.py`**: Advanced analytics features
+- **`enhanced_core_components.py`**: Core semantic components
 
-### API & Services
+### API & Deployment
 - **`api/semantic_api.py`**: REST API for database operations
 - **`docker-compose.yml`**: Containerized deployment
 - **`Dockerfile`**: Production-ready container
@@ -158,39 +157,39 @@ CREATE TABLE semantic_meanings (
 
 ```bash
 # Core database tests
-python tests/test_all.py
-
-# ICE integration tests
 python tests/test_semantic_database.py
+
+# Integration tests with ICE Engine
+python tests/test_integration.py
+
+# Comprehensive test suite
+python tests/run_all_tests.py
 
 # API tests
 python api/test_api.py
-
-# Comprehensive test suite
-python run_all_tests.py
 ```
 
 ## 🎯 Use Cases
 
-### Knowledge Management Systems
-- Intent-driven knowledge organization
-- Context-aware semantic search
-- Meaning-based information retrieval
+### Knowledge Management
+- **Semantic Search**: Find information by meaning, not keywords
+- **Knowledge Organization**: Organize concepts by semantic relationships
+- **Intent-Based Retrieval**: Find content based on user intent
 
 ### AI Safety & Alignment Research
-- Value-aligned data storage
-- Ethical constraint enforcement
-- Transparent decision auditing
+- **Value-Aligned Storage**: Store knowledge with ethical alignment
+- **Semantic Integrity**: Track meaning preservation over time
+- **Transparent Decision Auditing**: Full traceability of semantic operations
 
 ### Enterprise Applications
-- Context-aware business intelligence
-- Value-aligned decision support
-- Semantic data governance
+- **Context-Aware BI**: Business intelligence with semantic understanding
+- **Value-Aligned AI**: Decision support with ethical considerations
+- **Semantic Data Governance**: Manage data meaning and relationships
 
-### Educational & Counseling Systems
-- Intent-based content delivery
-- Context-specific guidance
-- Ethical alignment tracking
+### Educational & Research Systems
+- **Concept Mapping**: Visualize semantic relationships
+- **Learning Analytics**: Track understanding and meaning development
+- **Research Organization**: Organize research by semantic relationships
 
 ## 🐳 Docker Deployment
 
@@ -233,10 +232,10 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ### Development Areas
 - Performance optimization for large-scale deployments
-- Additional context domains and execution strategies
+- Additional context domains and query strategies
 - Real-time semantic indexing
 - Distributed semantic database architecture
-- Advanced query optimization with ICE analysis
+- Advanced visualization tools for semantic relationships
 
 ---
 

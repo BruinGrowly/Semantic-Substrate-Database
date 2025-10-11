@@ -383,25 +383,6 @@ with open('knowledge_graph.json', 'w') as f:
 4. **"Zero-Configuration Knowledge Graphs"** (Semantic web - ISWC, WWW)
 5. **"Absolute Truth Anchoring in Semantic Systems"** (Philosophy of AI)
 
-### Market Opportunities
-
-**Target Markets**:
-- Database Market: $100B+
-- AI/ML Market: $200B+
-- Knowledge Graph Market: $10B+
-- Search Market: $50B+
-- Data Integration Market: $20B+
-
-**Total Addressable Market: $380B+**
-
-### Commercial Validation
-
-✅ **Solves multiple pain points** - Manual relationships → automatic
-✅ **Unique value proposition** - Only meaning-native database
-✅ **Strong moat** - Novel algorithms (patentable)
-✅ **Multiple revenue streams** - Licensing, SaaS, API, consulting
-✅ **Compelling demos** - Works on any domain, instant results
-
 ---
 
 ## Risk Assessment
@@ -430,22 +411,6 @@ Most risks are execution-focused, not fundamental technical limitations.
 
 ---
 
-## Next Steps for Commercialization
-
-### Immediate (3 Months)
-1. **Academic Paper** - Submit to VLDB or SIGMOD
-2. **Patent Application** - 4D semantic coordinate system, auto-discovery
-3. **Performance Benchmarks** - Compare to vector databases
-4. **Open Source Core** - Build community, get feedback
-
-### Medium Term (6-12 Months)
-1. **Enterprise Edition** - PostgreSQL backend, multi-user
-2. **Cloud Platform** - DBaaS offering, managed service
-3. **ML Integration** - Hybrid approach for enhanced accuracy
-4. **Partnerships** - Database vendors, cloud providers
-
----
-
 ## Conclusion
 
 The **Semantic Substrate Database** represents a fundamental breakthrough in computer science. It is:
@@ -455,15 +420,6 @@ The **Semantic Substrate Database** represents a fundamental breakthrough in com
 ✅ **Validated with real-world data**
 ✅ **Production-ready architecture**
 ✅ **Revolutionary innovation (9.6/10)**
-✅ **$380B+ market potential**
-
-This is not just a better database - it's **a new category of database** that:
-- Wins Turing Awards
-- Creates billion-dollar companies
-- Changes entire industries
-- Appears in computer science textbooks
-
-**Revolutionary Level: 🔥🔥🔥🔥🔥 MAXIMUM**
 
 ---
 

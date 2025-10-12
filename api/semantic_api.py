@@ -13,15 +13,19 @@ from fastapi import FastAPI, HTTPException, Depends, status, Query, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator, ConfigDict
 from typing import Optional, List, Dict, Any
 from datetime import datetime
+from pathlib import Path
 import sys
 import os
 from contextlib import asynccontextmanager
 
-# Add parent directory to path for imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Ensure the src package is importable
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SRC_DIR = PROJECT_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
 from semantic_substrate_database import SemanticSubstrateDatabase
 from baseline_biblical_substrate import BiblicalCoordinates
 
@@ -34,20 +38,22 @@ class ConceptCreate(BaseModel):
     text: str = Field(..., min_length=1, max_length=500, description="Concept text")
     context: str = Field(default="biblical", description="Semantic context")
 
-    @validator('context')
-    def validate_context(cls, v):
-        allowed = ['biblical', 'educational', 'business', 'scientific', 'general']
-        if v not in allowed:
-            raise ValueError(f'Context must be one of: {", ".join(allowed)}')
-        return v
-
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "text": "love",
                 "context": "biblical"
             }
         }
+    )
+
+    @field_validator('context')
+    @classmethod
+    def validate_context(cls, v: str) -> str:
+        allowed = ['biblical', 'educational', 'business', 'scientific', 'general']
+        if v not in allowed:
+            raise ValueError(f'Context must be one of: {", ".join(allowed)}')
+        return v
 
 
 class ConceptResponse(BaseModel):
@@ -61,9 +67,9 @@ class ConceptResponse(BaseModel):
     biblical_balance: float
     created_at: str
     updated_at: str
-
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        from_attributes=True,
+        json_schema_extra={
             "example": {
                 "id": 1,
                 "text": "love",
@@ -81,6 +87,7 @@ class ConceptResponse(BaseModel):
                 "updated_at": "2025-10-10T12:00:00"
             }
         }
+    )
 
 
 class SemanticSearchRequest(BaseModel):
@@ -89,14 +96,15 @@ class SemanticSearchRequest(BaseModel):
     context: str = Field(default="biblical", description="Search context")
     limit: int = Field(default=10, ge=1, le=100, description="Max results")
 
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "query": "compassion and kindness",
                 "context": "biblical",
                 "limit": 10
             }
         }
+    )
 
 
 class SemanticSearchResult(BaseModel):
@@ -108,6 +116,24 @@ class SemanticSearchResult(BaseModel):
     query_alignment: float
     coordinates: Dict[str, float]
     divine_resonance: float
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "concept_text": "love",
+                "context": "biblical",
+                "semantic_distance": 0.12,
+                "semantic_similarity": 0.88,
+                "query_alignment": 0.82,
+                "coordinates": {
+                    "love": 0.92,
+                    "power": 0.40,
+                    "wisdom": 0.74,
+                    "justice": 0.66
+                },
+                "divine_resonance": 0.87
+            }
+        }
+    )
 
 
 class ProximityQueryRequest(BaseModel):
@@ -117,8 +143,9 @@ class ProximityQueryRequest(BaseModel):
     context: Optional[str] = Field(None, description="Filter by context")
     limit: int = Field(default=10, ge=1, le=100, description="Max results")
 
-    @validator('coordinates')
-    def validate_coordinates(cls, v):
+    @field_validator('coordinates')
+    @classmethod
+    def validate_coordinates(cls, v: Dict[str, float]) -> Dict[str, float]:
         required = ['love', 'power', 'wisdom', 'justice']
         if not all(k in v for k in required):
             raise ValueError(f'Coordinates must contain: {", ".join(required)}')
@@ -127,8 +154,8 @@ class ProximityQueryRequest(BaseModel):
                 raise ValueError('Coordinate values must be between 0.0 and 1.0')
         return v
 
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "coordinates": {
                     "love": 0.9,
@@ -141,18 +168,20 @@ class ProximityQueryRequest(BaseModel):
                 "limit": 10
             }
         }
+    )
 
 
 class SacredNumberCreate(BaseModel):
     """Schema for creating sacred number"""
     value: float = Field(..., description="Number value")
 
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "value": 7
             }
         }
+    )
 
 
 class SacredNumberResponse(BaseModel):
@@ -163,6 +192,7 @@ class SacredNumberResponse(BaseModel):
     sacred_resonance: float
     biblical_significance: float
     divine_attributes: Dict[str, float]
+    model_config = ConfigDict(from_attributes=True)
 
 
 class StatisticsResponse(BaseModel):
@@ -176,6 +206,7 @@ class StatisticsResponse(BaseModel):
     avg_distance_from_jehovah: float
     avg_biblical_balance: float
     context_distribution: Dict[str, int]
+    model_config = ConfigDict(from_attributes=True)
 
 
 class HealthResponse(BaseModel):
@@ -184,6 +215,7 @@ class HealthResponse(BaseModel):
     timestamp: str
     database_connected: bool
     engine_version: str
+    model_config = ConfigDict(from_attributes=True)
 
 
 class ErrorResponse(BaseModel):
@@ -191,6 +223,15 @@ class ErrorResponse(BaseModel):
     error: str
     detail: Optional[str] = None
     timestamp: str
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "error": "Internal server error",
+                "detail": "Database unavailable",
+                "timestamp": "2025-10-10T12:00:00"
+            }
+        }
+    )
 
 
 # ============================================================================

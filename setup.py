@@ -38,7 +38,8 @@ setup(
         "Source Code": "https://github.com/BruinGrowly/Semantic-Substrate-Database",
         "Engine": "https://github.com/BruinGrowly/Semantic-Substrate-Engine",
     },
-    packages=find_packages(exclude=["tests", "tests.*", "examples", "examples.*"]),
+    package_dir={"": "src"},
+    packages=find_packages(where="src", exclude=["tests", "tests.*", "examples", "examples.*"]),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
@@ -64,13 +65,18 @@ setup(
             'pylint>=2.12.0',
             'black>=22.0.0',
             'mypy>=0.950',
+            'httpx>=0.25.1',
         ],
         'viz': [
             'matplotlib>=3.4.0',
         ],
         'api': [
-            'flask>=2.0.0',
-            'requests>=2.25.0',
+            'fastapi>=0.104.1',
+            'uvicorn[standard]>=0.24.0',
+            'pydantic>=2.5.0',
+            'python-multipart>=0.0.6',
+            'python-jose[cryptography]>=3.3.0',
+            'passlib[bcrypt]>=1.7.4',
         ],
     },
     keywords=[

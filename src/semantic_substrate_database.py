@@ -23,6 +23,7 @@ import numpy as np
 import pickle
 import hashlib
 import math
+import importlib.util
 from typing import Dict, List, Tuple, Optional, Any, Union
 from datetime import datetime
 from pathlib import Path
@@ -34,7 +35,7 @@ class _SacredNumberFallback:
     """Fallback SacredNumber class with all required methods"""
     def __init__(self, value):
         self.value = value
-        self.is_sacred = True if value in [1, 3, 7, 12, 21, 40, 42, 66, 77] else False
+        self.is_sacred = True if value in [1, 3, 7, 12, 21, 40, 42, 66, 77, 613] else False
         self.sacred_resonance = 0.9 if self.is_sacred else 0.1
         self.biblical_significance = self._get_biblical_meaning()
         self.divine_attributes = {
@@ -60,7 +61,8 @@ class _SacredNumberFallback:
             40: "Probation, Testing",
             42: "Israel's oppression, Coming of Messiah",
             66: "Idolatry, Imperfection",
-            77: "Perfect order, Resurrection"
+            77: "Perfect order, Resurrection",
+            613: "Divine law completeness, Torah commandments"
         }
         return meanings.get(self.value, "Unknown")
     
@@ -88,7 +90,7 @@ class SacredNumberWrapper:
         
         if engine_instance is None:
             # Use our fallback implementation
-            self._is_sacred = True if value in [1, 3, 7, 12, 21, 40, 42, 66, 77] else False
+            self._is_sacred = True if value in [1, 3, 7, 12, 21, 40, 42, 66, 77, 613] else False
             self._sacred_resonance = 0.9 if self._is_sacred else 0.1
             self._biblical_significance = self._get_biblical_meaning()
             self._divine_attributes = {
@@ -146,7 +148,8 @@ class SacredNumberWrapper:
             40: "Probation, Testing",
             42: "Israel's oppression, Coming of Messiah",
             66: "Idolatry, Imperfection",
-            77: "Perfect order, Resurrection"
+            77: "Perfect order, Resurrection",
+            613: "Divine law completeness, Torah commandments"
         }
         return meanings.get(self.value, "Unknown")
     
@@ -195,22 +198,26 @@ class SacredNumberWrapper:
     # Delegate other attributes to engine if available
     def __getattr__(self, name):
         """Delegate to the engine SacredNumber if available"""
-        if hasattr(self, '_engine'):
-            return getattr(self._engine, name)
+        engine = self.__dict__.get('_engine')
+        if engine is not None:
+            return getattr(engine, name)
         raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
     
     def __setattr__(self, name, value):
         """Set attributes appropriately"""
         if name.startswith('_'):
             object.__setattr__(self, name, value)
-        elif hasattr(self, '_engine') and hasattr(self._engine, name):
-            setattr(self._engine, name, value)
         else:
-            object.__setattr__(self, '_' + name, value)
+            engine = self.__dict__.get('_engine')
+            if engine is not None and hasattr(engine, name):
+                setattr(engine, name, value)
+            else:
+                object.__setattr__(self, '_' + name, value)
 
 
 # Import from Semantic Substrate Engine package
-SacredNumber = _SacredNumberFallback  # Always use our wrapper for consistency
+ENGINE_AVAILABLE = False
+_EngineSacredNumber = None
 try:
     # Try multiple import approaches
     import os
@@ -249,28 +256,30 @@ try:
                 UltimateCoreEngine,
                 SacredNumber as EngineSacredNumber
             )
-            # Wrap SacredNumber to ensure all methods are available
-            def SacredNumberWrapper(value):
-                engine_instance = EngineSacredNumber(value)
-                return SacredNumberWrapper(value, engine_instance)
+            _EngineSacredNumber = EngineSacredNumber
             ENGINE_AVAILABLE = True
             print("[SEMANTIC DB] Semantic Substrate Engine loaded from package")
         else:
             from baseline_biblical_substrate import BiblicalCoordinates, BiblicalSemanticSubstrate
             try:
-                from ultimate_core_engine import UltimateCoreEngine
-                from ice_framework import ThoughtType, ContextDomain
-                from unified_ice_framework import UnifiedICEFramework
-                from ice_semantic_substrate_engine import ICESemanticSubstrateEngine
+                from ultimate_core_engine import UltimateCoreEngine  # noqa: F401
+                from ice_framework import ThoughtType, ContextDomain  # noqa: F401
+                from unified_ice_framework import UnifiedICEFramework  # noqa: F401
+                from ice_semantic_substrate_engine import ICESemanticSubstrateEngine  # noqa: F401
+                try:
+                    from enhanced_core_components import SacredNumber as EngineSacredNumber  # type: ignore[attr-defined]
+                    _EngineSacredNumber = EngineSacredNumber
+                except Exception:
+                    _EngineSacredNumber = None
                 ENGINE_AVAILABLE = True
                 print("[SEMANTIC DB] Semantic Substrate Engine loaded from local source")
-            except ImportError as e:
+            except Exception as e:
                 ENGINE_AVAILABLE = False
                 print(f"[SEMANTIC DB] Advanced engine components not available: {e}")
     else:
         ENGINE_AVAILABLE = False
         
-except ImportError as e:
+except Exception as e:
     ENGINE_AVAILABLE = False
     print(f"[SEMANTIC DB] Engine not available: {e}")
 
@@ -311,6 +320,17 @@ if not ENGINE_AVAILABLE:
     print("[SEMANTIC DB] Attempting to use local fallback components...")
 
 
+def SacredNumber(value, *engine_args, **engine_kwargs):
+    """Create a SacredNumber instance using engine implementation when available."""
+    engine_instance = None
+    if _EngineSacredNumber:
+        try:
+            engine_instance = _EngineSacredNumber(value, *engine_args, **engine_kwargs)
+        except TypeError:
+            engine_instance = _EngineSacredNumber(value)
+    return SacredNumberWrapper(value, engine_instance)
+
+
 class SemanticSubstrateDatabase:
     """
     Revolutionary Semantic Database Engine
@@ -324,6 +344,7 @@ class SemanticSubstrateDatabase:
         self.db_path = db_path
         self.conn = None
         self.cache = {}  # In-memory cache for hot data
+        self._local_baseline_module = None
         self._transaction_active = False  # Track transaction state
         self._savepoints = []  # Stack of savepoints for nested transactions
         
@@ -371,6 +392,12 @@ class SemanticSubstrateDatabase:
             except Exception as e:
                 print(f"[SEMANTIC DB] Final fallback initialization failed: {e}")
                 self.engine_available = False
+
+        # Maintain a dedicated baseline engine for semantic blending
+        try:
+            self.baseline_engine = BiblicalSemanticSubstrate()
+        except Exception:
+            self.baseline_engine = None
 
         # Initialize database
         self._initialize_database()
@@ -557,15 +584,52 @@ class SemanticSubstrateDatabase:
         """
         cursor = self.conn.cursor()
 
+        def _to_biblical_coords(source) -> BiblicalCoordinates:
+            if isinstance(source, BiblicalCoordinates):
+                return BiblicalCoordinates(source.love, source.power, source.wisdom, source.justice)
+            return BiblicalCoordinates(
+                getattr(source, 'love', 0.0),
+                getattr(source, 'power', 0.0),
+                getattr(source, 'wisdom', 0.0),
+                getattr(source, 'justice', 0.0)
+            )
+
         if auto_analyze:
             # Analyze using SSE engine with fallback compatibility
             if self.engine_available and hasattr(self.engine, 'core_engine'):
                 # UltimateCoreEngine path
                 result = self.engine.core_engine.analyze_concept(text, context)
-                coords = result
+                coords = _to_biblical_coords(result)
+
+                # Blend with enhanced biblical substrate for semantic richness
+                if getattr(self, 'baseline_engine', None) is None:
+                    try:
+                        if self._local_baseline_module is None:
+                            module_path = Path(__file__).resolve().parent / "baseline_biblical_substrate.py"
+                            spec = importlib.util.spec_from_file_location(
+                                "local_baseline_biblical_substrate",
+                                module_path
+                            )
+                            if spec and spec.loader:
+                                module = importlib.util.module_from_spec(spec)
+                                spec.loader.exec_module(module)
+                                self._local_baseline_module = module
+                        if self._local_baseline_module:
+                            self.baseline_engine = self._local_baseline_module.BiblicalSemanticSubstrate()  # type: ignore[attr-defined]
+                    except Exception:
+                        self.baseline_engine = None
+
+                if getattr(self, 'baseline_engine', None):
+                    baseline = _to_biblical_coords(self.baseline_engine.analyze_concept(text, context))
+                    coords = BiblicalCoordinates(
+                        min(1.0, (coords.love + baseline.love) / 2.0),
+                        min(1.0, (coords.power + baseline.power) / 2.0),
+                        min(1.0, (coords.wisdom + baseline.wisdom) / 2.0),
+                        min(1.0, (coords.justice + baseline.justice) / 2.0)
+                    )
             else:
                 # BiblicalSemanticSubstrate fallback
-                coords = self.engine.analyze_concept(text, context)
+                coords = _to_biblical_coords(self.engine.analyze_concept(text, context))
         else:
             # Must provide coordinates manually
             raise ValueError("Manual coordinate specification not yet implemented")

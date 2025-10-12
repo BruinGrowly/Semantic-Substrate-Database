@@ -10,19 +10,34 @@ This creates the world's first self-aware, meaning-native database with
 full thought-to-execution capabilities.
 """
 
-from semantic_substrate_database import SemanticSubstrateDatabase
-from self_aware_semantic_engine import (
-    SelfAwareSemanticSubstrateEngine,
-    SelfAwareBiblicalCoordinates
-)
-from ice_framework import (
-    ICEFramework,
-    ThoughtType,
-    ContextDomain,
-    Intent,
-    Context,
-    Execution
-)
+try:
+    from .semantic_substrate_database import SemanticSubstrateDatabase
+    from .self_aware_semantic_engine import (
+        SelfAwareSemanticSubstrateEngine,
+        SelfAwareBiblicalCoordinates,
+    )
+    from .ice_framework import (
+        ICEFramework,
+        ThoughtType,
+        ContextDomain,
+        Intent,
+        Context,
+        Execution,
+    )
+except ImportError:  # pragma: no cover - fallback for direct execution
+    from semantic_substrate_database import SemanticSubstrateDatabase  # type: ignore
+    from self_aware_semantic_engine import (  # type: ignore
+        SelfAwareSemanticSubstrateEngine,
+        SelfAwareBiblicalCoordinates,
+    )
+    from ice_framework import (  # type: ignore
+        ICEFramework,
+        ThoughtType,
+        ContextDomain,
+        Intent,
+        Context,
+        Execution,
+    )
 from typing import Dict, List, Any, Optional, Tuple
 import math
 

@@ -17,10 +17,19 @@ Revolutionary Capabilities:
 import json
 from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass
-from enhanced_semantic_database import EnhancedSemanticSubstrateDatabase
-from meaning_based_programming import MeaningSpecification, MeaningBasedExecutor
-from ice_framework import ThoughtType, ContextDomain
-from semantic_substrate_database import BiblicalCoordinates
+try:
+    from .enhanced_semantic_database import EnhancedSemanticSubstrateDatabase
+    from .meaning_based_programming import MeaningSpecification, MeaningBasedExecutor
+    from .ice_framework import ThoughtType, ContextDomain
+    from .semantic_substrate_database import BiblicalCoordinates
+except ImportError:  # pragma: no cover - fallback for direct execution
+    from enhanced_semantic_database import EnhancedSemanticSubstrateDatabase  # type: ignore
+    from meaning_based_programming import (  # type: ignore
+        MeaningSpecification,
+        MeaningBasedExecutor,
+    )
+    from ice_framework import ThoughtType, ContextDomain  # type: ignore
+    from semantic_substrate_database import BiblicalCoordinates  # type: ignore
 import math
 
 

@@ -9,7 +9,7 @@ pip install semantic-substrate-engine
 """
 
 from .semantic_substrate_database import SemanticSubstrateDatabase
-from .enhanced_semantic_database import EnhancedSemanticDatabase
+from .enhanced_semantic_database import EnhancedSemanticSubstrateDatabase
 from .meaning_based_database import MeaningBasedDatabase
 
 # Database version
@@ -19,9 +19,12 @@ __license__ = "MIT"
 
 __all__ = [
     "SemanticSubstrateDatabase",
-    "EnhancedSemanticDatabase", 
+    "EnhancedSemanticSubstrateDatabase",
     "MeaningBasedDatabase"
 ]
+
+# Backwards compatibility alias
+EnhancedSemanticDatabase = EnhancedSemanticSubstrateDatabase
 
 # Note: ICE Framework components are imported from semantic_substrate_engine package
 # For full ICE functionality, install: pip install semantic-substrate-engine

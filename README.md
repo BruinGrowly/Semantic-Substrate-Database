@@ -1,140 +1,110 @@
-# Semantic Substrate Database v2.0 - ICE-Centric Database System
+# Semantic Substrate Database
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Database](https://img.shields.io/badge/Database-Semantic-brightgreen.svg)](https://github.com/BruinGrowly/Semantic-Substrate-Database)
-[![Open Source](https://img.shields.io/badge/Open%20Source-100%25-brightgreen.svg)](https://github.com/BruinGrowly/Semantic-Substrate-Database)
-[![ICE Engine](https://img.shields.io/badge/Engine-ICE--Centric-red.svg)](https://github.com/BruinGrowly/Semantic-Substrate-Engine)
+Semantic Substrate Database (SSDB) is an experimental semantic storage engine that layers
+traditional relational persistence with lightweight models for intent, context, and execution.
+It ships with several progressively richer database front-ends, a bundle of integration tests,
+and a FastAPI surface for programmatic access.
 
-**The World's First ICE-Centric Semantic Database**
+> This repository is not a drop-in replacement for a production-grade database. It is a research
+> playground that explores ideas around value-aligned storage, semantic coordinates, and
+> self-describing data flows.
 
-A revolutionary database system that stores and queries semantic meaning using the **ICE (Intent-Context-Execution)** framework with 4D divine coordinate system. Built on [Semantic Substrate Engine v3.0](https://github.com/BruinGrowly/Semantic-Substrate-Engine).
+## Feature Highlights
+- **SQLite-backed persistence** with schema management, backups, and export tooling.
+- **Semantic coordinate system** that maps concepts onto four axes: love, power, wisdom, and justice.
+- **Sacred number model** with deterministic fallbacks when the external engine is unavailable.
+- **ICE framework integration** for translating high-level “thoughts” into executable database actions.
+- **Meaning-based programming layer** that turns declarative specifications into stored operations.
+- **FastAPI service** (`api/semantic_api.py`) exposing CRUD, search, and analytics endpoints.
+- **Comprehensive tests** covering core storage, semantic queries, backups, and the extended layers.
 
-## 🚀 Key Features
+## Semantic Coordinate Engine
+SSDB computes love/power/wisdom/justice coordinates by combining:
+- the legacy biblical keyword heuristics,
+- a modern-language keyword map (e.g. `analytical`, `clarity`, `ethical`), and
+- ICE Framework intent/context analysis.
 
-### Database-Centric Architecture
-- **Semantic Storage**: Store meaning as 4D coordinates (LOVE, POWER, WISDOM, JUSTICE)
-- **Intent-Aware Queries**: Find concepts by their intent and meaning, not keywords
-- **Context-Rich Retrieval**: Context-aware semantic search across 8 domains
-- **Universal Anchor Navigation**: Navigate toward perfect ethical alignment
-- **Self-Aware Capabilities**: Database understands its own semantic relationships
+Two environment variables let you adjust how much weight the new layers carry:
 
-### ICE Framework Integration
-- **Intent Understanding**: Analyzes the WHY behind every stored concept
-- **Context Processing**: Processes the WHERE of every query operation
-- **Execution Validation**: Ensures behavioral alignment of responses
-- **7-Stage Pipeline**: Full ICE semantic analysis for all operations
-- **99.83% Semantic Integrity**: Meaning preservation guaranteed
+> Optional semantic embeddings: Set `SSDB_USE_EMBEDDINGS=1` and install `sentence-transformers` to blend sentence embeddings with the heuristic coordinates.
 
-## ⚡ Quick Start
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SSDB_SEMANTIC_WEIGHT` | `0.35` | Contribution from the modern keyword map |
+| `SSDB_ICE_WEIGHT` | `0.35` | Contribution from ICE Framework execution coordinates |
+| `SSDB_USE_EMBEDDINGS` | `false` | Enable sentence-transformer semantic similarity (requires `sentence-transformers`) |
+| `SSDB_EMBEDDING_MODEL` | `all-MiniLM-L6-v2` | HuggingFace model name when embeddings are enabled |
+| `SSDB_EMBEDDING_WEIGHT` | `0.25` | Contribution of embedding similarity to coordinates |
 
-### Installation
+Values are clamped to the range `[0.0, 1.0]`. Set them before starting the API or running ingestion jobs if you need more conservative or aggressive semantic blending.
+
+## Repository Layout
+- `src/` – Library source code. `semantic_substrate_database.py` is the primary entry point.
+- `api/` – FastAPI service and accompanying tests.
+- `examples/` – Executable scripts demonstrating the layered database interfaces.
+- `tests/` – PyTest suites for core, integration, and deep-dive features.
+- `docs/` – Background material, including the ethical-foundation narrative.
+- `docker-compose.yml` / `Dockerfile` – Container tooling for API demos and test runs.
+
+## Quick Start
 ```bash
-# Install the Database (includes Engine dependency)
-pip install semantic-substrate-database
-
-# Or clone from source
 git clone https://github.com/BruinGrowly/Semantic-Substrate-Database.git
 cd Semantic-Substrate-Database
+python -m venv .venv
+.venv\Scripts\activate  # PowerShell on Windows (use `source .venv/bin/activate` on Unix)
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### Basic Database Usage
+### Basic Usage
 ```python
-from src import SemanticSubstrateDatabase
+from semantic_substrate_database import SemanticSubstrateDatabase
 
-# Initialize the semantic database
-db = SemanticSubstrateDatabase("meaning.db")
-
-# Store semantic meaning
-concept_id = db.store_concept(
-    "Show compassion to those who suffer",
-    context="spiritual"
-)
-
-# Query by meaning, not keywords
-results = db.search_semantic(
-    "Help those in need",
-    context="spiritual"
-)
-
-print(f"Found {len(results)} semantically related concepts")
-for result in results:
-    print(f"Concept: {result['concept_text']}")
-    print(f"Semantic Similarity: {result['semantic_similarity']:.2%}")
-    print(f"Divine Alignment: {result['divine_resonance']:.2%}")
+db = SemanticSubstrateDatabase("semantic.db")
+concept_id = db.store_concept("Show compassion to those who suffer", context="ethics")
+related = db.query_by_text("compassion", context="ethics")
+db.store_sacred_number(613)
+stats = db.get_statistics()
+db.close()
 ```
 
-## 📊 Database Architecture
-
-### Semantic Storage Schema
-```sql
-CREATE TABLE semantic_coordinates (
-    id INTEGER PRIMARY KEY,
-    concept_text TEXT NOT NULL,
-    context TEXT NOT NULL,
-    love REAL NOT NULL,      -- X-axis: Compassion, mercy
-    power REAL NOT NULL,     -- Y-axis: Strength, authority  
-    wisdom REAL NOT NULL,    -- Z-axis: Understanding, insight
-    justice REAL NOT NULL,   -- W-axis: Righteousness, fairness
-    divine_resonance REAL,
-    distance_from_jehovah REAL,
-    biblical_balance REAL
-);
-```
-
-## 🔧 Components
-
-### Database Core
-- **`semantic_substrate_database.py`**: Main ICE-Centric database engine
-- **`enhanced_semantic_database.py`**: Extended features and capabilities
-- **`meaning_based_database.py`**: Natural language operations
-
-### API & Deployment
-- **`api/semantic_api.py`**: REST API for database operations
-- **`docker-compose.yml`**: Containerized deployment
-- **`Dockerfile`**: Production-ready container
-
-## 📚 Documentation
-
-- [Ethical Foundation & Transparency](docs/ETHICAL_FOUNDATION.md)
-- [Docker Deployment Guide](docs/DOCKER.md) 
-- [API Documentation](api/API_README.md)
-- [Examples & Tutorials](examples/)
-
-## 🧪 Testing
-
+Run a richer demonstration:
 ```bash
-# Core database tests
-python tests/test_semantic_database.py
-
-# Integration tests with ICE Engine
-python tests/test_integration.py
-
-# Comprehensive test suite
-python tests/run_all_tests.py
-
-# API tests
-python api/test_api.py
+python src/semantic_substrate_database.py
 ```
 
-## 📄 License
+## Running Tests
+```bash
+python -m pytest
+```
+Large suites (for example `tests/test_deep_dive_database.py`) touch many subsystems, so expect the
+full run to take several minutes.
 
-**MIT License** - Copyright (c) 2025 BruinGrowly
+## API Service
+```bash
+pip install -r api/requirements.txt  # Optional, installs pinned API versions
+uvicorn api.semantic_api:app --reload
+```
+Visit `http://localhost:8000/docs` for interactive documentation.
 
-Free and open source with no commercial restrictions.
+## Docker Tooling
+```bash
+# Build the image
+docker build -t semantic-substrate-db .
 
-## 🔗 Dependencies
+# Run the bundled demonstration
+docker run --rm -v %CD%\data:/app/data semantic-substrate-db
 
-- **[Semantic Substrate Engine](https://github.com/BruinGrowly/Semantic-Substrate-Engine)** v3.0+ - Core ICE framework
-- **SQLite** - Embedded database storage
-- **NumPy/SciPy** - Mathematical operations
-- **Optional: Flask** - REST API server
+# Run the test profile defined in docker-compose
+docker compose --profile test run --rm ssdb-test
+```
+The default image command executes the core demonstration script. Use `docker compose up ssdb`
+to start the API stack with code mounted for live development.
 
----
+## Contributing
+Issues and pull requests are welcome. Please open a ticket describing the change before submitting
+large patches. When contributing code, run `python -m pytest` and ensure style tools (pylint, black,
+mypy) report clean output.
 
-**Semantic Substrate Database v2.0 - ICE-Centric**
-
-**Built on Semantic Substrate Engine v3.0**: Intent → Context → Execution
-
-**The difference is stored, retrieved, and validated.**
+## License
+MIT © 2025 BruinGrowly

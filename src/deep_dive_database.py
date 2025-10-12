@@ -19,13 +19,28 @@ Revolutionary Capabilities:
 import json
 from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass
-from meaning_based_database import MeaningBasedDatabase
-from deep_dive_meaning_scaffold import (
-    MeaningUnit, MeaningScaffoldProcessor, MeaningProgram,
-    MeaningBasedRuntime, ScaffoldLayer
-)
-from ice_framework import ThoughtType, ContextDomain
-from semantic_substrate_database import BiblicalCoordinates
+try:
+    from .meaning_based_database import MeaningBasedDatabase
+    from .deep_dive_meaning_scaffold import (
+        MeaningUnit,
+        MeaningScaffoldProcessor,
+        MeaningProgram,
+        MeaningBasedRuntime,
+        ScaffoldLayer,
+    )
+    from .ice_framework import ThoughtType, ContextDomain
+    from .semantic_substrate_database import BiblicalCoordinates
+except ImportError:  # pragma: no cover - fallback for direct execution
+    from meaning_based_database import MeaningBasedDatabase  # type: ignore
+    from deep_dive_meaning_scaffold import (  # type: ignore
+        MeaningUnit,
+        MeaningScaffoldProcessor,
+        MeaningProgram,
+        MeaningBasedRuntime,
+        ScaffoldLayer,
+    )
+    from ice_framework import ThoughtType, ContextDomain  # type: ignore
+    from semantic_substrate_database import BiblicalCoordinates  # type: ignore
 import time
 
 

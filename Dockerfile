@@ -36,8 +36,8 @@ ENV SSDB_DATA_DIR=/app/data
 # Expose port for potential API server (future enhancement)
 EXPOSE 8000
 
-# Default command: run ultimate demonstration
-CMD ["python", "ultimate_demonstration.py"]
+# Default command: run core demonstration
+CMD ["python", "src/semantic_substrate_database.py"]
 
 # Alternative commands:
 # Run basic example: docker run ssdb python examples/basic_example.py

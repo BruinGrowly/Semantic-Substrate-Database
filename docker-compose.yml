@@ -9,12 +9,10 @@ services:
     volumes:
       # Persist database files
       - ./data:/app/data
-      # Mount custom configurations (optional)
-      - ./config:/app/config:ro
     environment:
       - SSDB_DATA_DIR=/app/data
       - PYTHONUNBUFFERED=1
-    command: python ultimate_demonstration.py
+    command: python src/semantic_substrate_database.py
     restart: unless-stopped
 
   # Interactive development container
@@ -41,7 +39,7 @@ services:
     profiles: ["test"]
     volumes:
       - .:/app
-    command: /bin/bash -c "python test_semantic_database.py && python test_enhanced_database.py && python test_meaning_based_database.py && python test_deep_dive_database.py"
+    command: /bin/bash -c "python -m pytest"
 
 volumes:
   ssdb-data:

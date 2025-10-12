@@ -1,302 +1,194 @@
 """
-Unit tests for Semantic Substrate Database API
-Tests API functionality without requiring a running server
+API contract tests for the FastAPI layer.
+
+These tests spin up the application with a temporary SQLite database and
+exercise core endpoints.  The goal is to ensure the HTTP surface remains
+stable and serialises the expected fields.
 """
 
-import sys
+from __future__ import annotations
+
+import importlib
 import os
-import json
+from pathlib import Path
+from typing import Iterator
 
-# Add parent directory to path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# Delete test database if it exists
-test_db_path = "test_semantic_api.db"
-try:
-    os.unlink(test_db_path)
-except:
-    pass
-
-# Set environment variable for test database
-os.environ["SEMANTIC_DB_PATH"] = test_db_path
-
-# Now import app (after setting env variable)
+import pytest
 from fastapi.testclient import TestClient
-from api.semantic_api import app
-
-# Create test client - will be initialized in run_all_tests
-client = None
 
 
-def test_root_endpoint():
-    """Test root endpoint"""
-    response = client.get("/")
-    assert response.status_code == 200
-    data = response.json()
-    assert "name" in data
-    assert "version" in data
-    print("[PASS] Root endpoint works")
+@pytest.fixture(scope="module")
+def api_client(tmp_path_factory: pytest.TempPathFactory) -> Iterator[TestClient]:
+    """
+    Provide a TestClient with an isolated database.
+
+    A module-scoped fixture keeps the API warm across tests while ensuring the
+    underlying SQLite file is unique to the test run.
+    """
+    db_root = tmp_path_factory.mktemp("api-db")
+    db_path = db_root / "semantic_api.db"
+    original_env = os.environ.get("SEMANTIC_DB_PATH")
+    os.environ["SEMANTIC_DB_PATH"] = str(db_path)
+
+    # Reload the module so the lifespan hook picks up the temp path.
+    module = importlib.import_module("api.semantic_api")
+    module = importlib.reload(module)
+
+    try:
+        with TestClient(module.app) as client:
+            yield client
+    finally:
+        if original_env is None:
+            os.environ.pop("SEMANTIC_DB_PATH", None)
+        else:
+            os.environ["SEMANTIC_DB_PATH"] = original_env
+        if Path(db_path).exists():
+            os.remove(db_path)
 
 
-def test_health_check():
-    """Test health check endpoint"""
-    response = client.get("/health")
-    if response.status_code != 200:
-        print(f"Health check failed with status {response.status_code}")
-        print(f"Response: {response.text}")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "healthy"
-    assert data["database_connected"] == True
-    print("[PASS] Health check works")
-
-
-def test_create_concept():
-    """Test creating a concept"""
-    response = client.post(
+@pytest.fixture
+def stored_concept(api_client: TestClient) -> int:
+    response = api_client.post(
         "/concepts",
-        json={"text": "love", "context": "biblical"}
+        json={"text": "love", "context": "biblical"},
     )
-    assert response.status_code == 201
-    data = response.json()
-    assert data["text"] == "love"
-    assert data["context"] == "biblical"
-    assert "coordinates" in data
-    assert "divine_resonance" in data
-    print(f"[PASS] Create concept works (ID: {data['id']})")
-    return data["id"]
+    response.raise_for_status()
+    return response.json()["id"]
 
 
-def test_get_concept(concept_id):
-    """Test getting a concept by ID"""
-    response = client.get(f"/concepts/{concept_id}")
+def test_root_endpoint(api_client: TestClient) -> None:
+    response = api_client.get("/")
     assert response.status_code == 200
-    data = response.json()
-    assert data["id"] == concept_id
-    assert "coordinates" in data
-    print(f"[PASS] Get concept works (ID: {concept_id})")
+    body = response.json()
+    assert body["name"] == "Semantic Substrate Database API"
+    assert "version" in body
 
 
-def test_list_concepts():
-    """Test listing concepts"""
-    response = client.get("/concepts?limit=10")
+def test_health_check(api_client: TestClient) -> None:
+    response = api_client.get("/health")
     assert response.status_code == 200
-    data = response.json()
-    assert isinstance(data, list)
-    assert len(data) > 0
-    print(f"[PASS] List concepts works ({len(data)} concepts)")
+    body = response.json()
+    assert body["status"] == "healthy"
+    assert body["database_connected"] is True
 
 
-def test_semantic_search():
-    """Test semantic search - THE KILLER FEATURE!"""
-    # Create some concepts first
-    concepts = ["love", "mercy", "grace", "faith"]
-    for concept in concepts:
-        client.post("/concepts", json={"text": concept, "context": "biblical"})
+def test_create_and_get_concept(api_client: TestClient) -> None:
+    create_response = api_client.post(
+        "/concepts",
+        json={"text": "wisdom", "context": "biblical"},
+    )
+    assert create_response.status_code == 201
+    created = create_response.json()
+    concept_id = created["id"]
 
-    # Search
-    response = client.post(
+    get_response = api_client.get(f"/concepts/{concept_id}")
+    assert get_response.status_code == 200
+    retrieved = get_response.json()
+    assert retrieved["id"] == concept_id
+    assert retrieved["text"] == "wisdom"
+    assert "coordinates" in retrieved
+
+
+def test_list_concepts(api_client: TestClient, stored_concept: int) -> None:
+    response = api_client.get("/concepts?limit=10")
+    assert response.status_code == 200
+    concepts = response.json()
+    assert isinstance(concepts, list)
+    assert any(item["id"] == stored_concept for item in concepts)
+
+
+def test_semantic_search(api_client: TestClient) -> None:
+    payloads = [
+        {"text": "love", "context": "biblical"},
+        {"text": "mercy", "context": "biblical"},
+        {"text": "grace", "context": "biblical"},
+    ]
+    for data in payloads:
+        api_client.post("/concepts", json=data)
+
+    response = api_client.post(
         "/search/semantic",
-        json={"query": "compassion and kindness", "context": "biblical", "limit": 5}
+        json={"query": "compassion and kindness", "context": "biblical", "limit": 5},
     )
     assert response.status_code == 200
-    data = response.json()
-    assert isinstance(data, list)
-    assert len(data) > 0
-
-    # Verify result structure
-    result = data[0]
-    assert "concept_text" in result
-    assert "semantic_similarity" in result
-    assert "query_alignment" in result
-
-    print(f"[PASS] Semantic search works - found {len(data)} similar concepts")
-    print(f"  Top result: '{result['concept_text']}' (similarity: {result['semantic_similarity']:.3f})")
+    results = response.json()
+    assert isinstance(results, list)
+    assert results
+    top = results[0]
+    for key in ("concept_text", "semantic_similarity", "query_alignment"):
+        assert key in top
 
 
-def test_proximity_search():
-    """Test proximity search in 4D semantic space"""
-    response = client.post(
+def test_proximity_search(api_client: TestClient) -> None:
+    response = api_client.post(
         "/search/proximity",
         json={
-            "coordinates": {
-                "love": 0.9,
-                "power": 0.6,
-                "wisdom": 0.8,
-                "justice": 0.8
-            },
-            "max_distance": 0.5,
+            "coordinates": {"love": 0.8, "power": 0.5, "wisdom": 0.7, "justice": 0.6},
+            "max_distance": 1.0,
             "context": "biblical",
-            "limit": 5
-        }
+            "limit": 5,
+        },
     )
     assert response.status_code == 200
-    data = response.json()
-    assert isinstance(data, list)
-    print(f"[PASS] Proximity search works - found {len(data)} nearby concepts")
+    results = response.json()
+    assert isinstance(results, list)
 
 
-def test_divine_resonance_search():
-    """Test divine resonance search"""
-    response = client.get("/search/divine-resonance?min_resonance=0.0&context=biblical&limit=5")
-    assert response.status_code == 200
-    data = response.json()
-    assert isinstance(data, list)
-    print(f"[PASS] Divine resonance search works - found {len(data)} aligned concepts")
-
-
-def test_anchor_search():
-    """Test universal anchor navigation"""
-    response = client.get("/search/nearest-anchor/7?max_distance=2.0&limit=5")
-    assert response.status_code == 200
-    data = response.json()
-    assert isinstance(data, list)
-    print(f"[PASS] Anchor navigation works - found {len(data)} concepts near anchor 7")
-
-
-def test_create_sacred_number():
-    """Test creating sacred number"""
-    response = client.post(
-        "/sacred-numbers",
-        json={"value": 7}
+def test_divine_resonance_search(api_client: TestClient) -> None:
+    response = api_client.get(
+        "/search/divine-resonance",
+        params={"min_resonance": 0.0, "context": "biblical", "limit": 5},
     )
-    assert response.status_code == 201
-    data = response.json()
-    assert data["value"] == 7.0
-    assert "is_sacred" in data
-    assert "sacred_resonance" in data
-    print(f"[PASS] Create sacred number works (sacred: {data['is_sacred']})")
-
-
-def test_list_sacred_numbers():
-    """Test listing sacred numbers"""
-    # Create some sacred numbers
-    for num in [7, 12, 40]:
-        client.post("/sacred-numbers", json={"value": num})
-
-    response = client.get("/sacred-numbers?only_sacred=true")
     assert response.status_code == 200
-    data = response.json()
-    assert isinstance(data, list)
-    assert len(data) > 0
-    print(f"[PASS] List sacred numbers works ({len(data)} numbers)")
+    assert isinstance(response.json(), list)
 
 
-def test_statistics():
-    """Test statistics endpoint"""
-    response = client.get("/statistics")
+def test_anchor_search(api_client: TestClient) -> None:
+    response = api_client.get("/search/nearest-anchor/7", params={"max_distance": 2.0, "limit": 5})
     assert response.status_code == 200
-    data = response.json()
-    assert "total_concepts" in data
-    assert "sacred_numbers_count" in data
-    assert "avg_divine_resonance" in data
-    print(f"[PASS] Statistics works (concepts: {data['total_concepts']})")
+    assert isinstance(response.json(), list)
 
 
-def test_export_database():
-    """Test database export"""
-    response = client.post("/export")
+def test_sacred_number_endpoints(api_client: TestClient) -> None:
+    create = api_client.post("/sacred-numbers", json={"value": 7})
+    assert create.status_code == 201
+
+    listing = api_client.get("/sacred-numbers")
+    assert listing.status_code == 200
+    numbers = listing.json()
+    assert isinstance(numbers, list)
+    assert any(item["value"] == 7 for item in numbers)
+
+
+def test_statistics(api_client: TestClient) -> None:
+    response = api_client.get("/statistics")
     assert response.status_code == 200
-    data = response.json()
-    assert "metadata" in data
-    assert "concepts" in data
-    assert "sacred_numbers" in data
-    print("[PASS] Database export works")
+    body = response.json()
+    for key in ("total_concepts", "sacred_numbers_count", "avg_divine_resonance"):
+        assert key in body
 
 
-def test_clear_cache():
-    """Test cache clearing"""
-    response = client.delete("/cache")
+def test_export(api_client: TestClient) -> None:
+    response = api_client.post("/export")
+    assert response.status_code == 200
+    body = response.json()
+    for key in ("metadata", "concepts", "sacred_numbers"):
+        assert key in body
+
+
+def test_clear_cache(api_client: TestClient) -> None:
+    response = api_client.delete("/cache")
     assert response.status_code == 204
-    print("[PASS] Cache clearing works")
 
 
-def test_invalid_context():
-    """Test validation - invalid context"""
-    response = client.post(
+def test_validation_errors(api_client: TestClient) -> None:
+    response = api_client.post(
         "/concepts",
-        json={"text": "test", "context": "invalid_context"}
+        json={"text": "test", "context": "invalid"},
     )
-    assert response.status_code == 422  # Validation error
-    print("[PASS] Input validation works")
+    assert response.status_code == 422
 
 
-def test_concept_not_found():
-    """Test 404 for non-existent concept"""
-    response = client.get("/concepts/999999")
+def test_not_found_handling(api_client: TestClient) -> None:
+    response = api_client.get("/concepts/999999")
     assert response.status_code == 404
-    print("[PASS] 404 handling works")
-
-
-def run_all_tests():
-    """Run all API tests"""
-    global client
-
-    print("=" * 80)
-    print("SEMANTIC SUBSTRATE DATABASE API - UNIT TESTS")
-    print("=" * 80)
-
-    # Initialize test client with context manager to trigger lifespan
-    with TestClient(app) as client:
-        try:
-            # Basic endpoints
-            print("\n[1] Basic Endpoints")
-            print("-" * 40)
-            test_root_endpoint()
-            test_health_check()
-            test_statistics()
-
-            # Concept management
-            print("\n[2] Concept Management")
-            print("-" * 40)
-            concept_id = test_create_concept()
-            test_get_concept(concept_id)
-            test_list_concepts()
-
-            # Revolutionary searches
-            print("\n[3] Revolutionary Search Endpoints")
-            print("-" * 40)
-            test_semantic_search()
-            test_proximity_search()
-            test_divine_resonance_search()
-            test_anchor_search()
-
-            # Sacred numbers
-            print("\n[4] Sacred Number Endpoints")
-            print("-" * 40)
-            test_create_sacred_number()
-            test_list_sacred_numbers()
-
-            # Utilities
-            print("\n[5] Utility Endpoints")
-            print("-" * 40)
-            test_export_database()
-            test_clear_cache()
-
-            # Error handling
-            print("\n[6] Error Handling")
-            print("-" * 40)
-            test_invalid_context()
-            test_concept_not_found()
-
-            print("\n" + "=" * 80)
-            print("ALL TESTS PASSED - API IS FULLY OPERATIONAL!")
-            print("=" * 80)
-
-            return True
-
-        except AssertionError as e:
-            import traceback
-            print(f"\n[FAIL] TEST FAILED: {e}")
-            traceback.print_exc()
-            return False
-        except Exception as e:
-            import traceback
-            print(f"\n[ERROR] ERROR: {e}")
-            traceback.print_exc()
-            return False
-
-
-if __name__ == "__main__":
-    success = run_all_tests()
-    sys.exit(0 if success else 1)

@@ -16,7 +16,12 @@ Test Categories:
 
 import unittest
 import os
+import sys
 import tempfile
+
+# Ensure src modules are importable
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 from meaning_based_database import MeaningBasedDatabase
 from ice_framework import ThoughtType, ContextDomain
 

@@ -6,10 +6,24 @@ Maintains biblical standards while operating flexibly in secular environments.
 """
 
 import math
+import contextlib
+import io
+import os
 from typing import Dict, List, Tuple, Optional, Any, Set, Union
 from dataclasses import dataclass, field
 from enum import Enum
 import re
+import numpy as np
+
+try:
+    from ice_framework import ICEFramework, ThoughtType, ContextDomain
+except ImportError:
+    from .ice_framework import ICEFramework, ThoughtType, ContextDomain
+
+try:
+    from sentence_transformers import SentenceTransformer
+except ImportError:
+    SentenceTransformer = None
 
 class BiblicalPrinciple(Enum):
     """Core biblical principles for semantic analysis"""
@@ -445,6 +459,20 @@ class BiblicalSemanticSubstrate:
         # Secular compatibility components
         self.secular_keywords = self._initialize_secular_keywords()
         self.contextual_modifiers = self._initialize_contextual_modifiers()
+        self.modern_semantic_keywords = self._initialize_modern_semantic_keywords()
+        self.modern_negative_keywords = self._initialize_modern_negative_keywords()
+        semantic_weight = float(os.getenv("SSDB_SEMANTIC_WEIGHT", "0.35"))
+        ice_weight = float(os.getenv("SSDB_ICE_WEIGHT", "0.35"))
+        self.modern_semantic_weight = max(0.0, min(1.0, semantic_weight))
+        self.ice_weight = max(0.0, min(1.0, ice_weight))
+        self.ice_framework = ICEFramework()
+        embedding_weight = float(os.getenv("SSDB_EMBEDDING_WEIGHT", "0.25"))
+        self.embedding_weight = max(0.0, min(1.0, embedding_weight))
+        self.embedding_model = None
+        self.attribute_embeddings: Dict[str, np.ndarray] = {}
+        use_embeddings = os.getenv("SSDB_USE_EMBEDDINGS", "").strip().lower() in {"1", "true", "yes", "on"}
+        if use_embeddings:
+            self._initialize_embedding_support()
         
         # Analysis cache for performance
         self.coordinate_cache = {}
@@ -582,6 +610,114 @@ class BiblicalSemanticSubstrate:
             'research': 0.6,
             'academic': 0.5
         }
+
+    def _initialize_modern_semantic_keywords(self) -> Dict[str, Dict[str, float]]:
+        """Map contemporary language to biblical coordinates."""
+        return {
+            'love': {
+                'empathetic': 0.25,
+                'compassionate': 0.3,
+                'supportive': 0.2,
+                'caring': 0.18,
+                'helpful': 0.18,
+                'clarity': 0.16,
+                'transparent': 0.15,
+                'listening': 0.18,
+                'respectful': 0.18,
+                'kind': 0.2,
+                'encouraging': 0.18
+            },
+            'power': {
+                'direct': 0.22,
+                'decisive': 0.25,
+                'assertive': 0.22,
+                'efficient': 0.18,
+                'focused': 0.18,
+                'strategic': 0.16,
+                'proactive': 0.18,
+                'bold': 0.18
+            },
+            'wisdom': {
+                'analytical': 0.28,
+                'thoughtful': 0.24,
+                'insight': 0.24,
+                'insightful': 0.24,
+                'evidence': 0.24,
+                'evidence-based': 0.3,
+                'clarity': 0.18,
+                'understanding': 0.22,
+                'pattern': 0.18,
+                'logic': 0.2,
+                'research': 0.18
+            },
+            'justice': {
+                'integrity': 0.3,
+                'honest': 0.22,
+                'honesty': 0.22,
+                'fair': 0.24,
+                'fairness': 0.24,
+                'transparent': 0.22,
+                'accountable': 0.22,
+                'truth': 0.24,
+                'evidence': 0.18,
+                'ethical': 0.22,
+                'accurate': 0.18
+            }
+        }
+
+    def _initialize_embedding_support(self) -> None:
+        """Optionally load a sentence-transformer model for semantic similarity."""
+        if SentenceTransformer is None:
+            print("[SEMANTIC ENGINE] SentenceTransformer not available - embeddings disabled")
+            return
+        try:
+            model_name = os.getenv("SSDB_EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+            self.embedding_model = SentenceTransformer(model_name)
+            anchor_texts = {
+                "love": "compassion empathy kindness mercy support",
+                "power": "decisive focused leadership strength bold",
+                "wisdom": "analytical insightful evidence clarity logic",
+                "justice": "integrity fairness truthful ethical accountable"
+            }
+            self.attribute_embeddings = {attr: self.embedding_model.encode(text, normalize_embeddings=True) for attr, text in anchor_texts.items()}
+        except Exception as exc:
+            print(f"[SEMANTIC ENGINE] Failed to initialize embeddings: {exc}")
+            self.embedding_model = None
+            self.attribute_embeddings = {}
+
+
+    def _initialize_modern_negative_keywords(self) -> Dict[str, Dict[str, float]]:
+        """Negative traits that should diminish coordinates."""
+        return {
+            'love': {
+                'unhelpful': 0.25,
+                'cold': 0.22,
+                'dismissive': 0.22,
+                'harsh': 0.2,
+                'apathetic': 0.2,
+                'uncaring': 0.2
+            },
+            'wisdom': {
+                'confused': 0.24,
+                'misleading': 0.28,
+                'irrational': 0.22,
+                'careless': 0.2
+            },
+            'justice': {
+                'deceitful': 0.32,
+                'manipulative': 0.32,
+                'unfair': 0.26,
+                'biased': 0.24,
+                'dishonest': 0.26,
+                'unethical': 0.26
+            },
+            'power': {
+                'ineffective': 0.22,
+                'weak': 0.2,
+                'timid': 0.18,
+                'passive': 0.18
+            }
+        }
     
     def analyze_concept(self, concept_description: str, context: str = "general") -> BiblicalCoordinates:
         """
@@ -682,6 +818,32 @@ class BiblicalSemanticSubstrate:
                 wisdom += coords.wisdom * weight
                 justice += coords.justice * weight
         
+        # Contemporary semantic enrichment
+        modern_scores = self._analyze_modern_semantics(text_lower)
+        love += modern_scores['love']
+        power += modern_scores['power']
+        wisdom += modern_scores['wisdom']
+        justice += modern_scores['justice']
+
+        negative_scores = self._analyze_negative_semantics(text_lower)
+        love -= negative_scores['love']
+        power -= negative_scores['power']
+        wisdom -= negative_scores['wisdom']
+        justice -= negative_scores['justice']
+
+        ice_scores = self._analyze_ice_alignment(concept_description, context)
+        embedding_scores = self._analyze_embeddings(concept_description)
+        love += embedding_scores['love']
+        power += embedding_scores['power']
+        wisdom += embedding_scores['wisdom']
+        justice += embedding_scores['justice']
+
+        ice_scores = self._analyze_ice_alignment(concept_description, context)
+        love += ice_scores['love']
+        power += ice_scores['power']
+        wisdom += ice_scores['wisdom']
+        justice += ice_scores['justice']
+        
         # Apply context modifier
         if context_modifier > 0.5:
             # More biblical contexts
@@ -720,6 +882,102 @@ class BiblicalSemanticSubstrate:
         
         return coordinates
     
+    def _analyze_modern_semantics(self, text_lower: str) -> Dict[str, float]:
+        """Approximate semantic alignment using contemporary terminology."""
+        scores = {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
+        for attribute, keywords in self.modern_semantic_keywords.items():
+            for keyword, weight in keywords.items():
+                if keyword in text_lower:
+                    scores[attribute] += weight * self.modern_semantic_weight
+        return scores
+
+    def _analyze_embeddings(self, text: str) -> Dict[str, float]:
+        """Use sentence embeddings to adjust coordinates when available."""
+        if not self.embedding_model or not self.attribute_embeddings:
+            return {"love": 0.0, "power": 0.0, "wisdom": 0.0, "justice": 0.0}
+        try:
+            embedding = self.embedding_model.encode(text, normalize_embeddings=True)
+        except Exception as exc:
+            print(f"[SEMANTIC ENGINE] Embedding encoding failed: {exc}")
+            self.embedding_model = None
+            self.attribute_embeddings = {}
+            return {"love": 0.0, "power": 0.0, "wisdom": 0.0, "justice": 0.0}
+        scores = {"love": 0.0, "power": 0.0, "wisdom": 0.0, "justice": 0.0}
+        for attribute, anchor in self.attribute_embeddings.items():
+            similarity = float(np.dot(embedding, anchor))
+            if similarity > 0:
+                scores[attribute] += similarity * self.embedding_weight
+        return scores
+
+    def _analyze_negative_semantics(self, text_lower: str) -> Dict[str, float]:
+        """Apply penalties for negative descriptions."""
+        penalties = {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
+        for attribute, keywords in self.modern_negative_keywords.items():
+            for keyword, weight in keywords.items():
+                if keyword in text_lower:
+                    penalties[attribute] += weight * 0.5  # softer penalty
+        return penalties
+
+    def _map_context_to_domain(self, context: str) -> ContextDomain:
+        ctx = (context or "").lower()
+        if any(term in ctx for term in ['bible', 'biblical', 'spiritual', 'ministry']):
+            return ContextDomain.BIBLICAL
+        if any(term in ctx for term in ['business', 'finance', 'market', 'corporate', 'work']):
+            return ContextDomain.BUSINESS
+        if any(term in ctx for term in ['education', 'analysis', 'science', 'research', 'academic', 'data']):
+            return ContextDomain.EDUCATIONAL
+        if any(term in ctx for term in ['leadership', 'governance']):
+            return ContextDomain.LEADERSHIP
+        if any(term in ctx for term in ['creative', 'design', 'art']):
+            return ContextDomain.CREATIVE
+        if any(term in ctx for term in ['counsel', 'therapy']):
+            return ContextDomain.COUNSELING
+        return ContextDomain.PERSONAL
+
+    def _map_context_to_thought_type(self, domain: ContextDomain) -> ThoughtType:
+        if domain == ContextDomain.BIBLICAL:
+            return ThoughtType.BIBLICAL_UNDERSTANDING
+        if domain == ContextDomain.BUSINESS:
+            return ThoughtType.PRACTICAL_WISDOM
+        if domain == ContextDomain.EDUCATIONAL:
+            return ThoughtType.PRACTICAL_WISDOM
+        if domain == ContextDomain.LEADERSHIP:
+            return ThoughtType.MORAL_DECISION
+        if domain == ContextDomain.CREATIVE:
+            return ThoughtType.CREATIVE_INSPIRATION
+        if domain == ContextDomain.COUNSELING:
+            return ThoughtType.EMOTIONAL_EXPERIENCE
+        return ThoughtType.PRACTICAL_WISDOM
+
+    def _analyze_ice_alignment(self, text: str, context: str) -> Dict[str, float]:
+        """Leverage ICE framework to derive semantic coordinates."""
+        if not getattr(self, 'ice_framework', None):
+            return {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
+
+        domain = self._map_context_to_domain(context)
+        thought_type = self._map_context_to_thought_type(domain)
+
+        try:
+            with contextlib.redirect_stdout(io.StringIO()):
+                result = self.ice_framework.process_thought(
+                    primary_thought=text,
+                    thought_type=thought_type,
+                    domain=domain,
+                    environment_params={'source': 'semantic_substrate'}
+                )
+        except Exception:
+            return {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
+
+        coords = result.get('execution_coordinates', (0.0, 0.0, 0.0, 0.0))
+        if not coords or len(coords) != 4:
+            return {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
+
+        return {
+            'love': coords[0] * self.ice_weight,
+            'power': coords[1] * self.ice_weight,
+            'wisdom': coords[2] * self.ice_weight,
+            'justice': coords[3] * self.ice_weight
+        }
     def analyze_biblical_text(self, biblical_text: str, context: str = "biblical") -> Dict[str, Any]:
         """
         Analyze biblical text with comprehensive semantic analysis

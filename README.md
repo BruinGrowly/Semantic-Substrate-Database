@@ -85,7 +85,6 @@ full run to take several minutes.
 pip install -r api/requirements.txt  # Optional, installs pinned API versions
 uvicorn api.semantic_api:app --reload
 ```
-Visit `http://localhost:8000/docs` for interactive documentation.
 
 ## Docker Tooling
 ```bash

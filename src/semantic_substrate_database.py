@@ -29,22 +29,286 @@ from pathlib import Path
 import sys
 import os
 
+# Global fallback SacredNumber class (defined before imports)
+class _SacredNumberFallback:
+    """Fallback SacredNumber class with all required methods"""
+    def __init__(self, value):
+        self.value = value
+        self.is_sacred = True if value in [1, 3, 7, 12, 21, 40, 42, 66, 77] else False
+        self.sacred_resonance = 0.9 if self.is_sacred else 0.1
+        self.biblical_significance = self._get_biblical_meaning()
+        self.divine_attributes = {
+            'value': self.value,
+            'is_sacred': self.is_sacred,
+            'biblical_meaning': self._get_biblical_meaning()
+        }
+        self.mystical_properties = {
+            'value': self.value,
+            'is_sacred': self.is_sacred,
+            'prime_factorization': self._get_prime_factors(),
+            'biblical_significance': self._get_biblical_meaning(),
+            'numerological_value': self._get_numerological_value()
+        }
+    
+    def _get_biblical_meaning(self):
+        meanings = {
+            1: "Unity, Oneness with God",
+            3: "Divine perfection, Holy Trinity", 
+            7: "Spiritual perfection, Completion",
+            12: "Divine government, Apostolic foundation",
+            21: "Disorder, Rebellion",
+            40: "Probation, Testing",
+            42: "Israel's oppression, Coming of Messiah",
+            66: "Idolatry, Imperfection",
+            77: "Perfect order, Resurrection"
+        }
+        return meanings.get(self.value, "Unknown")
+    
+    def _get_prime_factors(self):
+        if self.value <= 1:
+            return []
+        factors = []
+        n = self.value
+        for i in range(2, int(n ** 0.5) + 1):
+            while n % i == 0:
+                factors.append(i)
+                n //= i
+        if n > 1:
+            factors.append(n)
+        return factors
+    
+    def _get_numerological_value(self):
+        return sum(int(d) for d in str(abs(self.value)))
+
+
+class SacredNumberWrapper:
+    """Wrapper to ensure SacredNumber has all required methods"""
+    def __init__(self, value, engine_instance=None):
+        self.value = value
+        
+        if engine_instance is None:
+            # Use our fallback implementation
+            self._is_sacred = True if value in [1, 3, 7, 12, 21, 40, 42, 66, 77] else False
+            self._sacred_resonance = 0.9 if self._is_sacred else 0.1
+            self._biblical_significance = self._get_biblical_meaning()
+            self._divine_attributes = {
+                'value': self.value,
+                'is_sacred': self._is_sacred,
+                'biblical_meaning': self._get_biblical_meaning()
+            }
+            self._mystical_properties = {
+                'value': self.value,
+                'is_sacred': self._is_sacred,
+                'prime_factorization': self._get_prime_factors(),
+                'biblical_significance': self._get_biblical_meaning(),
+                'numerological_value': self._get_numerological_value()
+            }
+            self._engine_version = None
+        else:
+            # Use engine version but store engine instance for delegation
+            self._engine = engine_instance
+            self._is_sacred = getattr(engine_instance, 'is_sacred', False)
+            self._sacred_resonance = getattr(engine_instance, 'sacred_resonance', 0.5)
+            self._biblical_significance = getattr(engine_instance, 'biblical_significance', 'Unknown')
+            self._engine_version = getattr(engine_instance, 'engine_version', 'Unknown')
+            
+            # Calculate fallback properties if not present
+            if not hasattr(engine_instance, 'divine_attributes'):
+                self._divine_attributes = {
+                    'value': self.value,
+                    'is_sacred': self._is_sacred,
+                    'biblical_meaning': self._get_biblical_meaning()
+                }
+            else:
+                self._divine_attributes = getattr(engine_instance, 'divine_attributes', {})
+            
+            if not hasattr(engine_instance, 'mystical_properties'):
+                self._mystical_properties = {
+                    'value': self.value,
+                    'is_sacred': self._is_sacred,
+                    'prime_factorization': self._get_prime_factors(),
+                    'biblical_significance': self._get_biblical_meaning(),
+                    'numerological_value': self._get_numerological_value()
+                }
+            else:
+                self._mystical_properties = getattr(engine_instance, 'mystical_properties', {})
+    
+    def _get_biblical_meaning(self):
+        if hasattr(self, '_biblical_significance') and self._biblical_significance != 'Unknown':
+            return self._biblical_significance
+        
+        meanings = {
+            1: "Unity, Oneness with God",
+            3: "Divine perfection, Holy Trinity", 
+            7: "Spiritual perfection, Completion",
+            12: "Divine government, Apostolic foundation",
+            21: "Disorder, Rebellion",
+            40: "Probation, Testing",
+            42: "Israel's oppression, Coming of Messiah",
+            66: "Idolatry, Imperfection",
+            77: "Perfect order, Resurrection"
+        }
+        return meanings.get(self.value, "Unknown")
+    
+    def _get_prime_factors(self):
+        if hasattr(self, '_mystical_properties') and 'prime_factorization' in self._mystical_properties:
+            return self._mystical_properties['prime_factorization']
+        
+        if self.value <= 1:
+            return []
+        factors = []
+        n = self.value
+        for i in range(2, int(n ** 0.5) + 1):
+            while n % i == 0:
+                factors.append(i)
+                n //= i
+        if n > 1:
+            factors.append(n)
+        return factors
+    
+    def _get_numerological_value(self):
+        if hasattr(self, '_mystical_properties') and 'numerological_value' in self._mystical_properties:
+            return self._mystical_properties['numerological_value']
+        return sum(int(d) for d in str(abs(self.value)))
+    
+    # Properties to match expected interface
+    @property
+    def is_sacred(self):
+        return self._is_sacred
+    
+    @property
+    def sacred_resonance(self):
+        return self._sacred_resonance
+    
+    @property
+    def biblical_significance(self):
+        return self._biblical_significance
+    
+    @property
+    def divine_attributes(self):
+        return self._divine_attributes
+    
+    @property
+    def mystical_properties(self):
+        return self._mystical_properties
+    
+    # Delegate other attributes to engine if available
+    def __getattr__(self, name):
+        """Delegate to the engine SacredNumber if available"""
+        if hasattr(self, '_engine'):
+            return getattr(self._engine, name)
+        raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+    
+    def __setattr__(self, name, value):
+        """Set attributes appropriately"""
+        if name.startswith('_'):
+            object.__setattr__(self, name, value)
+        elif hasattr(self, '_engine') and hasattr(self._engine, name):
+            setattr(self._engine, name, value)
+        else:
+            object.__setattr__(self, '_' + name, value)
+
+
 # Import from Semantic Substrate Engine package
+SacredNumber = _SacredNumberFallback  # Always use our wrapper for consistency
 try:
-    from semantic_substrate_engine import (
-        BiblicalCoordinates, 
-        BiblicalSemanticSubstrate,
-        ICESemanticSubstrateEngine,
-        ThoughtType,
-        ContextDomain,
-        UnifiedICEFramework,
-        UltimateCoreEngine
-    )
-except ImportError:
-    # Fallback for development without installed package
-    from baseline_biblical_substrate import BiblicalCoordinates, BiblicalSemanticSubstrate
-    print("Warning: Semantic Substrate Engine not installed. Install with: pip install semantic-substrate-engine")
-    print("Attempting to use local fallback components...")
+    # Try multiple import approaches
+    import os
+    engine_path = None
+    
+    # Check if engine is installed as a package
+    try:
+        import semantic_substrate_engine as sse
+        engine_path = "semantic_substrate_engine"
+    except ImportError:
+        pass
+    
+    # Try to find engine in common locations
+    if engine_path is None:
+        possible_paths = [
+            os.path.expanduser("~/Semantic-Substrate-Engine/src"),
+            "../Semantic-Substrate-Engine/src", 
+            "../../Semantic-Substrate-Engine/src",
+            "C:/Users/Well/Claude Code/Projects/SSE_ICE_Upgrade/Semantic-Substrate-Engine/src"
+        ]
+        for path in possible_paths:
+            if os.path.exists(path):
+                sys.path.insert(0, path)
+                engine_path = "src"
+                break
+    
+    if engine_path:
+        if engine_path == "semantic_substrate_engine":
+            from semantic_substrate_engine import (
+                BiblicalCoordinates, 
+                BiblicalSemanticSubstrate,
+                ICESemanticSubstrateEngine,
+                ThoughtType,
+                ContextDomain,
+                UnifiedICEFramework,
+                UltimateCoreEngine,
+                SacredNumber as EngineSacredNumber
+            )
+            # Wrap SacredNumber to ensure all methods are available
+            def SacredNumberWrapper(value):
+                engine_instance = EngineSacredNumber(value)
+                return SacredNumberWrapper(value, engine_instance)
+            ENGINE_AVAILABLE = True
+            print("[SEMANTIC DB] Semantic Substrate Engine loaded from package")
+        else:
+            from baseline_biblical_substrate import BiblicalCoordinates, BiblicalSemanticSubstrate
+            try:
+                from ultimate_core_engine import UltimateCoreEngine
+                from ice_framework import ThoughtType, ContextDomain
+                from unified_ice_framework import UnifiedICEFramework
+                from ice_semantic_substrate_engine import ICESemanticSubstrateEngine
+                ENGINE_AVAILABLE = True
+                print("[SEMANTIC DB] Semantic Substrate Engine loaded from local source")
+            except ImportError as e:
+                ENGINE_AVAILABLE = False
+                print(f"[SEMANTIC DB] Advanced engine components not available: {e}")
+    else:
+        ENGINE_AVAILABLE = False
+        
+except ImportError as e:
+    ENGINE_AVAILABLE = False
+    print(f"[SEMANTIC DB] Engine not available: {e}")
+
+# Fallback imports
+if not ENGINE_AVAILABLE:
+    try:
+        from baseline_biblical_substrate import BiblicalCoordinates, BiblicalSemanticSubstrate
+        print("[SEMANTIC DB] Using baseline biblical substrate fallback")
+    except ImportError:
+        # Final fallback
+        class BiblicalCoordinates:
+            def __init__(self, love, power, wisdom, justice):
+                self.love = love
+                self.power = power
+                self.wisdom = wisdom
+                self.justice = justice
+                
+            def calculate_divine_resonance(self):
+                return (self.love + self.power + self.wisdom + self.justice) / 4.0
+                
+            def distance_from_jehovah(self):
+                jehovah = BiblicalCoordinates(1.0, 1.0, 1.0, 1.0)
+                return abs(self.love - jehovah.love) + abs(self.power - jehovah.power) + abs(self.wisdom - jehovah.wisdom) + abs(self.justice - jehovah.justice)
+        
+        class BiblicalSemanticSubstrate:
+            def __init__(self):
+                self.engine_version = "Legacy Fallback v1.0"
+                
+            def analyze_text(self, text, context="biblical"):
+                return {
+                    'text': text,
+                    'context': context,
+                    'coordinates': BiblicalCoordinates(0.5, 0.5, 0.5, 0.5),
+                    'divine_resonance': 0.5
+                }
+    
+    print("[SEMANTIC DB] Warning: Semantic Substrate Engine not installed. Install with: pip install semantic-substrate-engine")
+    print("[SEMANTIC DB] Attempting to use local fallback components...")
 
 
 class SemanticSubstrateDatabase:
@@ -63,14 +327,50 @@ class SemanticSubstrateDatabase:
         self._transaction_active = False  # Track transaction state
         self._savepoints = []  # Stack of savepoints for nested transactions
         
-        # Initialize engine with fallback
-        try:
-            self.engine = UltimateCoreEngine()
-            self.engine_available = True
-        except (NameError, ImportError):
-            print("Warning: UltimateCoreEngine not available, using BiblicalSemanticSubstrate fallback")
-            self.engine = BiblicalSemanticSubstrate()
-            self.engine_available = False
+        # Initialize engine with proper selection
+        self.engine = None
+        self.engine_available = False
+        
+        # Try UltimateCoreEngine first (most advanced)
+        if 'UltimateCoreEngine' in globals():
+            try:
+                self.engine = UltimateCoreEngine()
+                self.engine_available = True
+                print("[SEMANTIC DB] UltimateCoreEngine initialized - Full semantic capabilities active")
+            except Exception as e:
+                print(f"[SEMANTIC DB] UltimateCoreEngine initialization failed: {e}")
+        
+        # Fall back to BiblicalSemanticSubstrate
+        if self.engine is None and 'BiblicalSemanticSubstrate' in globals():
+            try:
+                self.engine = BiblicalSemanticSubstrate()
+                self.engine_available = True
+                print("[SEMANTIC DB] BiblicalSemanticSubstrate initialized")
+            except Exception as e:
+                print(f"[SEMANTIC DB] BiblicalSemanticSubstrate initialization failed: {e}")
+        
+        # Final fallback if nothing else works
+        if self.engine is None:
+            try:
+                # Use the hardcoded fallback
+                class BiblicalSemanticSubstrate:
+                    def __init__(self):
+                        self.engine_version = "Fallback v1.0"
+                        
+                    def analyze_text(self, text, context="biblical"):
+                        return {
+                            'text': text,
+                            'context': context,
+                            'coordinates': BiblicalCoordinates(0.5, 0.5, 0.5, 0.5),
+                            'divine_resonance': 0.5
+                        }
+                
+                self.engine = BiblicalSemanticSubstrate()
+                self.engine_available = False
+                print("[SEMANTIC DB] Using final fallback engine")
+            except Exception as e:
+                print(f"[SEMANTIC DB] Final fallback initialization failed: {e}")
+                self.engine_available = False
 
         # Initialize database
         self._initialize_database()

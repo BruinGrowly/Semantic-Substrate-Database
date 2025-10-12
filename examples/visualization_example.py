@@ -7,7 +7,12 @@ system and semantic relationships in SSDB.
 """
 
 import os
+import sys
 import tempfile
+
+# Add src to path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
 from deep_dive_database import DeepDiveDatabase
 
 

@@ -9,9 +9,14 @@ Tests all new capabilities:
 5. Backward Compatibility with Original SSDB
 """
 
+import sys
 import unittest
 import os
 import tempfile
+
+# Add src directory to Python path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 from enhanced_semantic_database import EnhancedSemanticSubstrateDatabase
 from self_aware_semantic_engine import SelfAwareSemanticSubstrateEngine
 from ice_framework import ThoughtType, ContextDomain

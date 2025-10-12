@@ -380,6 +380,78 @@ class EnhancedSemanticSubstrateDatabase(SemanticSubstrateDatabase):
 
         return base_stats
 
+    def get_self_awareness_metrics(self) -> Dict[str, Any]:
+        """Get comprehensive self-awareness metrics"""
+        
+        # Get engine self-awareness
+        engine_awareness = self.get_engine_self_report()
+        
+        # Calculate database-level awareness
+        cursor = self.conn.cursor()
+        
+        # Get concept statistics
+        cursor.execute("""
+            SELECT COUNT(*) as total_concepts,
+                   AVG(coord.love) as avg_love,
+                   AVG(coord.power) as avg_power,
+                   AVG(coord.wisdom) as avg_wisdom,
+                   AVG(coord.justice) as avg_justice
+            FROM semantic_coordinates coord
+        """)
+        
+        db_stats = cursor.fetchone()
+        total_concepts = db_stats[0] if db_stats else 0
+        
+        # Calculate database self-awareness
+        if total_concepts > 0:
+            avg_coords = (db_stats[1], db_stats[2], db_stats[3], db_stats[4])
+            jehovah_coords = (1.0, 1.0, 1.0, 1.0)
+            
+            # Distance from perfect alignment
+            distance_from_perfect = sum(abs(a - b) for a, b in zip(avg_coords, jehovah_coords))
+            
+            # Calculate awareness based on diversity and alignment
+            concept_diversity = min(total_concepts / 100.0, 1.0)  # More concepts = more diverse awareness
+            alignment_quality = max(0, 1 - distance_from_perfect / 4.0)  # Closer to perfection = higher awareness
+            
+            database_awareness = (concept_diversity * 0.5 + alignment_quality * 0.5) * 100
+            
+        else:
+            database_awareness = 0
+            avg_coords = (0.5, 0.5, 0.5, 0.5)
+        
+        # Get awareness analyses
+        recent_awareness = self.aware_analyses[-5:] if self.aware_analyses else []
+        avg_awareness_level = sum(a['analysis']['self_awareness']['awareness_level'] 
+                                   for a in recent_awareness) / len(recent_awareness) if recent_awareness else 0
+        
+        return {
+            'engine_awareness': engine_awareness,
+            'database_awareness': {
+                'awareness_level': database_awareness,
+                'total_concepts': total_concepts,
+                'average_coordinates': {
+                    'love': avg_coords[0],
+                    'power': avg_coords[1], 
+                    'wisdom': avg_coords[2],
+                    'justice': avg_coords[3]
+                },
+                'diversity_score': min(total_concepts / 100.0, 1.0),
+                'alignment_score': max(0, 1 - sum(abs(a - b) for a, b in zip(avg_coords, (1.0, 1.0, 1.0, 1.0))) / 4.0)
+            },
+            'recent_analyses': {
+                'count': len(recent_awareness),
+                'average_awareness_level': avg_awareness_level,
+                'latest_analysis': recent_awareness[-1] if recent_awareness else None
+            },
+            'enhanced_features': {
+                'self_awareness_enabled': True,
+                'ice_framework_integration': True,
+                'thought_understanding': True,
+                'self_enhancing_relationships': True
+            }
+        }
+
 
 # DEMONSTRATION OF ENHANCED DATABASE
 def demonstrate_enhanced_ssdb():

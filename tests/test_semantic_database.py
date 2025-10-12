@@ -10,6 +10,9 @@ import unittest
 import tempfile
 from pathlib import Path
 
+# Add src directory to Python path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 # Import database
 from semantic_substrate_database import SemanticSubstrateDatabase
 from baseline_biblical_substrate import BiblicalCoordinates

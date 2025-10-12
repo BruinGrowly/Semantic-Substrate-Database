@@ -190,8 +190,8 @@ Returns:
 - Current anchor point: (1.0, 1.0, 1.0, 1.0)
 - Coordinate dimensions: Love, Power, Wisdom, Justice
 - Alignment calculation method: Euclidean distance
-- Number of concepts evaluated: XXX
-- Average alignment score: X.XXX
+- Number of concepts evaluated: TBD
+- Average alignment score: TBD
 
 ### Auditability
 

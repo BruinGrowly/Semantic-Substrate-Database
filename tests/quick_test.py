@@ -100,7 +100,7 @@ def test_mathematical_precision():
     print("\n Testing Mathematical Precision...")
     
     try:
-        from src.baseline_biblical_substrate import BiblicalCoordinates
+        from ..src.baseline_biblical_substrate import BiblicalCoordinates
         
         # Test perfect coordinates
         perfect_coords = BiblicalCoordinates(1.0, 1.0, 1.0, 1.0)

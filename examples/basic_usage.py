@@ -11,10 +11,9 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 try:
-    from src.baseline_biblical_substrate import (
+    from baseline_biblical_substrate import (
         BiblicalSemanticSubstrate,
-        BiblicalCoordinates,
-        BiblicalPrinciple
+        BiblicalCoordinates
     )
     
     print(" Semantic Substrate Engine V2 imported successfully")

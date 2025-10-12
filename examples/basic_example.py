@@ -7,7 +7,12 @@ Semantic Substrate Database across all 4 layers.
 """
 
 import os
+import sys
 import tempfile
+
+# Add src directory to Python path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 from deep_dive_database import DeepDiveDatabase
 from ice_framework import ThoughtType, ContextDomain
 from deep_dive_meaning_scaffold import ScaffoldLayer

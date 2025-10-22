@@ -6,16 +6,15 @@ import unittest
 import os
 from src.meaning_database import MeaningDatabase
 from src.ice_framework import ThoughtType, ContextDomain
-from src.context_profiles import BIBLICAL_CONTEXT_PROFILE
 
 class TestMeaningDatabase(unittest.TestCase):
 
     def setUp(self):
         self.db_path = "test_meaning_database.db"
+        # Ensure the old database file is removed before each test
         if os.path.exists(self.db_path):
             os.remove(self.db_path)
         self.db = MeaningDatabase(self.db_path)
-        self.context_profile = BIBLICAL_CONTEXT_PROFILE
 
     def tearDown(self):
         self.db.close()
@@ -27,11 +26,12 @@ class TestMeaningDatabase(unittest.TestCase):
         Tests that a concept can be stored and retrieved.
         """
         text = "divine love"
+        context = "biblical"
 
-        concept_id = self.db.store_concept(text, self.context_profile)
+        concept_id = self.db.store_concept(text, context)
         self.assertIsInstance(concept_id, int)
 
-        retrieved_concept = self.db.get_concept(text, self.context_profile["name"])
+        retrieved_concept = self.db.get_concept(text, context)
         self.assertIsNotNone(retrieved_concept)
         self.assertEqual(retrieved_concept['concept_text'], text)
 
@@ -41,14 +41,17 @@ class TestMeaningDatabase(unittest.TestCase):
         """
         text1 = "divine love"
         text2 = "divine justice"
+        context = "biblical"
 
-        self.db.store_concept(text1, self.context_profile)
-        self.db.store_concept(text2, self.context_profile)
+        self.db.store_concept(text1, context)
+        self.db.store_concept(text2, context)
 
-        results = self.db.natural_query("what is divine love?", self.context_profile)
+        # Use a query that is semantically closer to text1
+        results = self.db.natural_query("what is divine love?", context)
 
         self.assertIsInstance(results, list)
         self.assertGreater(len(results), 0)
+        # The first result should be the most semantically similar
         self.assertEqual(results[0]['concept_text'], text1)
 
     def test_process_thought(self):
@@ -59,10 +62,11 @@ class TestMeaningDatabase(unittest.TestCase):
         thought_type = ThoughtType.SPIRITUAL_GUIDANCE
         domain = ContextDomain.PERSONAL
 
-        concept_id = self.db.process_thought(thought, thought_type, domain, self.context_profile)
+        concept_id = self.db.process_thought(thought, thought_type, domain)
         self.assertIsInstance(concept_id, int)
 
-        retrieved_concept = self.db.get_concept(thought, self.context_profile["name"])
+        # To verify, we'll get the concept by its text, which is the thought itself
+        retrieved_concept = self.db.get_concept(thought, domain.value)
         self.assertIsNotNone(retrieved_concept)
         self.assertEqual(retrieved_concept['id'], concept_id)
 

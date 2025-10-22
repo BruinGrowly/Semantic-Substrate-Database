@@ -1,9 +1,11 @@
 """
-Financial Loan Analyzer: A Demonstration of the Definitive, Purpose-Aware Meaning Database
+Financial Loan Analyzer: A Demonstration of the Purpose-Aware Meaning Database
 """
 
 import os
 import sys
+
+# Add the src directory to the Python path to allow for package imports
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from src.meaning_database import MeaningDatabase
@@ -11,17 +13,21 @@ from src.context_profiles import FINANCIAL_CONTEXT_PROFILE
 
 def analyze_loan(db: MeaningDatabase, loan_description: str):
     """
-    Analyzes a loan application using the definitive financial context model.
+    Analyzes a loan application description using the financial context.
     """
     print(f"--- Analyzing Loan: '{loan_description}' ---")
 
+    # Store the loan description in the database using the financial context
     db.store_concept(loan_description, FINANCIAL_CONTEXT_PROFILE)
+
+    # Retrieve the stored concept to get its 4D meaning profile
     concept = db.get_concept(loan_description, FINANCIAL_CONTEXT_PROFILE["name"])
 
     if not concept:
-        print("Error: Could not retrieve concept.")
+        print("Error: Could not retrieve concept after storing.")
         return
 
+    # Provide insights based on the 4D coordinates
     love = concept['love']
     justice = concept['justice']
     power = concept['power']
@@ -29,21 +35,36 @@ def analyze_loan(db: MeaningDatabase, loan_description: str):
 
     print(f"  Meaning Profile (L,J,P,W): ({love:.2f}, {justice:.2f}, {power:.2f}, {wisdom:.2f})")
 
-    # Definitive insights based on the new model
-    insight_score = (love + justice + wisdom) - power
+    # Fiduciary Duty & Customer Success (Love)
+    if love > 0.4:
+        print("  Insight (Love): Strong alignment with customer success and community growth.")
+    elif love < 0.2:
+        print("  Warning (Love): Low alignment with customer success. May be a predatory loan.")
 
-    if insight_score > 0.5:
-        print(f"  Insight: High potential for a successful, fair, and prudent loan (Score: {insight_score:.2f}).")
-    elif power > 0.6 and justice < 0.4:
-         print(f"  Warning: High-risk, potentially predatory loan flagged (Score: {insight_score:.2f}).")
-    elif love < 0.4 or justice < 0.4:
-        print(f"  Warning: Significant concerns in customer success or fairness flagged (Score: {insight_score:.2f}).")
-    else:
-        print(f"  Insight: A balanced loan application requiring standard review (Score: {insight_score:.2f}).")
+    # Fairness & Compliance (Justice)
+    if justice > 0.4:
+        print("  Insight (Justice): Appears to be a fair and compliant application.")
+    elif justice < 0.2:
+        print("  Warning (Justice): Low indication of fairness or compliance. Review terms carefully.")
+
+    # Financial Viability & Risk (Power)
+    if power > 0.4:
+        print("  Insight (Power): Strong indicators of financial viability (income, assets).")
+    elif power < 0.2:
+        print("  Warning (Power): Weak indicators of financial viability. High risk.")
+
+    # Prudence & Data-Driven Insight (Wisdom)
+    if wisdom > 0.4:
+        print("  Insight (Wisdom): Application is based on a prudent, long-term plan.")
+    elif wisdom < 0.2:
+        print("  Warning (Wisdom): Lacks a clear, strategic plan. May be an impulsive decision.")
 
     print("-" * (len(loan_description) + 22))
 
 def main():
+    """
+    Main function to run the financial loan analyzer demonstration.
+    """
     db_path = "financial_demo.db"
     if os.path.exists(db_path):
         os.remove(db_path)
@@ -51,14 +72,15 @@ def main():
     db = MeaningDatabase(db_path)
 
     print("\n" + "="*80)
-    print("      DEFINITIVE FINANCIAL LOAN ANALYZER DEMONSTRATION")
+    print("      FINANCIAL LOAN ANALYZER DEMONSTRATION")
+    print("  Using a Purpose-Aware Meaning Database to Gain Deeper Insights")
     print("="*80 + "\n")
 
     # Sample loan application descriptions
     loan1 = "A small business loan for a proven, experienced local entrepreneur to support community growth and build a stable, long-term family asset."
-    loan2 = "A high-risk, high-interest personal loan to consolidate credit card debt. Applicant has unstable income."
+    loan2 = "A high-risk, high-interest personal loan to consolidate credit card debt. Applicant has unstable income but offers a vehicle as collateral."
     loan3 = "A home mortgage for a first-time buyer with a strong credit score and a clear financial plan. This is their dream home."
-    loan4 = "A legally questionable, non-compliant loan with unclear terms and a high-pressure sales tactic."
+    loan4 = "A legally questionable, non-compliant loan with unclear terms and a high-pressure sales tactic. All about quick, profitable returns."
 
     # Analyze each loan
     analyze_loan(db, loan1)

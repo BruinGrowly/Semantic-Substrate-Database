@@ -4,22 +4,21 @@ Tests for the MeaningModel class.
 
 import unittest
 from src.meaning_model import MeaningModel
-from src.context_profiles import BIBLICAL_CONTEXT_PROFILE
 
 class TestMeaningModel(unittest.TestCase):
 
     def setUp(self):
         self.model = MeaningModel()
-        self.context_profile = BIBLICAL_CONTEXT_PROFILE
 
     def test_calculate_coordinates_deterministic(self):
         """
         Tests that the coordinate generation is deterministic.
         """
         text = "love"
+        context = "biblical"
 
-        coords1 = self.model.calculate_coordinates(text, self.context_profile)
-        coords2 = self.model.calculate_coordinates(text, self.context_profile)
+        coords1 = self.model.calculate_coordinates(text, context)
+        coords2 = self.model.calculate_coordinates(text, context)
 
         self.assertEqual(coords1, coords2)
 
@@ -29,9 +28,10 @@ class TestMeaningModel(unittest.TestCase):
         """
         text1 = "love"
         text2 = "justice"
+        context = "biblical"
 
-        coords1 = self.model.calculate_coordinates(text1, self.context_profile)
-        coords2 = self.model.calculate_coordinates(text2, self.context_profile)
+        coords1 = self.model.calculate_coordinates(text1, context)
+        coords2 = self.model.calculate_coordinates(text2, context)
 
         self.assertNotEqual(coords1, coords2)
 
@@ -44,6 +44,7 @@ class TestMeaningModel(unittest.TestCase):
 
         distance = self.model.semantic_distance(coords1, coords2)
 
+        # Expected distance is sqrt(4 * 0.4^2) = sqrt(0.64) = 0.8
         self.assertAlmostEqual(distance, 0.8, places=5)
 
     def test_divine_resonance(self):
@@ -53,9 +54,11 @@ class TestMeaningModel(unittest.TestCase):
         anchor_point = {'love': 1.0, 'justice': 1.0, 'power': 1.0, 'wisdom': 1.0}
         zero_point = {'love': 0.0, 'justice': 0.0, 'power': 0.0, 'wisdom': 0.0}
 
+        # Resonance with the anchor point should be 1.0
         resonance_anchor = self.model.divine_resonance(anchor_point)
         self.assertAlmostEqual(resonance_anchor, 1.0, places=5)
 
+        # Resonance with the zero point should be 0.0
         resonance_zero = self.model.divine_resonance(zero_point)
         self.assertAlmostEqual(resonance_zero, 0.0, places=5)
 

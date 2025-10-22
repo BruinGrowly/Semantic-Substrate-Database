@@ -43,7 +43,7 @@ class SemanticSubstrateDatabase:
         print(f"[SEMANTIC DB] Using MeaningModel for all semantic calculations.")
 
     def _initialize_database(self):
-        """Create database schema with all required tables"""
+        """Create database schema."""
         self.conn = sqlite3.connect(self.db_path)
         self.conn.row_factory = sqlite3.Row
         cursor = self.conn.cursor()
@@ -194,7 +194,6 @@ class SemanticSubstrateDatabase:
         """Close database connection"""
         if self.conn:
             self.conn.close()
-            print("[SEMANTIC DB] Connection closed")
 
     def __enter__(self):
         return self

@@ -33,7 +33,6 @@ class SemanticSubstrateDatabase:
     """
 
     def __init__(self, db_path: str = "semantic_substrate.db"):
-        """Initialize the semantic database"""
         self.db_path = db_path
         self.conn = None
         self.meaning_model = MeaningModel()
@@ -90,11 +89,9 @@ class SemanticSubstrateDatabase:
         biblical_balance = self.meaning_model.biblical_balance(coords)
 
         cursor.execute("""
-            INSERT INTO semantic_coordinates
-            (concept_text, context, love, power, wisdom, justice,
-             divine_resonance, distance_from_jehovah, biblical_balance, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
-            ON CONFLICT(concept_text, context) DO UPDATE SET
+            INSERT INTO semantic_coordinates (concept_text, context, love, power, wisdom, justice, embedding)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(concept_text) DO UPDATE SET
                 love=excluded.love,
                 power=excluded.power,
                 wisdom=excluded.wisdom,
@@ -191,7 +188,6 @@ class SemanticSubstrateDatabase:
         return results
 
     def close(self):
-        """Close database connection"""
         if self.conn:
             self.conn.close()
 

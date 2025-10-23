@@ -1,55 +1,54 @@
 """
-MeaningDatabase v5.2: Definitive API with Final Bug Fixes
+MeaningDatabase: The Consolidated, Meaning-Based Database API
+
+This class provides a clean and powerful API for interacting with the semantic
+database. It inherits from the refactored SemanticSubstrateDatabase and uses
+the MeaningModel for all its operations.
 """
 
 from .semantic_substrate_database import SemanticSubstrateDatabase
-from .context_detector import ContextDetector
-from .context_profiles import BIBLICAL_CONTEXT_PROFILE, FINANCIAL_CONTEXT_PROFILE
-from .ice_framework import ThoughtType, ContextDomain
+from .ice_framework import ICEFramework, ThoughtType, ContextDomain
 from typing import Dict, List, Any, Optional
 
 class MeaningDatabase(SemanticSubstrateDatabase):
     """
-    The primary, simplified interface for the deep semantic database, now with
-    final bug fixes and automatic context detection.
+    The primary interface for the meaning-based database.
     """
 
     def __init__(self, db_path: str = "semantic_database.db"):
-        """Initializes the definitive MeaningDatabase."""
+        """Initializes the MeaningDatabase."""
         super().__init__(db_path)
-        self.context_detector = ContextDetector([BIBLICAL_CONTEXT_PROFILE, FINANCIAL_CONTEXT_PROFILE])
-        print("[MeaningDatabase] API v5.2 Initialized with Automatic Context Detection.")
+        self.ice_framework = ICEFramework()
+        print("[MeaningDatabase] Initialized with ICE Framework.")
 
-    def natural_query(self, query: str, limit: int = 10) -> List[dict]:
+    def natural_query(self, query: str, context: str = "biblical", limit: int = 10) -> List[dict]:
         """
-        Performs a true semantic search using natural language.
+        Performs a semantic search using natural language.
         """
-        print(f"[MeaningDatabase] Performing deep semantic search for: '{query}'")
-        return self.search_semantic(query, limit)
+        print(f"[MeaningDatabase] Performing natural language query: '{query}'")
+        return self.search_semantic(query, context, limit)
 
-    def store_and_analyze(self, text: str, context: str = None) -> Dict[str, Any]:
+    def process_thought(self, thought: str, thought_type: ThoughtType, domain: ContextDomain) -> int:
         """
-        Stores a concept and returns its full 4D meaning profile.
+        Processes a thought through the ICE framework and stores it as a concept.
         """
-        print(f"[MeaningDatabase] Storing and analyzing: '{text}'")
-        concept_id = self.store_concept(text, context)
-        concept_row = self.get_concept(text)
+        print(f"[MeaningDatabase] Processing thought: '{thought}'")
+        ice_result = self.ice_framework.process_thought(
+            primary_thought=thought,
+            thought_type=thought_type,
+            domain=domain
+        )
 
-        coords = self._get_coordinates_by_id(concept_id)
+        # The ICE framework returns coordinates as a tuple, but our model expects a dict.
+        exec_coords_tuple = ice_result['execution_coordinates']
+        coords = {
+            'love': exec_coords_tuple[0],
+            'justice': exec_coords_tuple[1],
+            'power': exec_coords_tuple[2],
+            'wisdom': exec_coords_tuple[3]
+        }
 
-        analysis = dict(concept_row)
-        analysis['divine_resonance'] = self.meaning_model.divine_resonance(coords)
-        analysis['biblical_balance'] = self.meaning_model.biblical_balance(coords)
+        # Store the concept with the ICE-generated coordinates.
+        concept_id = self._store_concept_with_coordinates(thought, domain.value, coords)
 
-        return analysis
-
-    def analyze_with_auto_context(self, text: str) -> Dict[str, Any]:
-        """
-        Analyzes a text using the best-detected context profile.
-        """
-        profile = self.context_detector.detect(text)
-        print(f"[MeaningDatabase] Auto-detected context: '{profile['name']}'")
-
-        # We need to re-calculate the coordinates with the detected profile
-        # However, the new MeaningModel is context-agnostic, so we just store
-        return self.store_and_analyze(text, profile['name'])
+        return concept_id

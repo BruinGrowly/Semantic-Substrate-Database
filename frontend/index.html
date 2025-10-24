@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Substrate Database - The World's First Meaning-Native Database</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4f46e5;
+            --secondary: #7c3aed;
+            --accent: #ec4899;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .header .phi-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #1e293b;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            background: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: #64748b;
+        }
+
+        .btn-secondary:hover {
+            background: #475569;
+        }
+
+        .result-card {
+            background: #f8fafc;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .result-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .result-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .similarity-badge {
+            background: var(--success);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .coordinates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .coord-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .coord-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .coord-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .coord-bar {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+
+        .coord-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+
+        .love-color { border-left-color: #ef4444; }
+        .love-fill { background: linear-gradient(90deg, #ef4444, #fca5a5); }
+
+        .justice-color { border-left-color: #3b82f6; }
+        .justice-fill { background: linear-gradient(90deg, #3b82f6, #93c5fd); }
+
+        .power-color { border-left-color: #f59e0b; }
+        .power-fill { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
+
+        .wisdom-color { border-left-color: #10b981; }
+        .wisdom-fill { background: linear-gradient(90deg, #10b981, #6ee7b7); }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        }
+
+        .spinner {
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+        }
+
+        .alert-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+        }
+
+        .slider-container {
+            margin: 20px 0;
+        }
+
+        .slider-group {
+            margin-bottom: 20px;
+        }
+
+        .slider-value {
+            float: right;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #e2e8f0;
+            outline: none;
+            padding: 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tutorial {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tutorial h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+
+        .tutorial p {
+            color: #78350f;
+            line-height: 1.6;
+        }
+
+        .tutorial ul {
+            margin-top: 10px;
+            margin-left: 20px;
+            color: #78350f;
+        }
+
+        .tutorial li {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .coordinates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🌌 Semantic Substrate Database</h1>
+            <p class="subtitle">The World's First Meaning-Native Database</p>
+            <span class="phi-badge">φ = 1.618... Golden Ratio Mathematics</span>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('tutorial')">📚 How To Use</button>
+            <button class="tab" onclick="switchTab('store')">💾 Store Concept</button>
+            <button class="tab" onclick="switchTab('search')">🔍 Semantic Search</button>
+            <button class="tab" onclick="switchTab('proximity')">📍 Proximity Search</button>
+            <button class="tab" onclick="switchTab('stats')">📊 Statistics</button>
+        </div>
+
+        <!-- Tutorial Tab -->
+        <div id="tutorial-tab" class="tab-content active">
+            <div class="card">
+                <h2>Welcome to the Semantic Substrate Database!</h2>
+
+                <div class="tutorial">
+                    <h3>🤔 What Makes This Revolutionary?</h3>
+                    <p>Traditional databases store data as text and numbers. This database stores <strong>MEANING</strong> as 4D mathematical coordinates!</p>
+                    <ul>
+                        <li><strong>Traditional:</strong> "Bitcoin" → stored as text string</li>
+                        <li><strong>This Database:</strong> "Bitcoin" → (Love: 0.028, Justice: 0.041, Power: 0.041, Wisdom: 0.039)</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial">
+                    <h3>🎯 The 4 Dimensions of Meaning</h3>
+                    <p>Every concept is mapped to a 4D semantic coordinate system:</p>
+                    <ul>
+                        <li><strong style="color: #ef4444;">Love (L):</strong> Compassion, kindness, unity, care</li>
+                        <li><strong style="color: #3b82f6;">Justice (J):</strong> Fairness, righteousness, truth, balance</li>
+                        <li><strong style="color: #f59e0b;">Power (P):</strong> Authority, strength, capability, force</li>
+                        <li><strong style="color: #10b981;">Wisdom (W):</strong> Understanding, knowledge, insight, discernment</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial">
+                    <h3>🚀 Quick Start Guide</h3>
+                    <h4>1. Store a Concept</h4>
+                    <p>Click the "Store Concept" tab and enter any word or phrase. The database will analyze its semantic meaning and calculate 4D coordinates.</p>
+
+                    <h4 style="margin-top: 15px;">2. Semantic Search</h4>
+                    <p>Search for concepts by <strong>meaning</strong>, not text matching! Search "compassion" and find "love", "mercy", "kindness" based on semantic similarity.</p>
+
+                    <h4 style="margin-top: 15px;">3. Proximity Search</h4>
+                    <p>Set 4D coordinates manually and find all concepts nearby in semantic space. Explore the meaning-space directly!</p>
+
+                    <h4 style="margin-top: 15px;">4. View Statistics</h4>
+                    <p>See how many concepts are stored and explore the distribution across different contexts.</p>
+                </div>
+
+                <div class="tutorial">
+                    <h3>💡 Try These Examples</h3>
+                    <ul>
+                        <li>Store: "love", "justice", "wisdom", "power" in "biblical" context</li>
+                        <li>Store: "Bitcoin", "Ethereum", "blockchain" in "business" context</li>
+                        <li>Search: "compassion and kindness" to find similar concepts</li>
+                        <li>Search: "digital currency" to find cryptocurrency concepts</li>
+                        <li>Proximity: Set Love=0.9, Justice=0.8 to find highly aligned concepts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Store Concept Tab -->
+        <div id="store-tab" class="tab-content">
+            <div class="card">
+                <h2>💾 Store a New Concept</h2>
+                <p style="color: #64748b; margin-bottom: 20px;">Enter a word or phrase to analyze its semantic meaning and store it as 4D coordinates.</p>
+
+                <div class="form-group">
+                    <label for="store-text">Concept Text</label>
+                    <input type="text" id="store-text" placeholder="e.g., love, Bitcoin, wisdom, compassion">
+                </div>
+
+                <div class="form-group">
+                    <label for="store-context">Context</label>
+                    <select id="store-context">
+                        <option value="biblical">Biblical</option>
+                        <option value="business">Business</option>
+                        <option value="educational">Educational</option>
+                        <option value="scientific">Scientific</option>
+                        <option value="general">General</option>
+                    </select>
+                </div>
+
+                <button class="btn" onclick="storeConcept()">Analyze & Store</button>
+
+                <div id="store-result"></div>
+            </div>
+        </div>
+
+        <!-- Semantic Search Tab -->
+        <div id="search-tab" class="tab-content">
+            <div class="card">
+                <h2>🔍 Semantic Search</h2>
+                <p style="color: #64748b; margin-bottom: 20px;">Search by meaning, not text! Find concepts that are semantically similar.</p>
+
+                <div class="form-group">
+                    <label for="search-query">Search Query</label>
+                    <input type="text" id="search-query" placeholder="e.g., compassion and kindness, digital currency">
+                </div>
+
+                <div class="form-group">
+                    <label for="search-context">Context</label>
+                    <select id="search-context">
+                        <option value="biblical">Biblical</option>
+                        <option value="business">Business</option>
+                        <option value="educational">Educational</option>
+                        <option value="scientific">Scientific</option>
+                        <option value="general">General</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="search-limit">Max Results</label>
+                    <input type="number" id="search-limit" value="10" min="1" max="100">
+                </div>
+
+                <button class="btn" onclick="semanticSearch()">Search by Meaning</button>
+
+                <div id="search-results"></div>
+            </div>
+        </div>
+
+        <!-- Proximity Search Tab -->
+        <div id="proximity-tab" class="tab-content">
+            <div class="card">
+                <h2>📍 Proximity Search</h2>
+                <p style="color: #64748b; margin-bottom: 20px;">Search by 4D coordinates to find concepts nearby in semantic space.</p>
+
+                <div class="slider-container">
+                    <div class="slider-group">
+                        <label>
+                            Love <span class="slider-value" id="love-value">0.50</span>
+                        </label>
+                        <input type="range" id="love-slider" min="0" max="1" step="0.01" value="0.5" oninput="updateSliderValue('love')">
+                    </div>
+
+                    <div class="slider-group">
+                        <label>
+                            Justice <span class="slider-value" id="justice-value">0.50</span>
+                        </label>
+                        <input type="range" id="justice-slider" min="0" max="1" step="0.01" value="0.5" oninput="updateSliderValue('justice')">
+                    </div>
+
+                    <div class="slider-group">
+                        <label>
+                            Power <span class="slider-value" id="power-value">0.50</span>
+                        </label>
+                        <input type="range" id="power-slider" min="0" max="1" step="0.01" value="0.5" oninput="updateSliderValue('power')">
+                    </div>
+
+                    <div class="slider-group">
+                        <label>
+                            Wisdom <span class="slider-value" id="wisdom-value">0.50</span>
+                        </label>
+                        <input type="range" id="wisdom-slider" min="0" max="1" step="0.01" value="0.5" oninput="updateSliderValue('wisdom')">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="prox-distance">Maximum Distance</label>
+                    <input type="number" id="prox-distance" value="0.5" min="0" max="4" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="prox-context">Context (optional)</label>
+                    <select id="prox-context">
+                        <option value="">All Contexts</option>
+                        <option value="biblical">Biblical</option>
+                        <option value="business">Business</option>
+                        <option value="educational">Educational</option>
+                        <option value="scientific">Scientific</option>
+                        <option value="general">General</option>
+                    </select>
+                </div>
+
+                <button class="btn" onclick="proximitySearch()">Find Nearby Concepts</button>
+
+                <div id="proximity-results"></div>
+            </div>
+        </div>
+
+        <!-- Statistics Tab -->
+        <div id="stats-tab" class="tab-content">
+            <div class="card">
+                <h2>📊 Database Statistics</h2>
+                <button class="btn btn-secondary" onclick="loadStats()" style="margin-bottom: 20px;">Refresh Statistics</button>
+                <div id="stats-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '/api';
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName + '-tab').classList.add('active');
+
+            // Load stats if stats tab
+            if (tabName === 'stats') {
+                loadStats();
+            }
+        }
+
+        // Update slider values
+        function updateSliderValue(dimension) {
+            const slider = document.getElementById(dimension + '-slider');
+            const value = document.getElementById(dimension + '-value');
+            value.textContent = parseFloat(slider.value).toFixed(2);
+        }
+
+        // Store concept
+        async function storeConcept() {
+            const text = document.getElementById('store-text').value;
+            const context = document.getElementById('store-context').value;
+            const resultDiv = document.getElementById('store-result');
+
+            if (!text) {
+                resultDiv.innerHTML = '<div class="alert alert-error">Please enter concept text</div>';
+                return;
+            }
+
+            resultDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Analyzing semantic meaning...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/concepts`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text, context })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to store concept');
+                }
+
+                const data = await response.json();
+
+                resultDiv.innerHTML = `
+                    <div class="alert alert-success">✓ Concept stored successfully!</div>
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="result-title">${data.concept_text}</div>
+                            <div class="similarity-badge">${data.context}</div>
+                        </div>
+                        ${renderCoordinates(data.coordinates)}
+                        <div class="coordinates-grid" style="margin-top: 15px;">
+                            <div class="coord-item">
+                                <div class="coord-label">Divine Resonance</div>
+                                <div class="coord-value">${data.divine_resonance.toFixed(3)}</div>
+                            </div>
+                            <div class="coord-item">
+                                <div class="coord-label">Distance from Anchor</div>
+                                <div class="coord-value">${data.distance_from_jehovah.toFixed(3)}</div>
+                            </div>
+                            <div class="coord-item">
+                                <div class="coord-label">Biblical Balance</div>
+                                <div class="coord-value">${data.biblical_balance.toFixed(3)}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="alert alert-error">Error: ${error.message}</div>`;
+            }
+        }
+
+        // Semantic search
+        async function semanticSearch() {
+            const query = document.getElementById('search-query').value;
+            const context = document.getElementById('search-context').value;
+            const limit = parseInt(document.getElementById('search-limit').value);
+            const resultsDiv = document.getElementById('search-results');
+
+            if (!query) {
+                resultsDiv.innerHTML = '<div class="alert alert-error">Please enter a search query</div>';
+                return;
+            }
+
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Searching semantic space...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/search/semantic`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query, context, limit })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Search failed');
+                }
+
+                const data = await response.json();
+
+                if (data.results.length === 0) {
+                    resultsDiv.innerHTML = '<div class="alert alert-error">No results found. Try storing some concepts first!</div>';
+                    return;
+                }
+
+                let html = `<div class="alert alert-success">Found ${data.results_count} semantically similar concepts</div>`;
+
+                data.results.forEach(result => {
+                    const similarity = ((result.semantic_similarity || 0) * 100).toFixed(1);
+                    html += `
+                        <div class="result-card">
+                            <div class="result-header">
+                                <div class="result-title">${result.concept_text}</div>
+                                <div class="similarity-badge">${similarity}% Similar</div>
+                            </div>
+                            ${renderCoordinates({
+                                love: result.love,
+                                justice: result.justice,
+                                power: result.power,
+                                wisdom: result.wisdom
+                            })}
+                        </div>
+                    `;
+                });
+
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="alert alert-error">Error: ${error.message}</div>`;
+            }
+        }
+
+        // Proximity search
+        async function proximitySearch() {
+            const love = parseFloat(document.getElementById('love-slider').value);
+            const justice = parseFloat(document.getElementById('justice-slider').value);
+            const power = parseFloat(document.getElementById('power-slider').value);
+            const wisdom = parseFloat(document.getElementById('wisdom-slider').value);
+            const max_distance = parseFloat(document.getElementById('prox-distance').value);
+            const context = document.getElementById('prox-context').value;
+            const resultsDiv = document.getElementById('proximity-results');
+
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Searching 4D semantic space...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/search/proximity`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ love, justice, power, wisdom, max_distance, context: context || null, limit: 20 })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Proximity search failed');
+                }
+
+                const data = await response.json();
+
+                if (data.results.length === 0) {
+                    resultsDiv.innerHTML = '<div class="alert alert-error">No results found within this distance. Try increasing the maximum distance or storing more concepts.</div>';
+                    return;
+                }
+
+                let html = `<div class="alert alert-success">Found ${data.results_count} concepts within distance ${max_distance}</div>`;
+
+                data.results.forEach(result => {
+                    const distance = result.semantic_distance.toFixed(3);
+                    html += `
+                        <div class="result-card">
+                            <div class="result-header">
+                                <div class="result-title">${result.concept_text}</div>
+                                <div class="similarity-badge">Distance: ${distance}</div>
+                            </div>
+                            ${renderCoordinates({
+                                love: result.love,
+                                justice: result.justice,
+                                power: result.power,
+                                wisdom: result.wisdom
+                            })}
+                        </div>
+                    `;
+                });
+
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="alert alert-error">Error: ${error.message}</div>`;
+            }
+        }
+
+        // Load statistics
+        async function loadStats() {
+            const statsDiv = document.getElementById('stats-content');
+            statsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Loading statistics...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/stats`);
+                if (!response.ok) {
+                    throw new Error('Failed to load stats');
+                }
+
+                const data = await response.json();
+
+                let contextsHtml = '';
+                for (const [context, count] of Object.entries(data.by_context)) {
+                    contextsHtml += `
+                        <div class="stat-card">
+                            <div class="stat-value">${count}</div>
+                            <div class="stat-label">${context}</div>
+                        </div>
+                    `;
+                }
+
+                statsDiv.innerHTML = `
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">${data.total_concepts}</div>
+                            <div class="stat-label">Total Concepts</div>
+                        </div>
+                        ${contextsHtml}
+                    </div>
+                    <div class="card" style="margin-top: 20px;">
+                        <h3>Average Metrics</h3>
+                        <div class="coordinates-grid">
+                            <div class="coord-item">
+                                <div class="coord-label">Divine Resonance</div>
+                                <div class="coord-value">${data.averages.divine_resonance.toFixed(3)}</div>
+                            </div>
+                            <div class="coord-item">
+                                <div class="coord-label">Distance from Anchor</div>
+                                <div class="coord-value">${data.averages.distance_from_jehovah.toFixed(3)}</div>
+                            </div>
+                            <div class="coord-item">
+                                <div class="coord-label">Biblical Balance</div>
+                                <div class="coord-value">${data.averages.biblical_balance.toFixed(3)}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                statsDiv.innerHTML = `<div class="alert alert-error">Error: ${error.message}</div>`;
+            }
+        }
+
+        // Render coordinates
+        function renderCoordinates(coords) {
+            return `
+                <div class="coordinates-grid">
+                    <div class="coord-item love-color">
+                        <div class="coord-label">Love</div>
+                        <div class="coord-value">${coords.love.toFixed(3)}</div>
+                        <div class="coord-bar">
+                            <div class="coord-bar-fill love-fill" style="width: ${coords.love * 100}%"></div>
+                        </div>
+                    </div>
+                    <div class="coord-item justice-color">
+                        <div class="coord-label">Justice</div>
+                        <div class="coord-value">${coords.justice.toFixed(3)}</div>
+                        <div class="coord-bar">
+                            <div class="coord-bar-fill justice-fill" style="width: ${coords.justice * 100}%"></div>
+                        </div>
+                    </div>
+                    <div class="coord-item power-color">
+                        <div class="coord-label">Power</div>
+                        <div class="coord-value">${coords.power.toFixed(3)}</div>
+                        <div class="coord-bar">
+                            <div class="coord-bar-fill power-fill" style="width: ${coords.power * 100}%"></div>
+                        </div>
+                    </div>
+                    <div class="coord-item wisdom-color">
+                        <div class="coord-label">Wisdom</div>
+                        <div class="coord-value">${coords.wisdom.toFixed(3)}</div>
+                        <div class="coord-bar">
+                            <div class="coord-bar-fill wisdom-fill" style="width: ${coords.wisdom * 100}%"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🌌 Semantic Substrate Database Frontend Loaded');
+            console.log('φ = 1.618... Golden Ratio Mathematics');
+        });
+    </script>
+</body>
+</html>

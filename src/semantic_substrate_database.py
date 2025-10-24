@@ -12,6 +12,10 @@ import math
 from typing import Dict, List, Tuple, Optional, Any, Union
 from datetime import datetime
 from .meaning_model import MeaningModel
+from .logger_config import get_logger
+
+# Initialize logger
+logger = get_logger(__name__)
 
 class BiblicalCoordinates:
     """
@@ -38,8 +42,8 @@ class SemanticSubstrateDatabase:
         self.meaning_model = MeaningModel()
         self._initialize_database()
 
-        print(f"[SEMANTIC DB] Initialized at {db_path}")
-        print(f"[SEMANTIC DB] Using MeaningModel for all semantic calculations.")
+        logger.info(f"Semantic database initialized at {db_path}")
+        logger.info("Using MeaningModel for all semantic calculations")
 
     def _initialize_database(self):
         """Create database schema."""
@@ -69,7 +73,7 @@ class SemanticSubstrateDatabase:
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_context ON semantic_coordinates(context)")
 
         self.conn.commit()
-        print("[SEMANTIC DB] Database schema initialized")
+        logger.info("Database schema initialized successfully")
 
     def store_concept(self, text: str, context: str = "biblical") -> int:
         """
@@ -78,7 +82,12 @@ class SemanticSubstrateDatabase:
         coords = self.meaning_model.calculate_coordinates(text, context)
         return self._store_concept_with_coordinates(text, context, coords)
 
-    def _store_concept_with_coordinates(self, text: str, context: str, coords: Dict[str, float]) -> int:
+    def _store_concept_with_coordinates(
+        self,
+        text: str,
+        context: str,
+        coords: Dict[str, float]
+    ) -> int:
         """
         Stores a concept with the given coordinates.
         """
@@ -89,9 +98,11 @@ class SemanticSubstrateDatabase:
         biblical_balance = self.meaning_model.biblical_balance(coords)
 
         cursor.execute("""
-            INSERT INTO semantic_coordinates (concept_text, context, love, power, wisdom, justice, embedding)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(concept_text) DO UPDATE SET
+            INSERT INTO semantic_coordinates
+            (concept_text, context, love, power, wisdom, justice,
+             divine_resonance, distance_from_jehovah, biblical_balance)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(concept_text, context) DO UPDATE SET
                 love=excluded.love,
                 power=excluded.power,
                 wisdom=excluded.wisdom,
@@ -104,7 +115,10 @@ class SemanticSubstrateDatabase:
               divine_resonance, distance_from_jehovah, biblical_balance))
 
         cursor.execute("SELECT id FROM semantic_coordinates WHERE concept_text = ? AND context = ?", (text, context))
-        concept_id = cursor.fetchone()[0]
+        row = cursor.fetchone()
+        if not row:
+            raise ValueError(f"Failed to retrieve concept after insertion: '{text}' in context '{context}'")
+        concept_id = row[0]
 
         self.conn.commit()
 

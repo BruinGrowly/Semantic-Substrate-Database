@@ -11,8 +11,12 @@ import json
 import math
 from typing import Dict, List, Tuple, Optional, Any, Union
 from datetime import datetime
-from .meaning_model import MeaningModel
-from .logger_config import get_logger
+try:
+    from .meaning_model import MeaningModel
+    from .logger_config import get_logger
+except ImportError:
+    from meaning_model import MeaningModel
+    from logger_config import get_logger
 
 # Initialize logger
 logger = get_logger(__name__)

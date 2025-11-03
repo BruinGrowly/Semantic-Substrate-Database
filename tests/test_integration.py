@@ -80,8 +80,7 @@ def test_ice_database_integration():
             # Store with ICE analysis
             db.store_concept(
                 test_text,
-                result.context_domain.value,
-                auto_analyze=True
+                result.context_domain.value
             )
             
             print(f"Stored meaning with {result.semantic_integrity:.2%} integrity")
@@ -103,8 +102,7 @@ def test_ice_database_integration():
             # Test basic storage without ICE
             concept_id = db.store_concept(
                 "Show compassion and mercy to those who suffer",
-                context="spiritual",
-                auto_analyze=True
+                context="spiritual"
             )
             
             print(f"Stored basic concept with ID: {concept_id}")
@@ -167,8 +165,7 @@ def test_database_performance():
                 
                 db.store_concept(
                     text,
-                    result.context_domain.value,
-                    auto_analyze=True
+                    result.context_domain.value
                 )
             ice_used = True
             
@@ -176,8 +173,7 @@ def test_database_performance():
             for i, text in enumerate(test_texts):
                 db.store_concept(
                     text,
-                    "spiritual",
-                    auto_analyze=True
+                    "spiritual"
                 )
             ice_used = False
         
@@ -208,13 +204,13 @@ def test_api_functionality():
     
     try:
         # Test if API files exist
-        api_path = Path(__file__).parent.parent / "api" / "semantic_api.py"
+        api_path = Path(__file__).parent.parent / "api"
         if not api_path.exists():
             print("API module not found, skipping API tests")
             return True
         
-        # Basic import test
-        sys.path.insert(0, str(api_path.parent))
+        # Add the api directory to the path and import
+        sys.path.insert(0, str(api_path))
         import semantic_api
         print("API module imported successfully")
         

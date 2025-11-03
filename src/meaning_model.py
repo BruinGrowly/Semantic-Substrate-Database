@@ -122,3 +122,10 @@ class MeaningModel:
         values = list(coords.values())
         std_dev = np.std(values)
         return max(0, 1 - (std_dev / 0.5))
+
+    def harmony_index(self, coords: dict) -> float:
+        """
+        Calculates the harmony index of a set of coordinates.
+        """
+        distance = self.semantic_distance(coords, self.anchor_point)
+        return 1 / (1 + distance)

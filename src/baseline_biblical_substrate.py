@@ -15,10 +15,7 @@ from enum import Enum
 import re
 import numpy as np
 
-try:
-    from ice_framework import ICEFramework, ThoughtType, ContextDomain
-except ImportError:
-    from .ice_framework import ICEFramework, ThoughtType, ContextDomain
+from src.ice_framework import ICEFramework, ThoughtType, ContextDomain
 
 try:
     from sentence_transformers import SentenceTransformer

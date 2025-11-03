@@ -122,3 +122,20 @@ class MeaningModel:
         values = list(coords.values())
         std_dev = np.std(values)
         return max(0, 1 - (std_dev / 0.5))
+
+    def harmony_index(self, coords: dict) -> float:
+        """
+        Calculates the harmony index of a set of coordinates.
+        """
+        distance = self.semantic_distance(coords, self.anchor_point)
+        return 1 / (1 + distance)
+
+    def truth_sense(self, text: str, context: str = "biblical") -> float:
+        """
+        Calculates the truth score of a text based on its Justice coordinate.
+        """
+        coords = self.calculate_coordinates(text, context)
+        biblical_truth_justice = 0.9
+        deception_score = abs(coords['justice'] - biblical_truth_justice)
+        truth_score = 1 - deception_score
+        return truth_score

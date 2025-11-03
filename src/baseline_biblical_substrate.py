@@ -434,7 +434,7 @@ class BiblicalSemanticSubstrate:
     but the system can operate on any text or concept.
     """
     
-    def __init__(self):
+    def __init__(self, ice_framework: ICEFramework):
         # Core biblical foundation
         self.jehovah_coordinates = BiblicalCoordinates(1.0, 1.0, 1.0, 1.0)
         self.biblical_database = BiblicalWisdomDatabase()
@@ -462,7 +462,7 @@ class BiblicalSemanticSubstrate:
         ice_weight = float(os.getenv("SSDB_ICE_WEIGHT", "0.35"))
         self.modern_semantic_weight = max(0.0, min(1.0, semantic_weight))
         self.ice_weight = max(0.0, min(1.0, ice_weight))
-        self.ice_framework = ICEFramework()
+        self.ice_framework = ice_framework
         embedding_weight = float(os.getenv("SSDB_EMBEDDING_WEIGHT", "0.25"))
         self.embedding_weight = max(0.0, min(1.0, embedding_weight))
         self.embedding_model = None
@@ -471,6 +471,8 @@ class BiblicalSemanticSubstrate:
         if use_embeddings:
             self._initialize_embedding_support()
         
+        self.inversion_keywords = self._initialize_inversion_keywords()
+
         # Analysis cache for performance
         self.coordinate_cache = {}
         self.analysis_cache = {}
@@ -478,6 +480,24 @@ class BiblicalSemanticSubstrate:
         # System state
         self.analysis_count = 0
         self.last_analysis_time = 0
+
+    def _initialize_inversion_keywords(self) -> Dict[str, str]:
+        """Keywords that trigger coordinate inversion."""
+        return {
+            'hate': 'love',
+            'hatred': 'love',
+            'deceit': 'truth',
+            'deception': 'truth',
+            'dishonesty': 'honesty',
+            'despair': 'hope',
+            'hopelessness': 'hope',
+            'injustice': 'justice',
+            'unfairness': 'fairness',
+            'weakness': 'strength',
+            'powerlessness': 'power',
+            'foolishness': 'wisdom',
+            'ignorance': 'knowledge'
+        }
     
     def _initialize_biblical_keywords(self) -> Dict[str, List[str]]:
         """Initialize comprehensive biblical keyword mappings"""
@@ -731,6 +751,20 @@ class BiblicalSemanticSubstrate:
         cache_key = f"{concept_description}:{context}"
         if cache_key in self.coordinate_cache:
             return self.coordinate_cache[cache_key]
+
+        # Check for inversion keywords first
+        text_lower_for_inversion = concept_description.lower()
+        for negative_keyword, positive_keyword in self.inversion_keywords.items():
+            if negative_keyword in text_lower_for_inversion:
+                positive_coords = self.analyze_concept(positive_keyword, context)
+                inverted_coords = BiblicalCoordinates(
+                    love=1.0 - positive_coords.love,
+                    power=1.0 - positive_coords.power,
+                    wisdom=1.0 - positive_coords.wisdom,
+                    justice=1.0 - positive_coords.justice
+                )
+                self.coordinate_cache[cache_key] = inverted_coords
+                return inverted_coords
         
         # Get contextual modifier
         context_modifier = self.contextual_modifiers.get(context.lower(), 0.3)
@@ -822,12 +856,6 @@ class BiblicalSemanticSubstrate:
         wisdom += modern_scores['wisdom']
         justice += modern_scores['justice']
 
-        negative_scores = self._analyze_negative_semantics(text_lower)
-        love -= negative_scores['love']
-        power -= negative_scores['power']
-        wisdom -= negative_scores['wisdom']
-        justice -= negative_scores['justice']
-
         ice_scores = self._analyze_ice_alignment(concept_description, context)
         embedding_scores = self._analyze_embeddings(concept_description)
         love += embedding_scores['love']
@@ -905,15 +933,6 @@ class BiblicalSemanticSubstrate:
             if similarity > 0:
                 scores[attribute] += similarity * self.embedding_weight
         return scores
-
-    def _analyze_negative_semantics(self, text_lower: str) -> Dict[str, float]:
-        """Apply penalties for negative descriptions."""
-        penalties = {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
-        for attribute, keywords in self.modern_negative_keywords.items():
-            for keyword, weight in keywords.items():
-                if keyword in text_lower:
-                    penalties[attribute] += weight * 0.5  # softer penalty
-        return penalties
 
     def _map_context_to_domain(self, context: str) -> ContextDomain:
         ctx = (context or "").lower()

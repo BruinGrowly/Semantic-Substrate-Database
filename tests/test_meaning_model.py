@@ -4,11 +4,17 @@ Tests for the MeaningModel class.
 
 import unittest
 from src.meaning_model import MeaningModel
+from src.baseline_biblical_substrate import BiblicalSemanticSubstrate
+from src.ice_framework import ICEFramework
 
 class TestMeaningModel(unittest.TestCase):
 
     def setUp(self):
-        self.model = MeaningModel()
+        ice_framework = ICEFramework()
+        semantic_engine = BiblicalSemanticSubstrate(ice_framework)
+        meaning_model = MeaningModel(semantic_engine)
+        ice_framework.meaning_model = meaning_model
+        self.model = meaning_model
 
     def test_calculate_coordinates_deterministic(self):
         """

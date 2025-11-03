@@ -13,6 +13,8 @@ from typing import Dict, List, Tuple, Optional, Any, Union
 from datetime import datetime
 from src.meaning_model import MeaningModel
 from src.logger_config import get_logger
+from src.ice_framework import ICEFramework
+from src.baseline_biblical_substrate import BiblicalSemanticSubstrate
 
 # Initialize logger
 logger = get_logger(__name__)
@@ -39,7 +41,14 @@ class SemanticSubstrateDatabase:
     def __init__(self, db_path: str = "semantic_substrate.db"):
         self.db_path = db_path
         self.conn = None
-        self.meaning_model = MeaningModel()
+
+        # Setup dependency injection for MeaningModel
+        ice_framework = ICEFramework()
+        semantic_engine = BiblicalSemanticSubstrate(ice_framework)
+        meaning_model = MeaningModel(semantic_engine)
+        ice_framework.meaning_model = meaning_model
+        self.meaning_model = meaning_model
+
         self._initialize_database()
 
         logger.info(f"Semantic database initialized at {db_path}")

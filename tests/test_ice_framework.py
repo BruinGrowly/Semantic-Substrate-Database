@@ -5,12 +5,15 @@ Tests for the ICEFramework class.
 import unittest
 from src.ice_framework import ICEFramework, ThoughtType, ContextDomain
 from src.meaning_model import MeaningModel
+from src.baseline_biblical_substrate import BiblicalSemanticSubstrate
 
 class TestICEFramework(unittest.TestCase):
 
     def setUp(self):
-        self.framework = ICEFramework()
-        self.meaning_model = MeaningModel()
+        self.meaning_model = MeaningModel(None)
+        self.framework = ICEFramework(self.meaning_model)
+        self.semantic_engine = BiblicalSemanticSubstrate(self.framework)
+        self.meaning_model.semantic_engine = self.semantic_engine
 
     def test_process_thought(self):
         """

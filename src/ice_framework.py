@@ -8,7 +8,6 @@ MeaningModel, ensuring all operations are grounded in the deterministic,
 
 from typing import Dict, Tuple
 from enum import Enum
-from .meaning_model import MeaningModel
 
 class ThoughtType(Enum):
     """Categories of human thoughts that can be processed through ICE"""
@@ -32,8 +31,8 @@ class ICEFramework:
     This version is simpler, more powerful, and fully integrated with the MeaningModel.
     """
 
-    def __init__(self):
-        self.meaning_model = MeaningModel()
+    def __init__(self, meaning_model=None):
+        self.meaning_model = meaning_model
         self.dimension_emphasis = {
             'Intent': {'love': 0.9, 'justice': 0.7, 'power': 0.6, 'wisdom': 0.8},
             'Context': {'love': 0.6, 'justice': 0.8, 'power': 0.5, 'wisdom': 0.9},

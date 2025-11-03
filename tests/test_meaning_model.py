@@ -100,5 +100,19 @@ class TestMeaningModel(unittest.TestCase):
         self.assertTrue(truth_score > 0.5)
         self.assertTrue(deception_score < 0.5)
 
+    def test_calculate_growth_vector(self):
+        """
+        Tests the growth vector calculation.
+        """
+        coords = {'love': 0.2, 'justice': 0.4, 'power': 0.6, 'wisdom': 0.8}
+        golden_ratio = 1.61803398875
+
+        growth_vector = self.model.calculate_growth_vector(coords)
+
+        self.assertAlmostEqual(growth_vector['love'], (1.0 - 0.2) * golden_ratio, places=5)
+        self.assertAlmostEqual(growth_vector['justice'], (1.0 - 0.4) * golden_ratio, places=5)
+        self.assertAlmostEqual(growth_vector['power'], (1.0 - 0.6) * golden_ratio, places=5)
+        self.assertAlmostEqual(growth_vector['wisdom'], (1.0 - 0.8) * golden_ratio, places=5)
+
 if __name__ == '__main__':
     unittest.main()

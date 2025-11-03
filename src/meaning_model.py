@@ -139,3 +139,14 @@ class MeaningModel:
         deception_score = abs(coords['justice'] - biblical_truth_justice)
         truth_score = 1 - deception_score
         return truth_score
+
+    def calculate_growth_vector(self, coords: dict) -> dict:
+        """
+        Calculates the optimal growth vector towards the anchor point.
+        """
+        golden_ratio = 1.61803398875
+        growth_vector = {}
+        for dimension in self.anchor_point:
+            delta = self.anchor_point[dimension] - coords[dimension]
+            growth_vector[dimension] = delta * golden_ratio
+        return growth_vector

@@ -76,20 +76,20 @@ def main():
     # Define all test suites
     test_suites = [
         {
-            'file': 'test_semantic_database.py',
-            'description': 'Core Database Tests (30 tests)'
+            'file': 'tests/test_meaning_model.py',
+            'description': 'Meaning Model Tests'
+        },
+        {
+            'file': 'tests/test_ice_framework.py',
+            'description': 'ICE Framework Tests'
         },
         {
             'file': 'api/test_api_unit.py',
             'description': 'REST API Tests (16 tests)'
         },
         {
-            'file': 'test_backup_recovery.py',
-            'description': 'Backup & Recovery Tests (12 tests)'
-        },
-        {
-            'file': 'test_transaction_management.py',
-            'description': 'Transaction Management Tests (18 tests)'
+            'file': 'tests/test_integration.py',
+            'description': 'Integration Tests'
         }
     ]
 

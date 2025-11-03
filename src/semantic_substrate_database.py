@@ -14,9 +14,11 @@ from datetime import datetime
 try:
     from .meaning_model import MeaningModel
     from .logger_config import get_logger
+    from .oracle_payload_generator import generate_oracle_payload
 except ImportError:
     from meaning_model import MeaningModel
     from logger_config import get_logger
+    from oracle_payload_generator import generate_oracle_payload
 
 # Initialize logger
 logger = get_logger(__name__)
@@ -40,10 +42,10 @@ class SemanticSubstrateDatabase:
     that the database is truly meaning-based from the ground up.
     """
 
-    def __init__(self, db_path: str = "semantic_substrate.db"):
+    def __init__(self, db_path: str = "semantic_substrate.db", meaning_model: Optional[MeaningModel] = None):
         self.db_path = db_path
         self.conn = None
-        self.meaning_model = MeaningModel()
+        self.meaning_model = meaning_model if meaning_model else MeaningModel()
         self._initialize_database()
 
         logger.info(f"Semantic database initialized at {db_path}")
@@ -156,7 +158,22 @@ class SemanticSubstrateDatabase:
         cursor = self.conn.cursor()
         cursor.execute("SELECT * FROM semantic_coordinates WHERE concept_text = ? AND context = ?", (text, context))
         row = cursor.fetchone()
-        return dict(row) if row else None
+
+        if not row:
+            return None
+
+        concept = dict(row)
+        coords = {
+            'love': concept['love'],
+            'justice': concept['justice'],
+            'power': concept['power'],
+            'wisdom': concept['wisdom']
+        }
+
+        oracle_payload = generate_oracle_payload(coords)
+        concept.update(oracle_payload)
+
+        return concept
 
     def _get_coordinates_by_id(self, concept_id: int) -> Optional[Dict[str, float]]:
         """Helper to get coordinates by ID"""
@@ -201,9 +218,26 @@ class SemanticSubstrateDatabase:
 
         for result in results:
             result['semantic_similarity'] = 1.0 - (result['semantic_distance'] / 2.0)
+            coords = {
+                'love': result['love'],
+                'justice': result['justice'],
+                'power': result['power'],
+                'wisdom': result['wisdom']
+            }
+            oracle_payload = generate_oracle_payload(coords)
+            result.update(oracle_payload)
 
         results.sort(key=lambda x: x['semantic_similarity'], reverse=True)
         return results
+
+    def get_all_concepts(self) -> List[dict]:
+        """
+        Retrieves all concepts from the database.
+        """
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT * FROM semantic_coordinates")
+        rows = cursor.fetchall()
+        return [dict(row) for row in rows]
 
     def close(self):
         if self.conn:

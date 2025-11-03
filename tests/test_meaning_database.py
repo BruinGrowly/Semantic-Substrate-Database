@@ -5,7 +5,9 @@ Tests for the refactored MeaningDatabase class.
 import unittest
 import os
 from src.meaning_database import MeaningDatabase
-from src.ice_framework import ThoughtType, ContextDomain
+from src.meaning_model import MeaningModel
+from src.baseline_biblical_substrate import BiblicalSemanticSubstrate
+from src.ice_framework import ICEFramework, ThoughtType, ContextDomain
 
 class TestMeaningDatabase(unittest.TestCase):
 
@@ -14,7 +16,14 @@ class TestMeaningDatabase(unittest.TestCase):
         # Ensure the old database file is removed before each test
         if os.path.exists(self.db_path):
             os.remove(self.db_path)
-        self.db = MeaningDatabase(self.db_path)
+
+        # Setup for dependency injection
+        ice_framework = ICEFramework()
+        semantic_engine = BiblicalSemanticSubstrate(ice_framework)
+        meaning_model = MeaningModel(semantic_engine)
+        ice_framework.meaning_model = meaning_model
+
+        self.db = MeaningDatabase(self.db_path, meaning_model)
 
     def tearDown(self):
         self.db.close()

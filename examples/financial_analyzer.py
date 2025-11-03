@@ -9,6 +9,9 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from src.meaning_database import MeaningDatabase
+from src.meaning_model import MeaningModel
+from src.baseline_biblical_substrate import BiblicalSemanticSubstrate
+from src.ice_framework import ICEFramework
 from src.context_profiles import FINANCIAL_CONTEXT_PROFILE
 
 def analyze_loan(db: MeaningDatabase, loan_description: str):
@@ -18,10 +21,10 @@ def analyze_loan(db: MeaningDatabase, loan_description: str):
     print(f"--- Analyzing Loan: '{loan_description}' ---")
 
     # Store the loan description in the database using the financial context
-    db.store_concept(loan_description, FINANCIAL_CONTEXT_PROFILE)
+    db.store_concept(loan_description, "financial")
 
     # Retrieve the stored concept to get its 4D meaning profile
-    concept = db.get_concept(loan_description, FINANCIAL_CONTEXT_PROFILE["name"])
+    concept = db.get_concept(loan_description, "financial")
 
     if not concept:
         print("Error: Could not retrieve concept after storing.")
@@ -69,7 +72,13 @@ def main():
     if os.path.exists(db_path):
         os.remove(db_path)
 
-    db = MeaningDatabase(db_path)
+    # Setup for dependency injection
+    ice_framework = ICEFramework()
+    semantic_engine = BiblicalSemanticSubstrate(ice_framework)
+    meaning_model = MeaningModel(semantic_engine)
+    ice_framework.meaning_model = meaning_model
+
+    db = MeaningDatabase(db_path, meaning_model)
 
     print("\n" + "="*80)
     print("      FINANCIAL LOAN ANALYZER DEMONSTRATION")
@@ -93,7 +102,7 @@ def main():
     print("      SEMANTIC SEARCH FOR 'FAIR AND RESPONSIBLE LOANS'")
     print("="*80 + "\n")
 
-    search_results = db.search_semantic("fair and responsible loans", FINANCIAL_CONTEXT_PROFILE)
+    search_results = db.search_semantic("fair and responsible loans", "financial")
 
     for result in search_results:
         print(f"  - Found: '{result['concept_text']}' (Similarity: {result['semantic_similarity']:.2f})")

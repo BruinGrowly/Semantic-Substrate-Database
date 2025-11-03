@@ -82,5 +82,23 @@ class TestMeaningModel(unittest.TestCase):
         harmony_mid = self.model.harmony_index(mid_point)
         self.assertAlmostEqual(harmony_mid, 0.5, places=5)
 
+    def test_truth_sense(self):
+        """
+        Tests the truth sense calculation.
+        """
+        # A statement that is expected to have a high justice coordinate
+        truthful_statement = "truth and justice are important"
+        # A statement that is expected to have a low justice coordinate
+        deceptive_statement = "deception and lies are good"
+
+        # The exact coordinates will be deterministic based on the hashing algorithm,
+        # but we can assert that the score for the truthful statement is high
+        # and the score for the deceptive statement is low.
+        truth_score = self.model.truth_sense(truthful_statement)
+        deception_score = self.model.truth_sense(deceptive_statement)
+
+        self.assertTrue(truth_score > 0.5)
+        self.assertTrue(deception_score < 0.5)
+
 if __name__ == '__main__':
     unittest.main()

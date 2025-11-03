@@ -9,6 +9,7 @@ the MeaningModel for all its operations.
 from .semantic_substrate_database import SemanticSubstrateDatabase
 from .ice_framework import ICEFramework, ThoughtType, ContextDomain
 from typing import Dict, List, Any, Optional
+from . import macro_analyzer
 
 class MeaningDatabase(SemanticSubstrateDatabase):
     """
@@ -65,3 +66,25 @@ class MeaningDatabase(SemanticSubstrateDatabase):
         concept_id = self._store_concept_with_coordinates(thought, domain.value, coords)
 
         return concept_id
+
+    def get_semantic_overview(self) -> Dict[str, any]:
+        """
+        Provides a macro-level analysis of the entire database.
+        """
+        print("[MeaningDatabase] Generating semantic overview...")
+
+        all_concepts = self.get_all_concepts()
+
+        if not all_concepts:
+            return {"message": "The database is empty. No overview can be generated."}
+
+        center_of_gravity = macro_analyzer.calculate_semantic_center_of_gravity(all_concepts)
+        clusters = macro_analyzer.identify_clusters_of_meaning(all_concepts)
+        trends = macro_analyzer.analyze_semantic_trends(all_concepts)
+
+        return {
+            "total_concepts": len(all_concepts),
+            "semantic_center_of_gravity": center_of_gravity,
+            "clusters_of_meaning": clusters,
+            "semantic_trends": trends
+        }

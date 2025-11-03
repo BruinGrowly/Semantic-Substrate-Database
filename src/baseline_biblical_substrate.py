@@ -23,6 +23,11 @@ except (ImportError, ModuleNotFoundError):
     from context_profiles import FINANCIAL_CONTEXT_PROFILE
 
 try:
+    from .context_profiles import FINANCIAL_CONTEXT_PROFILE
+except (ImportError, ModuleNotFoundError):
+    from context_profiles import FINANCIAL_CONTEXT_PROFILE
+
+try:
     from sentence_transformers import SentenceTransformer
 except ImportError:
     SentenceTransformer = None

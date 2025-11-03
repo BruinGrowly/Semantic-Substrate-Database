@@ -6,82 +6,32 @@ including coordinate generation, semantic distance, and divine resonance.
 It is designed to be a deterministic and transparent implementation of the
 principles outlined in the foundational documents.
 """
-import hashlib
 import math
 import numpy as np
-import re
+from src.baseline_biblical_substrate import BiblicalSemanticSubstrate
 
 class MeaningModel:
     """
-    Calculates 4D meaning coordinates (Love, Justice, Power, Wisdom) for text.
+    Calculates 4D meaning coordinates (Love, Justice, Power, Wisdom) for text,
+    leveraging the BiblicalSemanticSubstrate for nuanced, domain-specific analysis.
     """
 
-    def __init__(self):
+    def __init__(self, semantic_engine: BiblicalSemanticSubstrate):
         """Initializes the MeaningModel."""
-        self.dimension_weights = {
-            'love': 1.0,
-            'justice': 1.0,
-            'power': 1.0,
-            'wisdom': 1.0
-        }
+        self.semantic_engine = semantic_engine
         self.anchor_point = {'love': 1.0, 'justice': 1.0, 'power': 1.0, 'wisdom': 1.0}
-        self.stop_words = set([
-            "a", "about", "above", "after", "again", "against", "all", "am", "an", "and",
-            "any", "are", "as", "at", "be", "because", "been", "before",
-            "being", "below", "between", "both", "but", "by", "can't", "cannot",
-            "could", "did", "do", "does", "doing",
-            "down", "during", "each", "few", "for", "from", "further", "had",
-            "has", "have", "having", "he", "her", "here", "hers", "herself", "him",
-            "himself", "his", "how", "i", "if", "in", "into", "is", "it", "its", "itself",
-            "me", "more", "most", "my", "myself", "no", "nor",
-            "not", "of", "off", "on", "once", "only", "or", "other", "ought", "our",
-            "ours", "ourselves", "out", "over", "own", "same", "she",
-            "should", "so", "some", "such", "than", "that", "the", "their", "theirs", "them",
-            "themselves", "then", "there", "these", "they", "this", "those",
-            "through", "to", "too", "under", "until", "up", "very", "was", "we",
-            "were", "what", "when", "where", "which", "while", "who", "whom",
-            "why", "with", "would", "you", "your", "yours", "yourself", "yourselves"
-        ])
 
     def calculate_coordinates(self, text: str, context: str = "biblical") -> dict:
         """
-        Calculates the 4D meaning coordinates for a given text by averaging the
-        coordinates of its individual words, ignoring stop words.
+        Calculates the 4D meaning coordinates for a given text using the
+        BiblicalSemanticSubstrate engine.
         """
-        words = re.findall(r'\b\w+\b', text.lower())
-        meaningful_words = [word for word in words if word not in self.stop_words]
-
-        if not meaningful_words:
-            meaningful_words = words
-
-        if not meaningful_words:
-            return {'love': 0.5, 'justice': 0.5, 'power': 0.5, 'wisdom': 0.5}
-
-        word_coords_list = []
-        for word in meaningful_words:
-            hash_object = hashlib.sha256(f"{word}:{context}".encode())
-            hash_hex = hash_object.hexdigest()
-
-            word_coords = {
-                'love': self._hash_to_float(hash_hex[0:16]),
-                'justice': self._hash_to_float(hash_hex[16:32]),
-                'power': self._hash_to_float(hash_hex[32:48]),
-                'wisdom': self._hash_to_float(hash_hex[48:64])
-            }
-            word_coords_list.append(word_coords)
-
-        avg_coords = {
-            'love': np.mean([c['love'] for c in word_coords_list]),
-            'justice': np.mean([c['justice'] for c in word_coords_list]),
-            'power': np.mean([c['power'] for c in word_coords_list]),
-            'wisdom': np.mean([c['wisdom'] for c in word_coords_list])
-        }
-
+        biblical_coords = self.semantic_engine.analyze_concept(text, context)
         return {
-            'love': avg_coords['love'] * self.dimension_weights['love'],
-            'justice': avg_coords['justice'] * self.dimension_weights['justice'],
-            'power': avg_coords['power'] * self.dimension_weights['power'],
-            'wisdom': avg_coords['wisdom'] * self.dimension_weights['wisdom']
+            'love': biblical_coords.love,
+            'justice': biblical_coords.justice,
+            'power': biblical_coords.power,
+            'wisdom': biblical_coords.wisdom
         }
 
     def _hash_to_float(self, hex_string: str) -> float:
@@ -122,3 +72,13 @@ class MeaningModel:
         values = list(coords.values())
         std_dev = np.std(values)
         return max(0, 1 - (std_dev / 0.5))
+
+    def truth_sense(self, text: str, context: str = "biblical") -> float:
+        """
+        Calculates the 'truth sense' of a text by measuring its semantic
+        distance from the concept of 'divine truth'.
+        """
+        text_coords = self.calculate_coordinates(text, context)
+        truth_coords = self.calculate_coordinates("divine truth", "biblical")
+        distance = self.semantic_distance(text_coords, truth_coords)
+        return max(0.0, 1.0 - distance)

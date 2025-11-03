@@ -76,20 +76,16 @@ def main():
     # Define all test suites
     test_suites = [
         {
-            'file': 'test_semantic_database.py',
-            'description': 'Core Database Tests (30 tests)'
+            'file': 'tests/test_meaning_database.py',
+            'description': 'Core Database Tests'
         },
         {
             'file': 'api/test_api_unit.py',
-            'description': 'REST API Tests (16 tests)'
+            'description': 'REST API Tests'
         },
         {
-            'file': 'test_backup_recovery.py',
-            'description': 'Backup & Recovery Tests (12 tests)'
-        },
-        {
-            'file': 'test_transaction_management.py',
-            'description': 'Transaction Management Tests (18 tests)'
+            'file': 'tests/test_integration.py',
+            'description': 'Integration Tests'
         }
     ]
 
@@ -129,32 +125,10 @@ def main():
         status = "[PASS]" if result['passed'] else "[FAIL]"
         print(f"{result['name']:<50} {status:<10} {result['elapsed_time']:>6.2f}s")
 
-    # Test counts
-    print("\n" + "="*80)
-    print("DETAILED TEST COUNTS")
-    print("="*80)
-
-    test_counts = {
-        'Core Database Tests': 30,
-        'REST API Tests': 16,
-        'Backup & Recovery Tests': 12,
-        'Transaction Management Tests': 18
-    }
-
-    total_tests = sum(test_counts.values())
-
-    for name, count in test_counts.items():
-        suite_result = next((r for r in results if name in r['name']), None)
-        status = "[PASS]" if suite_result and suite_result['passed'] else "[FAIL]"
-        print(f"{name:<50} {status:<10} {count:>3} tests")
-
-    print("-"*70)
-    print(f"{'TOTAL':<50} {'':<10} {total_tests:>3} tests")
-
     # Success rate
     if passed_suites == total_suites:
         success_rate = 100.0
-        print(f"\n[SUCCESS] All test suites passed: {total_tests}/{total_tests} tests (100%)")
+        print(f"\n[SUCCESS] All test suites passed.")
     else:
         success_rate = (passed_suites / total_suites) * 100
         print(f"\n[PARTIAL] {passed_suites}/{total_suites} test suites passed ({success_rate:.1f}%)")
@@ -186,14 +160,8 @@ def main():
 
     if success_rate == 100.0:
         print("\n[PRODUCTION READY]")
-        print(f"  Status: All {total_tests} tests passing")
-        print(f"  Code Coverage: 100% of test suites")
-        print(f"  Execution Time: {total_time:.2f}s")
-        print(f"  Verdict: READY FOR DEPLOYMENT")
     else:
         print("\n[NOT PRODUCTION READY]")
-        print(f"  Status: {total_tests - (len(failed_suites) * (total_tests // total_suites))} estimated tests passing")
-        print(f"  Code Coverage: {success_rate:.1f}% of test suites")
         print(f"  Failed Suites: {len(failed_suites)}")
         print(f"  Verdict: REQUIRES FIXES")
 

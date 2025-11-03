@@ -15,10 +15,12 @@ from enum import Enum
 import re
 import numpy as np
 
+from src.ice_framework import ICEFramework, ThoughtType, ContextDomain
+
 try:
-    from ice_framework import ICEFramework, ThoughtType, ContextDomain
-except ImportError:
-    from .ice_framework import ICEFramework, ThoughtType, ContextDomain
+    from .context_profiles import FINANCIAL_CONTEXT_PROFILE
+except (ImportError, ModuleNotFoundError):
+    from context_profiles import FINANCIAL_CONTEXT_PROFILE
 
 try:
     from .context_profiles import FINANCIAL_CONTEXT_PROFILE
@@ -479,6 +481,8 @@ class BiblicalSemanticSubstrate:
         if use_embeddings:
             self._initialize_embedding_support()
         
+        self.inversion_keywords = self._initialize_inversion_keywords()
+
         # Analysis cache for performance
         self.coordinate_cache = {}
         self.analysis_cache = {}
@@ -763,6 +767,20 @@ class BiblicalSemanticSubstrate:
         cache_key = f"{concept_description}:{context}"
         if cache_key in self.coordinate_cache:
             return self.coordinate_cache[cache_key]
+
+        # Check for inversion keywords first
+        text_lower_for_inversion = concept_description.lower()
+        for negative_keyword, positive_keyword in self.inversion_keywords.items():
+            if negative_keyword in text_lower_for_inversion:
+                positive_coords = self.analyze_concept(positive_keyword, context)
+                inverted_coords = BiblicalCoordinates(
+                    love=1.0 - positive_coords.love,
+                    power=1.0 - positive_coords.power,
+                    wisdom=1.0 - positive_coords.wisdom,
+                    justice=1.0 - positive_coords.justice
+                )
+                self.coordinate_cache[cache_key] = inverted_coords
+                return inverted_coords
         
         # Check for inversion keywords first
         text_lower_for_inversion = concept_description.lower()
@@ -973,15 +991,6 @@ class BiblicalSemanticSubstrate:
             if similarity > 0:
                 scores[attribute] += similarity * self.embedding_weight
         return scores
-
-    def _analyze_negative_semantics(self, text_lower: str) -> Dict[str, float]:
-        """Apply penalties for negative descriptions."""
-        penalties = {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
-        for attribute, keywords in self.modern_negative_keywords.items():
-            for keyword, weight in keywords.items():
-                if keyword in text_lower:
-                    penalties[attribute] += weight * 0.5  # softer penalty
-        return penalties
 
     def _map_context_to_domain(self, context: str) -> ContextDomain:
         ctx = (context or "").lower()

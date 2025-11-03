@@ -1,8 +1,8 @@
 # 🌌 Semantic Substrate Database
 
-### The World's First Meaning-Native Database with Divine Anchor Point Mathematics
+### The World's First Meaning-Native Database with Anchor Point Mathematics
 
-**Store and query semantic MEANING as 4D mathematical coordinates. No ML training. No black-box embeddings. Pure mathematical rigor anchored to divine truth.**
+**Store and query semantic MEANING as 4D mathematical coordinates. No ML training. No black-box embeddings. Pure mathematical rigor anchored to truth.**
 
 ![Status](https://img.shields.io/badge/status-production%20ready-success)
 ![Tests](https://img.shields.io/badge/tests-23%2F24%20passing-brightgreen)

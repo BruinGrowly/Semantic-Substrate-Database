@@ -73,36 +73,12 @@ class MeaningModel:
         std_dev = np.std(values)
         return max(0, 1 - (std_dev / 0.5))
 
-    def harmony_index(self, coords: dict) -> float:
-        """
-        Calculates the harmony index of a set of coordinates.
-        """
-        distance = self.semantic_distance(coords, self.anchor_point)
-        return 1 / (1 + distance)
-
     def truth_sense(self, text: str, context: str = "biblical") -> float:
         """
-        Calculates the truth score of a text based on its semantic distance
-        from the concept of "divine truth".
+        Calculates the 'truth sense' of a text by measuring its semantic
+        distance from the concept of 'divine truth'.
         """
-        truth_coords = self.calculate_coordinates("divine truth", context)
         text_coords = self.calculate_coordinates(text, context)
-
+        truth_coords = self.calculate_coordinates("divine truth", "biblical")
         distance = self.semantic_distance(text_coords, truth_coords)
-
-        # Normalize distance to a score between 0 and 1.
-        # Max possible distance in a 1x1x1x1 cube is sqrt(1+1+1+1) = 2
-        truth_score = 1.0 - (distance / 2.0)
-
-        return truth_score
-
-    def calculate_growth_vector(self, coords: dict) -> dict:
-        """
-        Calculates the optimal growth vector towards the anchor point.
-        """
-        golden_ratio = 1.61803398875
-        growth_vector = {}
-        for dimension in self.anchor_point:
-            delta = self.anchor_point[dimension] - coords[dimension]
-            growth_vector[dimension] = delta * golden_ratio
-        return growth_vector
+        return max(0.0, 1.0 - distance)

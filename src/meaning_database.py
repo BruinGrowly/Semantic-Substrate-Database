@@ -15,11 +15,24 @@ class MeaningDatabase(SemanticSubstrateDatabase):
     The primary interface for the meaning-based database.
     """
 
-    def __init__(self, db_path: str = "semantic_database.db"):
+    def __init__(self, db_path: str = "semantic_database.db", meaning_model: Optional[Any] = None):
         """Initializes the MeaningDatabase."""
-        super().__init__(db_path)
-        self.ice_framework = ICEFramework()
-        print("[MeaningDatabase] Initialized with ICE Framework.")
+        from .meaning_model import MeaningModel
+        from .baseline_biblical_substrate import BiblicalSemanticSubstrate
+
+        super().__init__(db_path, meaning_model)
+
+        if meaning_model:
+            self.meaning_model = meaning_model
+            self.ice_framework = ICEFramework(self.meaning_model)
+        else:
+            # Standard setup
+            self.ice_framework = ICEFramework()
+            semantic_engine = BiblicalSemanticSubstrate(self.ice_framework)
+            self.meaning_model = MeaningModel(semantic_engine)
+            self.ice_framework.meaning_model = self.meaning_model
+
+        print("[MeaningDatabase] Initialized.")
 
     def natural_query(self, query: str, context: str = "biblical", limit: int = 10) -> List[dict]:
         """

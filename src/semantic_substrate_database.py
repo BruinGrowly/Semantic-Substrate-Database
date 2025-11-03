@@ -38,17 +38,10 @@ class SemanticSubstrateDatabase:
     that the database is truly meaning-based from the ground up.
     """
 
-    def __init__(self, db_path: str = "semantic_substrate.db"):
+    def __init__(self, db_path: str = "semantic_substrate.db", meaning_model: Optional[MeaningModel] = None):
         self.db_path = db_path
         self.conn = None
-
-        # Setup dependency injection for MeaningModel
-        ice_framework = ICEFramework()
-        semantic_engine = BiblicalSemanticSubstrate(ice_framework)
-        meaning_model = MeaningModel(semantic_engine)
-        ice_framework.meaning_model = meaning_model
-        self.meaning_model = meaning_model
-
+        self.meaning_model = meaning_model if meaning_model else MeaningModel()
         self._initialize_database()
 
         logger.info(f"Semantic database initialized at {db_path}")

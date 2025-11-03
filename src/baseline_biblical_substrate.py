@@ -18,6 +18,11 @@ import numpy as np
 from src.ice_framework import ICEFramework, ThoughtType, ContextDomain
 
 try:
+    from .context_profiles import FINANCIAL_CONTEXT_PROFILE
+except (ImportError, ModuleNotFoundError):
+    from context_profiles import FINANCIAL_CONTEXT_PROFILE
+
+try:
     from sentence_transformers import SentenceTransformer
 except ImportError:
     SentenceTransformer = None
@@ -481,6 +486,12 @@ class BiblicalSemanticSubstrate:
         self.analysis_count = 0
         self.last_analysis_time = 0
 
+        self.inversion_keywords = self._initialize_inversion_keywords()
+        self.context_profiles = {
+            "financial": FINANCIAL_CONTEXT_PROFILE
+        }
+        self._is_analyzing_ice = False
+    
     def _initialize_inversion_keywords(self) -> Dict[str, str]:
         """Keywords that trigger coordinate inversion."""
         return {
@@ -498,14 +509,14 @@ class BiblicalSemanticSubstrate:
             'foolishness': 'wisdom',
             'ignorance': 'knowledge'
         }
-    
+
     def _initialize_biblical_keywords(self) -> Dict[str, List[str]]:
         """Initialize comprehensive biblical keyword mappings"""
         return {
             # Love-related keywords
             'love': ['love', 'loving', 'loved', 'beloved', 'agape', 'charity', 'compassion',
                       'mercy', 'grace', 'kindness', 'gentleness', 'tenderness', 'affection',
-                      'caring', 'nurturing', 'forgiving', 'patient', 'longsuffering'],
+                      'caring', 'nurturing', 'forgiving', 'patient', 'longsuffering', 'divine'],
             
             # Power-related keywords  
             'power': ['power', 'powerful', 'almighty', 'sovereign', 'lord', 'god', 'master',
@@ -766,6 +777,20 @@ class BiblicalSemanticSubstrate:
                 self.coordinate_cache[cache_key] = inverted_coords
                 return inverted_coords
         
+        # Check for inversion keywords first
+        text_lower_for_inversion = concept_description.lower()
+        for negative_keyword, positive_keyword in self.inversion_keywords.items():
+            if negative_keyword in text_lower_for_inversion:
+                positive_coords = self.analyze_concept(positive_keyword, context)
+                inverted_coords = BiblicalCoordinates(
+                    love=1.0 - positive_coords.love,
+                    power=1.0 - positive_coords.power,
+                    wisdom=1.0 - positive_coords.wisdom,
+                    justice=1.0 - positive_coords.justice
+                )
+                self.coordinate_cache[cache_key] = inverted_coords
+                return inverted_coords
+
         # Get contextual modifier
         context_modifier = self.contextual_modifiers.get(context.lower(), 0.3)
         
@@ -829,6 +854,9 @@ class BiblicalSemanticSubstrate:
         justice = biblical_scores.get('justice', 0.0) * 0.5 + concept_scores.get('sins', -0.5) * 0.3  # Sins reduce justice
         
         # Pattern adjustments
+        if "divine love" in text_lower:
+            love += 0.5
+
         if pattern_scores.get('fear_of_jehovah', 0) > 0.5:
             wisdom += 0.4
             love += 0.2
@@ -855,6 +883,31 @@ class BiblicalSemanticSubstrate:
         power += modern_scores['power']
         wisdom += modern_scores['wisdom']
         justice += modern_scores['justice']
+
+        negative_scores = self._analyze_negative_semantics(text_lower)
+        love -= negative_scores['love']
+        power -= negative_scores['power']
+        wisdom -= negative_scores['wisdom']
+        justice -= negative_scores['justice']
+
+        # Apply context-specific profiles if available
+        if context in self.context_profiles:
+            profile = self.context_profiles[context]
+            for attribute, data in profile.items():
+                if attribute in ["name", "description"]:
+                    continue
+
+                if "keywords" in data:
+                    for keyword, weight in data["keywords"].items():
+                        if keyword in text_lower:
+                            if attribute == "love":
+                                love += weight
+                            elif attribute == "power":
+                                power += weight
+                            elif attribute == "wisdom":
+                                wisdom += weight
+                            elif attribute == "justice":
+                                justice += weight
 
         ice_scores = self._analyze_ice_alignment(concept_description, context)
         embedding_scores = self._analyze_embeddings(concept_description)
@@ -938,16 +991,11 @@ class BiblicalSemanticSubstrate:
         ctx = (context or "").lower()
         if any(term in ctx for term in ['bible', 'biblical', 'spiritual', 'ministry']):
             return ContextDomain.BIBLICAL
-        if any(term in ctx for term in ['business', 'finance', 'market', 'corporate', 'work']):
+        if any(term in ctx for term in ['business', 'finance', 'market', 'corporate', 'work', 'leadership', 'governance']):
             return ContextDomain.BUSINESS
         if any(term in ctx for term in ['education', 'analysis', 'science', 'research', 'academic', 'data']):
             return ContextDomain.EDUCATIONAL
-        if any(term in ctx for term in ['leadership', 'governance']):
-            return ContextDomain.LEADERSHIP
-        if any(term in ctx for term in ['creative', 'design', 'art']):
-            return ContextDomain.CREATIVE
-        if any(term in ctx for term in ['counsel', 'therapy']):
-            return ContextDomain.COUNSELING
+        # Default to PERSONAL for contexts like creative, counseling, etc.
         return ContextDomain.PERSONAL
 
     def _map_context_to_thought_type(self, domain: ContextDomain) -> ThoughtType:
@@ -957,32 +1005,30 @@ class BiblicalSemanticSubstrate:
             return ThoughtType.PRACTICAL_WISDOM
         if domain == ContextDomain.EDUCATIONAL:
             return ThoughtType.PRACTICAL_WISDOM
-        if domain == ContextDomain.LEADERSHIP:
-            return ThoughtType.MORAL_DECISION
-        if domain == ContextDomain.CREATIVE:
-            return ThoughtType.CREATIVE_INSPIRATION
-        if domain == ContextDomain.COUNSELING:
+        if domain == ContextDomain.PERSONAL:
             return ThoughtType.EMOTIONAL_EXPERIENCE
-        return ThoughtType.PRACTICAL_WISDOM
+        return ThoughtType.PRACTICAL_WISDOM # Default
 
     def _analyze_ice_alignment(self, text: str, context: str) -> Dict[str, float]:
         """Leverage ICE framework to derive semantic coordinates."""
-        if not getattr(self, 'ice_framework', None):
+        if not getattr(self, 'ice_framework', None) or self._is_analyzing_ice:
             return {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
 
-        domain = self._map_context_to_domain(context)
-        thought_type = self._map_context_to_thought_type(domain)
-
+        self._is_analyzing_ice = True
         try:
+            domain = self._map_context_to_domain(context)
+            thought_type = self._map_context_to_thought_type(domain)
+
             with contextlib.redirect_stdout(io.StringIO()):
                 result = self.ice_framework.process_thought(
                     primary_thought=text,
                     thought_type=thought_type,
-                    domain=domain,
-                    environment_params={'source': 'semantic_substrate'}
+                    domain=domain
                 )
         except Exception:
             return {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
+        finally:
+            self._is_analyzing_ice = False
 
         coords = result.get('execution_coordinates', (0.0, 0.0, 0.0, 0.0))
         if not coords or len(coords) != 4:

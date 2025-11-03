@@ -33,11 +33,6 @@ class ICEFramework:
 
     def __init__(self, meaning_model=None):
         self.meaning_model = meaning_model
-        self.dimension_emphasis = {
-            'Intent': {'love': 0.9, 'justice': 0.7, 'power': 0.6, 'wisdom': 0.8},
-            'Context': {'love': 0.6, 'justice': 0.8, 'power': 0.5, 'wisdom': 0.9},
-            'Execution': {'love': 0.5, 'justice': 0.7, 'power': 0.9, 'wisdom': 0.6}
-        }
 
     def process_thought(self, primary_thought: str, thought_type: ThoughtType, domain: ContextDomain) -> Dict[str, any]:
         """

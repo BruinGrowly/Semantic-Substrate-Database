@@ -974,6 +974,15 @@ class BiblicalSemanticSubstrate:
                     scores[attribute] += weight * self.modern_semantic_weight
         return scores
 
+    def _analyze_negative_semantics(self, text_lower: str) -> Dict[str, float]:
+        """Approximate negative semantic alignment using contemporary terminology."""
+        scores = {'love': 0.0, 'power': 0.0, 'wisdom': 0.0, 'justice': 0.0}
+        for attribute, keywords in self.modern_negative_keywords.items():
+            for keyword, weight in keywords.items():
+                if keyword in text_lower:
+                    scores[attribute] += weight * 0.5  # Apply 0.5 penalty weight
+        return scores
+
     def _analyze_embeddings(self, text: str) -> Dict[str, float]:
         """Use sentence embeddings to adjust coordinates when available."""
         if not self.embedding_model or not self.attribute_embeddings:
